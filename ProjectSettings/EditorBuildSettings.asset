@@ -11,10 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Main/Base.unity
     guid: 399d7a3db72e550409a79725ca7eff95
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Main/Basement.unity
     guid: 166db2c08b607564ca4b82c4cbdd8313
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Main/GroundZero.unity
     guid: d2e882a8707d0bb4d96c3ffe5ecd9bae
   m_configObjects: {}
