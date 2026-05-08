@@ -1,0 +1,300 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1709254077376921
+GameObject:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Component:
+  - component: {fileID: 4730242686860875}
+  - component: {fileID: 114724804207875695}
+  - component: {fileID: 114618682377417806}
+  - component: {fileID: 114703437598541787}
+  - component: {fileID: 114884547391421755}
+  - component: {fileID: 114099118695303065}
+  - component: {fileID: 114243736805655561}
+  m_Layer: 0
+  m_Name: AIController_Melee
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4730242686860875
+Transform:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1709254077376921}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
+--- !u!114 &114724804207875695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1709254077376921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 698879831, guid: d551df320acceeb317a9e97502ade12f, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  searchedEnemy: {fileID: 0}
+  searchedPickup: {fileID: 0}
+  pathControl: {fileID: 114618682377417806}
+  group: {fileID: 0}
+  leader: {fileID: 0}
+  leaderAI: {fileID: 0}
+  shootCanMove: 0
+  defaultWeaponOut: 0
+  patrolTurnSpeed: 200
+  combatTurnSpeed: 1000
+  hasSkill: 0
+  skillPfb: {fileID: 0}
+  skillInstance: {fileID: 0}
+  skillCoolTimeRange: {x: 0, y: 0}
+  startAimDirection: {x: 0, y: 0, z: 0}
+  skillSuccessChance: 1
+  nextReleaseSkillTimeMarker: -1
+  noticed: 0
+  sightDistance: 18.5
+  forceTracePlayerDistance: 0
+  sightAngle: 100
+  baseReactionTime: 0.2
+  nightReactionTimeFactor: 1.5
+  reactionTime: 0.2
+  shootDelay: 0.2
+  scatterMultiIfTargetRunning: 4
+  scatterMultiIfOffScreen: 4
+  shootTimeRange: {x: 0, y: 0}
+  shootTimeSpaceRange: {x: 1, y: 2.5}
+  combatMoveTimeRange: {x: 1, y: 3}
+  canDash: 0
+  dashCoolTimeRange: {x: 0, y: 0}
+  wantItem: 0
+  hearingAbility: 1
+  traceTargetChance: 1
+  aimTarget: {fileID: 0}
+  patrolRange: 0
+  patrolPosition: {x: 0, y: 0, z: 0}
+  combatMoveRange: 0
+  meleeWaitTime: 0.1
+  meleeAlertTime: 0.2
+  forgetTime: 8
+  canTalk: 1
+  alert: 0
+  patrolTree: {fileID: 11400000, guid: 4c3eac44d72caa64fb3063e41d8cee52, type: 2}
+  alertTree: {fileID: 11400000, guid: 8ca25faf312bbee408c4062b8ce1068c, type: 2}
+  combatTree: {fileID: 11400000, guid: 35c8393b0d46e2743ba9212aed3f0f30, type: 2}
+  combat_Attack_Tree: {fileID: 11400000, guid: 7d965f60552942d49b20347a996eac27, type: 2}
+  hurtTimeMarker: 0
+  lastDamageInfo:
+    damageType: 0
+    isFromBuffOrEffect: 0
+    damageValue: 0
+    ignoreArmor: 0
+    ignoreDifficulty: 0
+    critDamageFactor: 0
+    critRate: 0
+    armorPiercing: 0
+    elementFactors: []
+    isExplosion: 0
+    armorBreak: 0
+    finalDamage: 0
+    fromCharacter: {fileID: 0}
+    toDamageReceiver: {fileID: 0}
+    damagePoint: {x: 0, y: 0, z: 0}
+    damageNormal: {x: 0, y: 0, z: 0}
+    crit: 0
+    fromWeaponItemID: 0
+    buffChance: 0
+    buff: {fileID: 0}
+    bleedChance: 0
+  hasObsticleToTarget: 0
+  hideIfFoundEnemy: {fileID: 0}
+  itemSkillChance: 0.3
+  itemSkillCoolTime: 6
+  foundDangerObject: {fileID: 0}
+  melee: 0
+--- !u!114 &114618682377417806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1709254077376921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1232048312, guid: d551df320acceeb317a9e97502ade12f, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  seeker: {fileID: 114703437598541787}
+  controller: {fileID: 0}
+  nextWaypointDistance: 0.6
+  stopDistance: 0.2
+--- !u!114 &114703437598541787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1709254077376921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1526319846, guid: a3825d626d49b4e8366365dfd9c12e64, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  version: 1073741824
+  drawGizmos: 1
+  detailedGizmos: 0
+  startEndModifier:
+    addPoints: 0
+    exactStartPoint: 3
+    exactEndPoint: 3
+    useRaycasting: 0
+    mask:
+      serializedVersion: 2
+      m_Bits: 4294967295
+    useGraphRaycasting: 0
+  traversableTags: -1
+  tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  graphMask:
+    value: -1
+--- !u!114 &114884547391421755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1709254077376921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1473830303, guid: a3825d626d49b4e8366365dfd9c12e64, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  version: 1073741824
+  useRaycasting: 0
+  mask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  thickRaycast: 0
+  thickRaycastRadius: 0
+  use2DPhysics: 0
+  raycastOffset: {x: 0, y: 0, z: 0}
+  useGraphRaycasting: 1
+  quality: 1
+--- !u!114 &114099118695303065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1709254077376921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -453297692, guid: 6f0bd83e1c945cbace8f892354dc1e75, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  _serializedExposedParameters: []
+  _boundGraphSerialization:
+  _boundGraphObjectReferences: []
+  _boundGraphSource:
+    _version: 0
+    _category:
+    _comments:
+    _translation: {x: 0, y: 0}
+    _zoomFactor: 1
+  _firstActivation: 0
+  _enableAction: 0
+  _disableAction: 0
+  _lockBoundGraphPrefabOverrides: 1
+  _preInitializeSubGraphs: 0
+  _updateMode: 0
+  _graph: {fileID: 11400000, guid: 975a72f7803470d4ba81b6a4940f8215, type: 2}
+  _blackboard: {fileID: 114243736805655561}
+--- !u!114 &114243736805655561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1709254077376921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -62098573, guid: b322e336b28dfb68b305454799d4f1b3, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  _parentBlackboard: {fileID: 0}
+  _serializedBlackboard: '{"_variables":{"SearchedEnemy":{"_propertyPath":"AICharacterController.searchedEnemy","_name":"SearchedEnemy","_id":"779af8d9-f628-47a9-b154-984f7a006ff6","$type":"NodeCanvas.Framework.Variable`1[[DamageReceiver, TeamSoda.Duckov.Core, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"PatrolPosition":{"_propertyPath":"AICharacterController.patrolPosition","_name":"PatrolPosition","_id":"21d7940c-d55e-4ae6-afee-c8dacbcc0b99","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"Noticed":{"_propertyPath":"AICharacterController.noticed","_name":"Noticed","_id":"a5b72366-c6d3-4d5a-9170-59d0dbc8e62a","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"Alert":{"_propertyPath":"AICharacterController.alert","_name":"Alert","_id":"bd50f735-2051-4a65-90cc-7894d1421028","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"NoticeFromPos":{"_propertyPath":"AICharacterController.NoticeFromPos","_name":"NoticeFromPos","_id":"884ddbf5-9e31-4493-8fee-f17ef54f53bb","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"Tree_Patrol":{"_value":1,"_propertyPath":"AICharacterController.patrolTree","_name":"Tree_Patrol","_id":"1dbb0ee6-fbab-4ac7-98b8-a33103716bb5","$type":"NodeCanvas.Framework.Variable`1[[NodeCanvas.BehaviourTrees.BehaviourTree, NodeCanvas, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"Tree_Combat":{"_value":2,"_propertyPath":"AICharacterController.combatTree","_name":"Tree_Combat","_id":"0e1efa76-714c-487f-b793-2e9db9873b24","$type":"NodeCanvas.Framework.Variable`1[[NodeCanvas.BehaviourTrees.BehaviourTree, NodeCanvas, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"Tree_Alert":{"_value":3,"_propertyPath":"AICharacterController.alertTree","_name":"Tree_Alert","_id":"1f2ec231-6aa8-4664-921d-65ba68f48d05","$type":"NodeCanvas.Framework.Variable`1[[NodeCanvas.BehaviourTrees.BehaviourTree, NodeCanvas, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"CanMove":{"_value":true,"_name":"CanMove","_id":"60c989ff-a28d-49e1-aa2e-718fe4a1428f","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"HasObsticleToTarget":{"_propertyPath":"AICharacterController.hasObsticleToTarget","_name":"HasObsticleToTarget","_id":"b712d9da-8dd8-47f9-9d11-dd9f4ea14ad8","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"shootTimeRange":{"_propertyPath":"AICharacterController.shootTimeRange","_name":"shootTimeRange","_id":"0ae1f20d-918a-4e9d-8466-76419ed24135","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Vector2, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"shootTimeSpaceRange":{"_propertyPath":"AICharacterController.shootTimeSpaceRange","_name":"shootTimeSpaceRange","_id":"4fd1413f-c784-4a90-b329-be57f98f500d","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Vector2, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"SubTree_Attack":{"_propertyPath":"AICharacterController.combat_Attack_Tree","_name":"SubTree_Attack","_id":"8d2bb342-be4b-42d7-9e1c-9f1aba3f7290","$type":"NodeCanvas.Framework.Variable`1[[NodeCanvas.BehaviourTrees.BehaviourTree, NodeCanvas, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"CanDash":{"_propertyPath":"AICharacterController.canDash","_name":"CanDash","_id":"f7966296-ae52-47e6-920b-d77ccb64cc4c","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"DashCoolTimeRange":{"_propertyPath":"AICharacterController.dashCoolTimeRange","_name":"DashCoolTimeRange","_id":"cc0b504a-0935-4065-a572-a513159f0abe","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Vector2, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"ReactionTime":{"_propertyPath":"AICharacterController.reactionTime","_name":"ReactionTime","_id":"139f77aa-746f-42db-871d-7ce9c2fa0a5f","$type":"NodeCanvas.Framework.Variable`1[[System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"Leader":{"_propertyPath":"AICharacterController.leader","_name":"Leader","_id":"5d117363-5a0c-4dae-855a-a20fe6c2cec5","$type":"NodeCanvas.Framework.Variable`1[[CharacterMainControl, TeamSoda.Duckov.Core, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"traceTargetChance":{"_propertyPath":"AICharacterController.traceTargetChance","_name":"traceTargetChance","_id":"d0383332-c51d-4676-bae0-16ddc35784ce","$type":"NodeCanvas.Framework.Variable`1[[System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"patrolRange":{"_propertyPath":"AICharacterController.patrolRange","_name":"patrolRange","_id":"18320a32-a52b-4f12-b7f3-193889bed732","$type":"NodeCanvas.Framework.Variable`1[[System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"combatMoveRange":{"_propertyPath":"AICharacterController.combatMoveRange","_name":"combatMoveRange","_id":"cd84a02e-3677-4f33-a283-63c6d48d46b1","$type":"NodeCanvas.Framework.Variable`1[[System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"forgetTime":{"_propertyPath":"AICharacterController.forgetTime","_name":"forgetTime","_id":"b6145a89-2483-4c26-9fd2-c1a2b2a7008b","$type":"NodeCanvas.Framework.Variable`1[[System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"combatMoveTimeRange":{"_propertyPath":"AICharacterController.combatMoveTimeRange","_name":"combatMoveTimeRange","_id":"4bfaa92f-a9fc-4b77-a8b6-233d64c0ad03","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Vector2, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"shootDelay":{"_propertyPath":"AICharacterController.shootDelay","_name":"shootDelay","_id":"09f2a91e-d176-4676-a4f6-367448a84284","$type":"NodeCanvas.Framework.Variable`1[[System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"SearchedPickup":{"_propertyPath":"AICharacterController.searchedPickup","_name":"SearchedPickup","_id":"c31b6796-6ee4-4049-98ff-f0836effc962","$type":"NodeCanvas.Framework.Variable`1[[InteractablePickup, TeamSoda.Duckov.Core, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"foundDangerObject":{"_propertyPath":"AICharacterController.foundDangerObject","_name":"foundDangerObject","_id":"31adfaa8-d8ca-4a45-bc85-5997413084ac","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.GameObject, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}}}'
+  _objectReferences:
+  - {fileID: 0}
+  - {fileID: 11400000, guid: 4c3eac44d72caa64fb3063e41d8cee52, type: 2}
+  - {fileID: 11400000, guid: 834e67cd6d303594ca8098dd3ba67d74, type: 2}
+  - {fileID: 11400000, guid: 8ca25faf312bbee408c4062b8ce1068c, type: 2}
+  _serializedVariables:
+  - _json: '{"_propertyPath":"AICharacterController.searchedEnemy","_name":"SearchedEnemy","_id":"779af8d9-f628-47a9-b154-984f7a006ff6","$type":"NodeCanvas.Framework.Variable`1[[DamageReceiver, TeamSoda.Duckov.Core, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
+    _references: []
+  - _json: '{"_propertyPath":"AICharacterController.patrolPosition","_name":"PatrolPosition","_id":"21d7940c-d55e-4ae6-afee-c8dacbcc0b99","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
+    _references: []
+  - _json: '{"_propertyPath":"AICharacterController.noticed","_name":"Noticed","_id":"a5b72366-c6d3-4d5a-9170-59d0dbc8e62a","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+    _references: []
+  - _json: '{"_propertyPath":"AICharacterController.alert","_name":"Alert","_id":"bd50f735-2051-4a65-90cc-7894d1421028","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+    _references: []
+  - _json: '{"_propertyPath":"AICharacterController.NoticeFromPos","_name":"NoticeFromPos","_id":"884ddbf5-9e31-4493-8fee-f17ef54f53bb","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
+    _references: []
+  - _json: '{"_value":1,"_propertyPath":"AICharacterController.patrolTree","_name":"Tree_Patrol","_id":"1dbb0ee6-fbab-4ac7-98b8-a33103716bb5","$type":"NodeCanvas.Framework.Variable`1[[NodeCanvas.BehaviourTrees.BehaviourTree, NodeCanvas, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
+    _references:
+    - {fileID: 0}
+    - {fileID: 11400000, guid: 4c3eac44d72caa64fb3063e41d8cee52, type: 2}
+  - _json: '{"_value":1,"_propertyPath":"AICharacterController.combatTree","_name":"Tree_Combat","_id":"0e1efa76-714c-487f-b793-2e9db9873b24","$type":"NodeCanvas.Framework.Variable`1[[NodeCanvas.BehaviourTrees.BehaviourTree, NodeCanvas, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
+    _references:
+    - {fileID: 0}
+    - {fileID: 11400000, guid: 834e67cd6d303594ca8098dd3ba67d74, type: 2}
+  - _json: '{"_value":1,"_propertyPath":"AICharacterController.alertTree","_name":"Tree_Alert","_id":"1f2ec231-6aa8-4664-921d-65ba68f48d05","$type":"NodeCanvas.Framework.Variable`1[[NodeCanvas.BehaviourTrees.BehaviourTree, NodeCanvas, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
+    _references:
+    - {fileID: 0}
+    - {fileID: 11400000, guid: 8ca25faf312bbee408c4062b8ce1068c, type: 2}
+  - _json: '{"_value":true,"_name":"CanMove","_id":"60c989ff-a28d-49e1-aa2e-718fe4a1428f","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+    _references: []
+  - _json: '{"_propertyPath":"AICharacterController.hasObsticleToTarget","_name":"HasObsticleToTarget","_id":"b712d9da-8dd8-47f9-9d11-dd9f4ea14ad8","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+    _references: []
+  - _json: '{"_propertyPath":"AICharacterController.shootTimeRange","_name":"shootTimeRange","_id":"0ae1f20d-918a-4e9d-8466-76419ed24135","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Vector2, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
+    _references: []
+  - _json: '{"_propertyPath":"AICharacterController.shootTimeSpaceRange","_name":"shootTimeSpaceRange","_id":"4fd1413f-c784-4a90-b329-be57f98f500d","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Vector2, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
+    _references: []
+  - _json: '{"_propertyPath":"AICharacterController.combat_Attack_Tree","_name":"SubTree_Attack","_id":"8d2bb342-be4b-42d7-9e1c-9f1aba3f7290","$type":"NodeCanvas.Framework.Variable`1[[NodeCanvas.BehaviourTrees.BehaviourTree, NodeCanvas, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
+    _references: []
+  - _json: '{"_propertyPath":"AICharacterController.canDash","_name":"CanDash","_id":"f7966296-ae52-47e6-920b-d77ccb64cc4c","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+    _references: []
+  - _json: '{"_propertyPath":"AICharacterController.dashCoolTimeRange","_name":"DashCoolTimeRange","_id":"cc0b504a-0935-4065-a572-a513159f0abe","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Vector2, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
+    _references: []
+  - _json: '{"_propertyPath":"AICharacterController.reactionTime","_name":"ReactionTime","_id":"139f77aa-746f-42db-871d-7ce9c2fa0a5f","$type":"NodeCanvas.Framework.Variable`1[[System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+    _references: []
+  - _json: '{"_propertyPath":"AICharacterController.leader","_name":"Leader","_id":"5d117363-5a0c-4dae-855a-a20fe6c2cec5","$type":"NodeCanvas.Framework.Variable`1[[CharacterMainControl, TeamSoda.Duckov.Core, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
+    _references: []
+  - _json: '{"_propertyPath":"AICharacterController.traceTargetChance","_name":"traceTargetChance","_id":"d0383332-c51d-4676-bae0-16ddc35784ce","$type":"NodeCanvas.Framework.Variable`1[[System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+    _references: []
+  - _json: '{"_propertyPath":"AICharacterController.patrolRange","_name":"patrolRange","_id":"18320a32-a52b-4f12-b7f3-193889bed732","$type":"NodeCanvas.Framework.Variable`1[[System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+    _references: []
+  - _json: '{"_propertyPath":"AICharacterController.combatMoveRange","_name":"combatMoveRange","_id":"cd84a02e-3677-4f33-a283-63c6d48d46b1","$type":"NodeCanvas.Framework.Variable`1[[System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+    _references: []
+  - _json: '{"_propertyPath":"AICharacterController.forgetTime","_name":"forgetTime","_id":"b6145a89-2483-4c26-9fd2-c1a2b2a7008b","$type":"NodeCanvas.Framework.Variable`1[[System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+    _references: []
+  - _json: '{"_propertyPath":"AICharacterController.combatMoveTimeRange","_name":"combatMoveTimeRange","_id":"4bfaa92f-a9fc-4b77-a8b6-233d64c0ad03","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Vector2, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
+    _references: []
+  - _json: '{"_propertyPath":"AICharacterController.shootDelay","_name":"shootDelay","_id":"09f2a91e-d176-4676-a4f6-367448a84284","$type":"NodeCanvas.Framework.Variable`1[[System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+    _references: []
+  - _json: '{"_propertyPath":"AICharacterController.searchedPickup","_name":"SearchedPickup","_id":"c31b6796-6ee4-4049-98ff-f0836effc962","$type":"NodeCanvas.Framework.Variable`1[[InteractablePickup, TeamSoda.Duckov.Core, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
+    _references: []
+  - _json: '{"_propertyPath":"AICharacterController.foundDangerObject","_name":"foundDangerObject","_id":"31adfaa8-d8ca-4a45-bc85-5997413084ac","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.GameObject, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
+    _references: []

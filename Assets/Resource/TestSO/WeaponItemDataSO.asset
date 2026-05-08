@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9b337e462fd0104bb08f34c8b57976a, type: 3}
+  m_Name: WeaponItemDataSO
+  m_EditorClassIdentifier: 
+  _itemId: 
+  _itemName: 
+  _itemType: 0
+  _itemDescription: 
+  _itemPrice: 0
+  _itemWeight: 0
+  _maxStackSize: 1
+  _itemIcon: {fileID: 0}
+  _itemPrefab: {fileID: 0}
+  _equipmentSlot: 0
+  _weaponType: 0
+  _isAutomatic: 0
+  _damage: 0
+  _effectiveRange: 0
+  _damageOutsideEffectiveRange: 0
+  _fireRate: 0
+  _magazineSize: 0
+  _reloadTime: 0
+  _recoilX: 0
+  _recoilY: 0
+  _spread: 0
+  _soundRange: 0
+  _headshotMultiplier: 0
+  _moveSpeedModifier: 1
+  _projectileSpeed: 0
+  _projectileLifetime: 0
+  _projectilePrefab: {fileID: 0}

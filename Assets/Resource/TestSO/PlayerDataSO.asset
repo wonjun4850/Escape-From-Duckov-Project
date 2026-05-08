@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0f9f3882ed674540b0726a2608f550a, type: 3}
+  m_Name: PlayerDataSO
+  m_EditorClassIdentifier: 
+  _playerId: Player_01
+  _playerName: Player
+  _baseMaxHealth: 40
+  _baseMoveSpeed: 5
+  _runMultiplier: 1.5
+  _baseInventorySlots: 10
+  _baseCarryWeight: 45
+  _petInventorySlots: 1
+  _maxStamina: 100
+  _staminaRegenRate: 20
+  _dodgeCost: 10
+  _runCost: 7
+  _dodgeForce: 10
+  _dodgeDuration: 0.5
+  _maxEnergy: 100
+  _maxHydration: 100
+  _energyLossRate: 0.1
+  _hydrationLossRate: 0.15
+  _playerPrefab: {fileID: 0}
