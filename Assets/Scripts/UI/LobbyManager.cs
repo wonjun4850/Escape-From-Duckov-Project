@@ -62,6 +62,7 @@ public class LobbyManager : MonoBehaviour
 
     private void OnPressAnyKey()
     {
+        SoundManager.Instance.PlaySFX("Lobby_Coin");
         InputCommandHub.Instance.RegisterCommands("Lobby.PressAnyKey", null);
         _pressAnyKeyText.DOKill();
         _duckovLogo.transform.DOKill();
@@ -78,6 +79,7 @@ public class LobbyManager : MonoBehaviour
 
         end.OnComplete(() =>
         {
+            SoundManager.Instance.PlayBGM("Lobby_BGM", 1.5f);
             _duckovLogo.SetActive(false);
             _pressAnyKeyText.gameObject.SetActive(false);
             _pressAnyKeyText.DOKill();

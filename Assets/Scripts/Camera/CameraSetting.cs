@@ -24,11 +24,11 @@ public class CameraSetting : MonoBehaviour
         float mouseX = (Input.mousePosition.x / Screen.width) * 2f - 1f;
         float mouseY = (Input.mousePosition.y / Screen.height) * 2f - 1f;
 
-        float targetX = mouseY * _moveSpeed;
-        float targetY = -mouseX * _moveSpeed;
+        float moveX = mouseY * _moveSpeed;
+        float moveY = -mouseX * _moveSpeed;
 
-        Quaternion targetRotation = _originRotation * Quaternion.Euler(targetX, targetY, 0f);
+        Quaternion Rotation = _originRotation * Quaternion.Euler(moveX, moveY, 0f);
 
-        transform.localRotation = Quaternion.Slerp(transform.localRotation, targetRotation, Time.deltaTime * _smoothSpeed);
+        transform.localRotation = Quaternion.Slerp(transform.localRotation, Rotation, Time.deltaTime * _smoothSpeed);
     }
 }

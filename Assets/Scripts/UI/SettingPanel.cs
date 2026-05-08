@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class SettingPanel : MonoBehaviour
 {
@@ -69,5 +70,5 @@ public class SettingPanel : MonoBehaviour
     {
         _canvasGroup.DOFade(0f, _fadeDuration).OnComplete(() => this.gameObject.SetActive(false));
     }
-    #endregion
+    #endregion   
 }

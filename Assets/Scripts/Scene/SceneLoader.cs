@@ -56,8 +56,11 @@ public class SceneLoader : MonoBehaviour
     private IEnumerator CoLoadScene(string sceneName, string nextActionMap, bool clickDirection = false)
     {
         _isLoading = true;        
+
         InputDispatcher.Instance.DisableInputActions();
         CursorManager.Instance.SetCursorByScene();
+        SoundManager.Instance.FadeOutBGM(0.9f);
+
         _canvas.SetActive(true);
 
         yield return _sceneTransitionUI.CircleIn().WaitForCompletion();
@@ -102,6 +105,9 @@ public class SceneLoader : MonoBehaviour
         }
 
         CursorManager.Instance.SetCursorByScene(nextActionMap);
+
+        //SoundManager.Instance.PlaySFX("Base_Start");
+        SoundManager.Instance.PlayBGM("Base_BGM1", 0.9f);
 
         yield return _sceneTransitionUI.CircleOut().WaitForCompletion();
 
