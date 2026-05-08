@@ -19,7 +19,7 @@ public class CameraSetting : MonoBehaviour
         _originRotation = transform.localRotation;
     }
 
-    void Update()
+    void LateUpdate()
     {
         float mouseX = (Input.mousePosition.x / Screen.width) * 2f - 1f;
         float mouseY = (Input.mousePosition.y / Screen.height) * 2f - 1f;
