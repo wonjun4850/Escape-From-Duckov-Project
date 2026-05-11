@@ -36,6 +36,8 @@ public class SoundManager : MonoBehaviour
 
     private readonly Dictionary<string, SoundData> _bgmDict = new Dictionary<string, SoundData>();
     private readonly Dictionary<string, SoundData> _sfxDict = new Dictionary<string, SoundData>();
+
+    private Coroutine _bgmFadeRoutine;
     #endregion
 
     private void Awake()
@@ -51,7 +53,7 @@ public class SoundManager : MonoBehaviour
 
         _bgmAudioSource.loop = true;
         _sfxAudioSource.loop = false;
-        
+
         foreach (var bgm in _bgmList)
         {
             if (!_bgmDict.ContainsKey(bgm.Name))
@@ -89,11 +91,19 @@ public class SoundManager : MonoBehaviour
 
         _bgmAudioSource.Stop();
         _bgmAudioSource.volume = startValue;
+        _bgmFadeRoutine = null;
     }
 
-    private IEnumerator CoFadeInBGM(float targetVolume, float duration)
+    private IEnumerator CoFadeInBGM(float targetVolume, float duration, float startDelayTime = 0)
     {
         _bgmAudioSource.volume = 0;
+
+        if (startDelayTime > 0)
+        {
+            yield return new WaitForSeconds(startDelayTime);
+        }
+
+        _bgmAudioSource.Play();
 
         while (_bgmAudioSource.volume < targetVolume)
         {
@@ -102,23 +112,29 @@ public class SoundManager : MonoBehaviour
         }
 
         _bgmAudioSource.volume = targetVolume;
+        _bgmFadeRoutine = null;
     }
 
     #region 외부 호출 함수
-    public void PlayBGM(string bgmName, float fadeDuration = 0f)
+    public void PlayBGM(string bgmName, float fadeDuration = 0f, float startDelayTime = 0)
     {
         if (_bgmDict.TryGetValue(bgmName, out SoundData data))
         {
-            _bgmAudioSource.clip = data.Clip;
-            _bgmAudioSource.Play();
-
-            if (fadeDuration > 0)
+            if (_bgmFadeRoutine != null)
             {
-                StartCoroutine(CoFadeInBGM(data.Volume, fadeDuration));
+                StopCoroutine(_bgmFadeRoutine);
+            }
+
+            _bgmAudioSource.clip = data.Clip;
+
+            if (fadeDuration > 0 || startDelayTime > 0)
+            {
+                _bgmFadeRoutine = StartCoroutine(CoFadeInBGM(data.Volume, fadeDuration, startDelayTime));
             }
             else
             {
                 _bgmAudioSource.volume = data.Volume;
+                _bgmAudioSource.Play();
             }
         }
 
@@ -130,10 +146,15 @@ public class SoundManager : MonoBehaviour
 
     public void FadeOutBGM(float duration)
     {
-        StartCoroutine(CoFadeOutBGM(duration));
+        if (_bgmFadeRoutine != null)
+        {
+            StopCoroutine(_bgmFadeRoutine);
+        }
+
+        _bgmFadeRoutine = StartCoroutine(CoFadeOutBGM(duration));
     }
 
-    public void PlaySFX(string sfxName)
+    public void PlaySFX(string sfxName) // 원샷으로 쓰다가 문제 생길시 수정 필요
     {
         if (_sfxDict.TryGetValue(sfxName, out SoundData data))
         {

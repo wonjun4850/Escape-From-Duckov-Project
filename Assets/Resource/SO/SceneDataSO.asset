@@ -15,13 +15,9 @@ MonoBehaviour:
   _sceneInfos:
   - _sceneID: Lobby
     _sceneName: Lobby
-  - _sceneID: Loading
-    _sceneName: Loading
   - _sceneID: Base1
     _sceneName: Base
   - _sceneID: Base2
     _sceneName: Basement
   - _sceneID: Raid
     _sceneName: GroundZero
-  - _sceneID: Result
-    _sceneName: Result

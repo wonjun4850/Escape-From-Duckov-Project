@@ -55,7 +55,9 @@ public class SceneLoader : MonoBehaviour
 
     private IEnumerator CoLoadScene(string sceneName, string nextActionMap, bool clickDirection = false)
     {
-        _isLoading = true;        
+        _isLoading = true;
+
+        string currentScene = SceneManager.GetActiveScene().name;
 
         InputDispatcher.Instance.DisableInputActions();
         CursorManager.Instance.SetCursorByScene();
@@ -69,6 +71,8 @@ public class SceneLoader : MonoBehaviour
 
         op.allowSceneActivation = false;
         _sceneTransitionUI.SetLoadingUI(true);
+
+        // 여기서 로딩 씬별로 ui 추가?
 
         float timer = 0f;
 
@@ -88,9 +92,12 @@ public class SceneLoader : MonoBehaviour
 
             yield return new WaitUntil(() => Input.GetMouseButtonDown(0));
 
+
             op.allowSceneActivation = true;
 
             yield return null;
+
+            SoundManager.Instance.PlaySFX("Lobby_Click");
 
             _sceneTransitionUI.SetClickUI(false);
 
@@ -102,12 +109,29 @@ public class SceneLoader : MonoBehaviour
             op.allowSceneActivation = true;
 
             yield return new WaitForSeconds(0.5f);
+        }               
+
+        switch (sceneName)
+        {
+            case "Base":
+                SoundManager.Instance.PlaySFX("Base_Start");
+                SoundManager.Instance.PlayBGM("Base_BGM1", 0.9f, 7f);
+                break;
+
+            case "Basement":
+                SoundManager.Instance.PlayBGM("Basement_BGM", 1f);
+                break;
+
+            case "GroundZero":
+                SoundManager.Instance.PlayBGM("GroundZero_BGM", 1.5f);                
+                break;
+
+            default:
+                Debug.Log($"배경음 재생 실패 [{sceneName}]");
+                break;
         }
 
         CursorManager.Instance.SetCursorByScene(nextActionMap);
-
-        //SoundManager.Instance.PlaySFX("Base_Start");
-        SoundManager.Instance.PlayBGM("Base_BGM1", 0.9f);
 
         yield return _sceneTransitionUI.CircleOut().WaitForCompletion();
 
