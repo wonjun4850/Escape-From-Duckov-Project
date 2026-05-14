@@ -10,6 +10,11 @@ public class PlayerDataSO : ScriptableObject
     [SerializeField] private string _playerId = "Player_01";
     [SerializeField] private string _playerName = "Player";
 
+    [Header("성장")]
+    [SerializeField] private int _level = 1;
+    [SerializeField] private int _currentExp = 0;
+    [SerializeField] private int[] _maxExp = new int[] { 2000, 2500, 3000, 3500, 4000, 4500, 5000, 5500, 6000, 6500 , 7000, 7500, 8000, 8500, 9000, 9500, 10000, 10500, 11000, 999999999};
+
     [Header("체력")]
     [SerializeField] private float _baseMaxHealth = 40;
 
@@ -47,6 +52,16 @@ public class PlayerDataSO : ScriptableObject
     #region 프로퍼티
     public string PlayerId => _playerId;
     public string PlayerName => _playerName;
+    public int Level => _level;
+    public int CurrentExp => _currentExp;
+    public int MaxExp
+    {
+        get
+        {
+            int index = Mathf.Clamp(_level - 1, 0, _maxExp.Length - 1);
+            return _maxExp[index];
+        }
+    }
     public float BaseMaxHealth => _baseMaxHealth;
     public float BaseMoveSpeed => _baseMoveSpeed;
     public float RunMultiplier => _runMultiplier;
@@ -64,5 +79,23 @@ public class PlayerDataSO : ScriptableObject
     public float EnergyLossRate => _energyLossRate;
     public float HydrationLossRate => _hydrationLossRate;
     public GameObject PlayerPrefab => _playerPrefab;
+    #endregion
+
+    #region 외부 호출 함수
+    public void LevelUp()
+    {
+        _level++;
+    }
+
+    public void AddExp(int remainExp)
+    {
+        _currentExp += remainExp;
+    }
+
+    public int GetMaxExpForLevel(int level)
+    {
+        int index = Mathf.Clamp(level - 1, 0, _maxExp.Length - 1);
+        return _maxExp[index];
+    }
     #endregion
 }

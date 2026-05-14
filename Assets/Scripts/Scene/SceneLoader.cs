@@ -1,7 +1,6 @@
 using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -51,6 +50,7 @@ public class SceneLoader : MonoBehaviour
     {
         _canvas.SetActive(false);
         _sceneTransitionUI.Init();
+        _sceneTransitionUI.ResultInit();
     }
 
     private IEnumerator CoLoadScene(string sceneName, string nextActionMap, bool clickDirection = false)
@@ -70,9 +70,10 @@ public class SceneLoader : MonoBehaviour
         AsyncOperation op = SceneManager.LoadSceneAsync(sceneName);
 
         op.allowSceneActivation = false;
-        _sceneTransitionUI.SetLoadingUI(true);
+        _sceneTransitionUI.SetLoadingTextUI(true);
 
         // 여기서 로딩 씬별로 ui 추가?
+        SetLoadingUI(currentScene, sceneName, true);
 
         float timer = 0f;
 
@@ -82,7 +83,7 @@ public class SceneLoader : MonoBehaviour
             yield return null;
         }
 
-        _sceneTransitionUI.SetLoadingUI(false);
+        _sceneTransitionUI.SetLoadingTextUI(false);
 
         yield return new WaitForSeconds(0.5f);
 
@@ -101,12 +102,16 @@ public class SceneLoader : MonoBehaviour
 
             _sceneTransitionUI.SetClickUI(false);
 
+            SetLoadingUI(currentScene, sceneName, false);
+
             yield return new WaitForSeconds(0.5f);
         }
 
         else
         {
             op.allowSceneActivation = true;
+
+            SetLoadingUI(currentScene, sceneName, false);
 
             yield return new WaitForSeconds(0.5f);
         }               
@@ -137,8 +142,38 @@ public class SceneLoader : MonoBehaviour
 
         InputDispatcher.Instance.ChangeActionMap(nextActionMap);
         _canvas.SetActive(false);
-        //_sceneTransitionUI.Init(); 초기화가 필요할지도..?
+        _sceneTransitionUI.Init(); // 혹시 모를 초기화??
+        _sceneTransitionUI.ResultInit(); // 혹시 모를 초기화??
         _isLoading = false;
+    }
+
+    private void SetLoadingUI(string currentScene, string nextScene, bool isActive)
+    {
+        if ((currentScene == "Base" || currentScene == "Basement") && nextScene == "GroundZero")
+        {
+            _sceneTransitionUI.SetStartLoadingUI(isActive);
+        }
+
+        else if (currentScene == "GroundZero" && nextScene == "Base")
+        {
+            /*
+            플레이어가 죽었니? => 사망 텍스트 + 배경
+            if (PlayerDead)
+            {
+                _sceneTransitionUI.SetDeadLoadingUI(isActive)
+
+                PlayerDead 플래그 false로 바꿔주기
+            }
+
+            else
+            {
+
+            }
+            */
+
+            // else 부분 (플레이어가 탈출했을때)
+            _sceneTransitionUI.SetEscapeLoadingUI(isActive);
+        }
     }
 
     #region 외부 호출 함수
@@ -159,6 +194,12 @@ public class SceneLoader : MonoBehaviour
         }
 
         StartCoroutine(CoLoadScene(sceneName, nextActionMap, clickDirection));
+    }
+
+    public void ShowResultUI(PlayerDataSO player,int gainExp, bool isEscape)
+    {
+        _canvas.SetActive(true);
+        _sceneTransitionUI.ResultUI(player ,gainExp, isEscape);
     }
     #endregion
 }
