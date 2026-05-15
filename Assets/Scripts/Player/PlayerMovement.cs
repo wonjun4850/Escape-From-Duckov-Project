@@ -107,22 +107,35 @@ public class PlayerMovement : MonoBehaviour
 
         Vector3 direction = (camR * _moveInput.x + camF * _moveInput.y).normalized;
 
-        if (direction.sqrMagnitude < 0.0001f)
+        if (direction.sqrMagnitude < 0.001f)
         {
             direction = Vector3.zero;
         }
 
         UpdateRunningState(direction);
+ 
+        Vector3 localDir = transform.InverseTransformDirection(direction);
+
+        float directionMultiplier = 1.0f;
+
+        if (localDir.z >= 0)
+        {
+            directionMultiplier = Mathf.Lerp(0.9f, 1.0f, localDir.z);
+        }
+        else
+        {
+            directionMultiplier = Mathf.Lerp(0.9f, 0.7f, Mathf.Abs(localDir.z));
+        }
 
         float speed = _isRunning ? _moveSpeed * _runMultiplier : _moveSpeed;
+        speed *= directionMultiplier;
 
         Vector3 velocity = direction * speed;
-
         _rb.velocity = new Vector3(velocity.x, _rb.velocity.y, velocity.z);
 
         ApplyMoveAnimation(direction);
 
-        if (_isRunning && direction.sqrMagnitude > 0.0001f)
+        if (_isRunning && direction.sqrMagnitude > 0.001f)
         {
             TickRotate(direction);
         }
@@ -135,7 +148,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void TickRotate(Vector3 direction)
     {
-        if (direction.sqrMagnitude < 0.0001f)
+        if (direction.sqrMagnitude < 0.001f)
         {
             return;
         }
@@ -163,7 +176,7 @@ public class PlayerMovement : MonoBehaviour
             Vector3 lookDir = (mouseWorldPos - transform.position);
             lookDir.y = 0;
 
-            if (lookDir.sqrMagnitude > 0.0001f)
+            if (lookDir.sqrMagnitude > 0.001f)
             {
                 Quaternion targetRot = Quaternion.LookRotation(lookDir);
 
@@ -178,18 +191,16 @@ public class PlayerMovement : MonoBehaviour
 
     private void ApplyMoveAnimation(Vector3 direction)
     {
+        if (direction.sqrMagnitude < 0.001f)
+        {
+            _playerAnimation.Move(0f, 0f, 1.0f);
+            return;
+        }
+
         Vector3 localDir = transform.InverseTransformDirection(direction);
 
-        if (direction.sqrMagnitude > 0.0001f)
-        {
-            float animSpeed = _isRunning ? _runMultiplier : 1.0f;
-            _playerAnimation.Move(localDir.x, localDir.z, animSpeed);
-        }
-
-        else
-        {
-            _playerAnimation.Move(0, 0, 1.0f);
-        }
+        float animSpeed = _isRunning ? _runMultiplier : 1.0f;
+        _playerAnimation.Move(localDir.x, localDir.z, animSpeed);
     }
 
     private void TryDodge()
@@ -212,7 +223,7 @@ public class PlayerMovement : MonoBehaviour
         Vector3 camR = Vector3.ProjectOnPlane(Camera.main.transform.right, Vector3.up).normalized;
 
         Vector3 inputDir = (camR * _moveInput.x + camF * _moveInput.y).normalized;
-        Vector3 dodgeDir = inputDir.sqrMagnitude > 0.0001f ? inputDir : transform.forward;
+        Vector3 dodgeDir = inputDir.sqrMagnitude > 0.001f ? inputDir : transform.forward;
 
         transform.rotation = Quaternion.LookRotation(dodgeDir);
 
@@ -243,7 +254,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void UpdateRunningState(Vector3 direction)
     {
-        if (direction.sqrMagnitude < 0.0001f)
+        if (direction.sqrMagnitude < 0.001f)
         {
             _isRunning = false;
             return;

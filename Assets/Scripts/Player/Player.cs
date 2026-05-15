@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     private PlayerMovement _playerMovement;
     private StaminaSystem _staminaSystem;
     private SurvivalSystem _survivalSystem;
+    private HpSystem _hpSystem;
     #endregion
 
     private void Awake()
@@ -20,8 +21,9 @@ public class Player : MonoBehaviour
         _playerMovement = GetComponent<PlayerMovement>();
         _staminaSystem = GetComponent<StaminaSystem>();
         _survivalSystem = GetComponent<SurvivalSystem>();
+        _hpSystem = GetComponent<HpSystem>();
 
-        if (_playerMovement == null || _staminaSystem == null)
+        if (_playerMovement == null || _staminaSystem == null || _survivalSystem == null || _hpSystem == null)
         {
             Debug.LogError("Player 겟컴포넌트 오류 : 인스펙터 확인");
             return;
@@ -61,6 +63,11 @@ public class Player : MonoBehaviour
         if (_survivalSystem != null)
         {
             _survivalSystem.Init(_playerData.MaxEnergy, _playerData.MaxHydration, _playerData.EnergyLossRate, _playerData.HydrationLossRate);
+        }
+
+        if (_hpSystem != null)
+        {
+            _hpSystem.Init(_playerData.BaseMaxHealth);
         }
 
         Debug.Log("플레이어 데이터 주입 완료");

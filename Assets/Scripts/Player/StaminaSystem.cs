@@ -5,6 +5,8 @@ using UnityEngine;
 public class StaminaSystem : MonoBehaviour
 {
     #region 내부 변수
+    private SurvivalSystem _survivalSystem;
+
     private float _maxStamina;
     private float _staminaRegenRate;
     private float _dodgeCost;
@@ -16,6 +18,11 @@ public class StaminaSystem : MonoBehaviour
 
     private bool _isInit = false;
     #endregion
+
+    private void Awake()
+    {
+        _survivalSystem = GetComponent<SurvivalSystem>();
+    }
 
     void Update()
     {
@@ -39,7 +46,15 @@ public class StaminaSystem : MonoBehaviour
     {
         if (_currentStamina <= _maxStamina)
         {
-            _currentStamina += _staminaRegenRate * Time.deltaTime;
+            float offset = 1.0f;
+
+            if (_survivalSystem.GetState().HasFlag(SurvivalSystem.ESurvivalState.Thirst))
+            {
+                offset = 0.5f;
+            }
+
+            _currentStamina += _staminaRegenRate * offset * Time.deltaTime;
+            _currentStamina = Mathf.Clamp(_currentStamina, 0, _maxStamina);
         }
     }
 
@@ -102,6 +117,7 @@ public class StaminaSystem : MonoBehaviour
         return _currentStamina >= _dodgeCost;
     }
 
+    // UI 에서 사용할 함수
     public bool IsStaminaLow()
     {
         return (_currentStamina / _maxStamina) < 0.2f;

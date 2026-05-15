@@ -167,6 +167,14 @@ public class SoundManager : MonoBehaviour
         }
     }
 
+    public void PlayRandomSFX(string name, int count)
+    {
+        int randomIndex = UnityEngine.Random.Range(1, count + 1);
+        string randomName = name + randomIndex;
+
+        PlaySFX(randomName);
+    }
+
     public void PlayObjectSFX(AudioSource ob, string sfxName, float minDistance = 1f, float maxDistance = 50)
     {
         if (_sfxDict.TryGetValue(sfxName, out SoundData data))
@@ -187,6 +195,14 @@ public class SoundManager : MonoBehaviour
         {
             Debug.Log($"SoundManager: {sfxName} 사운드 찾지 못함");
         }
+    }
+
+    public void PlayObjectRandomSFX(AudioSource ob, string name, int count, float minDistance = 1f, float maxDistance = 50)
+    {
+        int randomIndex = UnityEngine.Random.Range(1, count + 1);
+        string randomName = name + randomIndex;
+
+        PlayObjectSFX(ob, randomName, minDistance, maxDistance);
     }
     #endregion
 }

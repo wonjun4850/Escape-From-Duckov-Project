@@ -9,6 +9,8 @@ public class PlayerAnimation : MonoBehaviour
     [SerializeField] private string _paramMoveX = "fMoveX";
     [SerializeField] private string _paramMoveY = "fMoveY";
     [SerializeField] private string _paramDodge = "tDodge";
+
+    [SerializeField] private float _stepCoolDown = 0.2f;
     #endregion
 
     #region 내부 변수
@@ -18,6 +20,8 @@ public class PlayerAnimation : MonoBehaviour
     private int _hashMoveX;
     private int _hashMoveY;
     private int _hashDodge;
+
+    private float _lastEventTime;
     #endregion
 
     private void Awake()
@@ -49,6 +53,28 @@ public class PlayerAnimation : MonoBehaviour
         _anim.SetTrigger(_hashDodge);
     }
     #endregion
+
+    #region 애니메이션 이벤트 함수
+    public void PlayDodgeSound()
+    {
+        SoundManager.Instance.PlayRandomSFX("Dodge", 3);
+    }
+    
+    public void PlayFootStepSound()
+    {
+        if (Time.time - _lastEventTime < _stepCoolDown) return;
+
+        float moveX = _anim.GetFloat(_hashMoveX);
+        float moveY = _anim.GetFloat(_hashMoveY);
+
+        if (Mathf.Abs(moveX) < 0.1f && Mathf.Abs(moveY) < 0.1f) return;
+
+        SoundManager.Instance.PlayRandomSFX("Player_FootStep", 5);
+
+        _lastEventTime = Time.time;
+    }
+    #endregion
+
 
     /// <summary>
     /// 아래는 테스트용도

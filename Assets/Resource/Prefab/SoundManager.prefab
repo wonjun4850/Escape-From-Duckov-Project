@@ -90,6 +90,38 @@ MonoBehaviour:
     _clip: {fileID: 8300000, guid: 778d2d5c0d83cb449a7e7af314882016, type: 3}
     _volume: 1
     _description: "\uACB0\uACFC\uCC3D \uACC4\uC18D\uD558\uAE30 \uBC84\uD2BC\uC74C"
+  - _name: Dodge1
+    _clip: {fileID: 8300000, guid: 6988aabc1334081479b975c4e31e6d60, type: 3}
+    _volume: 1
+    _description: "\uAD6C\uB974\uAE30 \uD6A8\uACFC\uC74C1"
+  - _name: Dodge2
+    _clip: {fileID: 8300000, guid: 47898f14f619863419503f1b319df631, type: 3}
+    _volume: 1
+    _description: "\uAD6C\uB974\uAE30 \uD6A8\uACFC\uC74C2"
+  - _name: Dodge3
+    _clip: {fileID: 8300000, guid: 7f8e50a75ec680949bef5f6e247d321b, type: 3}
+    _volume: 1
+    _description: "\uAD6C\uB974\uAE30 \uD6A8\uACFC\uC74C3"
+  - _name: Player_FootStep1
+    _clip: {fileID: 8300000, guid: 342c7109f43560c4eb2421bc67e1c09b, type: 3}
+    _volume: 1
+    _description: "\uD50C\uB808\uC774\uC5B4 \uBC1C\uC18C\uB9AC1"
+  - _name: Player_FootStep2
+    _clip: {fileID: 8300000, guid: af00cdf5b48ec564dbd8884b7b09be0c, type: 3}
+    _volume: 1
+    _description: "\uD50C\uB808\uC774\uC5B4 \uBC1C\uC18C\uB9AC2"
+  - _name: Player_FootStep3
+    _clip: {fileID: 8300000, guid: 6bd9b0cb28c1fb34695a44360f7ce5c5, type: 3}
+    _volume: 1
+    _description: "\uD50C\uB808\uC774\uC5B4 \uBC1C\uC18C\uB9AC3"
+  - _name: Player_FootStep4
+    _clip: {fileID: 8300000, guid: 3c00f797b4786854292d0e7a979e4e78, type: 3}
+    _volume: 1
+    _description: "\uD50C\uB808\uC774\uC5B4 \uBC1C\uC18C\uB9AC4"
+  - _name: Player_FootStep5
+    _clip: {fileID: 8300000, guid: 017af9f7828bbf443ae599a122666744, type: 3}
+    _volume: 1
+    _description: "\uD50C\uB808\uC774\uC5B4 \uBC1C\uC18C\uB9AC5"
 --- !u!1 &4914877735059146590
 GameObject:
   m_ObjectHideFlags: 0

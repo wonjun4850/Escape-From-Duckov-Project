@@ -1422,7 +1422,8 @@ AnimationClip:
       - serializedVersion: 3
         time: 0.38333336
         value: {x: -0.15494749, y: -0.05296753, z: 0.035377365, w: 0.9858672}
-        inSlope: {x: 0.000000016850372, y: 0.000000074532444, z: 0.0000000015101143, w: 0.000000006428973}
+        inSlope: {x: 0.000000016850372, y: 0.000000074532444, z: 0.0000000015101143,
+          w: 0.000000006428973}
         outSlope: {x: -Infinity, y: 0.00000011175862, z: 0, w: -Infinity}
         tangentMode: 1
         weightedMode: 0
@@ -38762,4 +38763,18 @@ AnimationClip:
     flags: 0
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 0.06666667
+    functionName: PlayFootStepSound
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.33333334
+    functionName: PlayFootStepSound
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
