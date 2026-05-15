@@ -51,6 +51,7 @@ public class InputCommandHub : MonoBehaviour
     private void BindInputEvents()
     {
         _dispatcher.OnMove += HandleMove;
+        _dispatcher.OnRun += HandleRun;
         _dispatcher.OnDodge += HandleDodge;
         _dispatcher.OnPressAnyKey += HandlePressAnyKey;
         _dispatcher.OnBack += HandleBack;
@@ -64,6 +65,7 @@ public class InputCommandHub : MonoBehaviour
     private void UnBindInputEvents()
     {
         _dispatcher.OnMove -= HandleMove;
+        _dispatcher.OnRun -= HandleRun;
         _dispatcher.OnDodge -= HandleDodge;
         _dispatcher.OnPressAnyKey -= HandlePressAnyKey;
         _dispatcher.OnBack -= HandleBack;
@@ -78,6 +80,11 @@ public class InputCommandHub : MonoBehaviour
     private void HandleMove(Vector2 direction)
     {
         ExecuteValue("Player.Move", direction);
+    }
+
+    private void HandleRun(bool isPress)
+    {
+        ExecuteValue("Player.Run", isPress);
     }
 
     private void HandleDodge()

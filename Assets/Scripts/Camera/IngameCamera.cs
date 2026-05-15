@@ -32,15 +32,10 @@ public class IngameCamera : MonoBehaviour
         float mouseX = (Input.mousePosition.x / Screen.width) * 2f - 1f;
         float mouseY = (Input.mousePosition.y / Screen.height) * 2f - 1f;
 
-        Vector3 camRight = transform.right;
-        camRight.y = 0;
-        camRight.Normalize();
+        Vector3 camF = Vector3.ProjectOnPlane(this.transform.forward, Vector3.up).normalized;
+        Vector3 camR = Vector3.ProjectOnPlane(this.transform.right, Vector3.up).normalized;
 
-        Vector3 camForward = transform.forward;
-        camForward.y = 0;
-        camForward.Normalize();
-
-        Vector3 mouseMove = (camRight * mouseX + camForward * mouseY) * _mouseOffset;
+        Vector3 mouseMove = (camR * mouseX + camF * mouseY) * _mouseOffset;
 
         Vector3 targetPos = _playerTr.position + _positionOffset + mouseMove;
 

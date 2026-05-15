@@ -13,7 +13,7 @@ public class PlayerDataSO : ScriptableObject
     [Header("성장")]
     [SerializeField] private int _level = 1;
     [SerializeField] private int _currentExp = 0;
-    [SerializeField] private int[] _maxExp = new int[] { 2000, 2500, 3000, 3500, 4000, 4500, 5000, 5500, 6000, 6500 , 7000, 7500, 8000, 8500, 9000, 9500, 10000, 10500, 11000, 999999999};
+    [SerializeField] private int[] _maxExp = new int[] { 2000, 2500, 3000, 3500, 4000, 4500, 5000, 5500, 6000, 6500, 7000, 7500, 8000, 8500, 9000, 9500, 10000, 10500, 11000, 999999999 };
 
     [Header("체력")]
     [SerializeField] private float _baseMaxHealth = 40;
@@ -21,6 +21,10 @@ public class PlayerDataSO : ScriptableObject
     [Header("이동")]
     [SerializeField] private float _baseMoveSpeed = 5f;
     [SerializeField] private float _runMultiplier = 1.5f;
+
+    [Header("구르기 설정")]
+    [SerializeField] private float _dodgeForce = 10f;
+    [SerializeField] private float _dodgeDuration = 0.5f;
 
     [Header("인벤토리")]
     [SerializeField] private int _baseInventorySlots = 10;
@@ -35,15 +39,11 @@ public class PlayerDataSO : ScriptableObject
     [SerializeField] private float _dodgeCost = 10f;
     [SerializeField] private float _runCost = 7f;
 
-    [Header("구르기 설정")]
-    [SerializeField] private float _dodgeForce = 10f;
-    [SerializeField] private float _dodgeDuration = 0.5f;
-
     [Header("생존")]
     [SerializeField] private float _maxEnergy = 100f;
     [SerializeField] private float _maxHydration = 100f;
     [SerializeField] private float _energyLossRate = 0.1f;
-    [SerializeField] private float _hydrationLossRate = 0.15f;
+    [SerializeField] private float _hydrationLossRate = 0.1f;
 
     [Header("프리팹")]
     [SerializeField] private GameObject _playerPrefab;
@@ -65,6 +65,8 @@ public class PlayerDataSO : ScriptableObject
     public float BaseMaxHealth => _baseMaxHealth;
     public float BaseMoveSpeed => _baseMoveSpeed;
     public float RunMultiplier => _runMultiplier;
+    public float DodgeForce => _dodgeForce;
+    public float DodgeDuration => _dodgeDuration;
     public int BaseInventorySlots => _baseInventorySlots;
     public float BaseCarryWeight => _baseCarryWeight;
     public int PetInventorySlots => _petInventorySlots;
@@ -72,8 +74,6 @@ public class PlayerDataSO : ScriptableObject
     public float StaminaRegenRate => _staminaRegenRate;
     public float DodgeCost => _dodgeCost;
     public float RunCost => _runCost;
-    public float DodgeForce => _dodgeForce;
-    public float DodgeDuration => _dodgeDuration;
     public float MaxEnergy => _maxEnergy;
     public float MaxHydration => _maxHydration;
     public float EnergyLossRate => _energyLossRate;

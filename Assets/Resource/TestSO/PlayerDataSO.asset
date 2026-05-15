@@ -20,6 +20,8 @@ MonoBehaviour:
   _baseMaxHealth: 40
   _baseMoveSpeed: 5
   _runMultiplier: 1.5
+  _dodgeForce: 20
+  _dodgeDuration: 0.5
   _baseInventorySlots: 10
   _baseCarryWeight: 45
   _petInventorySlots: 1
@@ -27,8 +29,6 @@ MonoBehaviour:
   _staminaRegenRate: 20
   _dodgeCost: 10
   _runCost: 7
-  _dodgeForce: 10
-  _dodgeDuration: 0.5
   _maxEnergy: 100
   _maxHydration: 100
   _energyLossRate: 0.1

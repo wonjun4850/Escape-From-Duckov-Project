@@ -56,7 +56,6 @@ public class MainMenuUI : MonoBehaviour
 	public void OnClickStart()
 	{
 		SceneLoader.Instance.LoadScene("Base1", "Ingame", true);
-        // 플레이어 SO 데이터 주입??
     }
 
 	public void OnClickSetting()

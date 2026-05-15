@@ -28,7 +28,7 @@ public class InputDispatcher : MonoBehaviour
     // 인게임 액션
     public event Action<Vector2> OnMove;
     public event Action OnDodge;
-    public event Action OnRun;
+    public event Action<bool> OnRun;
     public event Action OnReload;
     public event Action OnInteract;
     public event Action OnFire;
@@ -134,6 +134,7 @@ public class InputDispatcher : MonoBehaviour
         _inputActions.Ingame.Move.canceled += OnMoveCanceled;
         _inputActions.Ingame.Dodge.performed += OnDodgePerformed;
         _inputActions.Ingame.Run.performed += OnRunPerformed;
+        _inputActions.Ingame.Run.canceled += OnRunCanceled;
         _inputActions.Ingame.Reload.performed += OnReloadPerformed;
         _inputActions.Ingame.Interact.performed += OnInteractPerformed;
         _inputActions.Ingame.Fire.performed += OnFirePerformed;
@@ -177,6 +178,7 @@ public class InputDispatcher : MonoBehaviour
         _inputActions.Ingame.Move.canceled -= OnMoveCanceled;
         _inputActions.Ingame.Dodge.performed -= OnDodgePerformed;
         _inputActions.Ingame.Run.performed -= OnRunPerformed;
+        _inputActions.Ingame.Run.canceled -= OnRunCanceled;
         _inputActions.Ingame.Reload.performed -= OnReloadPerformed;
         _inputActions.Ingame.Interact.performed -= OnInteractPerformed;
         _inputActions.Ingame.Fire.performed -= OnFirePerformed;
@@ -251,7 +253,17 @@ public class InputDispatcher : MonoBehaviour
             Debug.Log($"Input Run");
         }
 
-        OnRun?.Invoke();
+        OnRun?.Invoke(true);
+    }
+
+    private void OnRunCanceled(InputAction.CallbackContext ctx)
+    {
+        if (_showInputLog)
+        {
+            Debug.Log("Cancel Run");
+        }
+
+        OnRun?.Invoke(false);
     }
 
     private void OnReloadPerformed(InputAction.CallbackContext ctx)
