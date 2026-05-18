@@ -33,4 +33,5 @@ MonoBehaviour:
   _maxHydration: 100
   _energyLossRate: 0.15
   _hydrationLossRate: 0.15
-  _playerPrefab: {fileID: 0}
+  _playerPrefab: {fileID: 7556137353142188856, guid: dd379eb73b4afd846a775e47bb25bfc4,
+    type: 3}

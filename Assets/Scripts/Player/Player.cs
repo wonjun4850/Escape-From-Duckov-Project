@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
     #endregion
 
     #region 프로퍼티
+    public PlayerDataSO PlayerData => _playerData;
     public PlayerMovement Movement => _playerMovement;
     public StaminaSystem Stamina => _staminaSystem;
     public SurvivalSystem Survival => _survivalSystem;
@@ -37,15 +38,21 @@ public class Player : MonoBehaviour
         }        
     }
 
-    void Start()
-    {
-        if (_playerData != null)
-        {
-            Init(_playerData);
-        }
-    }
-
     #region 외부 호출 함수
+    public void Init()
+    {
+        var data = DataManager.Instance;
+
+        if (data == null)
+        {
+            Debug.LogError("DataManager.Instance == null");
+            return;
+        }
+
+        //_playerMovement.Init(data.BaseMoveSpeed, )
+
+    }
+    /*
     public void Init(PlayerDataSO data)
     {
         _playerData = data;
@@ -104,5 +111,6 @@ public class Player : MonoBehaviour
             Debug.Log("플레이어 데이터 -> UI 데이터 주입 실패");
         }
     }
+    */
     #endregion
 }

@@ -5,25 +5,15 @@ using UnityEngine;
 public class IngameCamera : MonoBehaviour
 {
     #region 인스펙터
-    [Header("플레이어 참조")]
-    [SerializeField] private Transform _playerTr = null;
-
     [Header("카메라 설정")]
     [SerializeField] private Vector3 _positionOffset = new Vector3(6, 20, -10);
     [SerializeField] private float _mouseOffset = 5f;
     [SerializeField] private float _smoothSpeed = 5f;
     #endregion
 
-    void Start()
-    {
-        if (_playerTr == null)
-        {
-            return;
-        }
-
-        transform.position = _playerTr.position + _positionOffset;
-        transform.LookAt(_playerTr.position);
-    }
+    #region 내부 변수
+    private Transform _playerTr;
+    #endregion
 
     private void LateUpdate()
     {
@@ -41,4 +31,13 @@ public class IngameCamera : MonoBehaviour
 
         transform.position = Vector3.Lerp(transform.position, targetPos, Time.deltaTime * _smoothSpeed);
     }
+
+    #region 외부 호출 함수
+    public void SetTarget(Transform target)
+    {
+        _playerTr = target;
+        transform.position = _playerTr.position + _positionOffset;
+        transform.LookAt(_playerTr.position);
+    }
+    #endregion
 }

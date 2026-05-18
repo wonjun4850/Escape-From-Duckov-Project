@@ -2193,7 +2193,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e45f05830e586f44a502125c14067bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerTag: Player
   _type: 1
   _backgroundGauge: {fileID: 7435044676329362938}
   _fillGauge: {fileID: 8860263043984604161}
@@ -2907,7 +2906,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ba32e6965b45d54aa826c6d00ab64d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerTag: Player
   _rangeText: {fileID: 1584970048673117357}
 --- !u!1 &4461337712546770482
 GameObject:
@@ -5055,7 +5053,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a8bc07b4e9b0734183e0d13023fc9d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerTag: Player
   _offset: {x: -1.5, y: -3, z: 0}
   _fillGauges:
   - {fileID: 7915647330524535747}
@@ -7066,7 +7063,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e45f05830e586f44a502125c14067bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerTag: Player
   _type: 0
   _backgroundGauge: {fileID: 3416573293941070987}
   _fillGauge: {fileID: 5217401366273087854}
@@ -7758,7 +7754,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 125355909797a6d4bb32fe4aa7bcfbef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerTag: Player
   _currentHpText: {fileID: 2323792052340384042}
   _maxHpText: {fileID: 2198844368241472367}
   _hpMask: {fileID: 5428722162653405719}

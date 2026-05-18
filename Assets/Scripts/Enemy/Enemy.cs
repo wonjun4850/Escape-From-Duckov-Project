@@ -12,6 +12,11 @@ public class Enemy : MonoBehaviour
     private HpSystem _hpSystem;
     #endregion
 
+    #region 프로퍼티
+    public EnemyDataSO EnemyData => _enemyData;
+    public HpSystem Hp => _hpSystem;
+    #endregion
+
     private void Awake()
     {
         _hpSystem = GetComponent<HpSystem>();
