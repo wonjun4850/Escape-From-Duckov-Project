@@ -1,11 +1,9 @@
 fileFormatVersion: 2
 guid: e5438ade55c43434fa5c166159311916
-timeCreated: 1776848408
-licenseType: Free
 TextureImporter:
-  serializedVersion: 13
   internalIDToNameTable: []
   externalObjects: {}
+  serializedVersion: 13
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -39,8 +37,8 @@ TextureImporter:
     filterMode: 1
     aniso: 1
     mipBias: 0
-    wrapU: 0
-    wrapV: 0
+    wrapU: 1
+    wrapV: 1
     wrapW: 0
   nPOTScale: 0
   lightmap: 0
@@ -56,7 +54,7 @@ TextureImporter:
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
-  textureType: 0
+  textureType: 8
   textureShape: 1
   singleChannelComponent: 0
   flipbookRows: 0
@@ -71,6 +69,32 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -84,43 +108,1428 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: 7segment SDF Atlas_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 977
+        width: 34
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98b344d61c8f68f47bac0bf0eea6645a
+      internalID: -1164471015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 7segment SDF Atlas_1
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 977
+        width: 80
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50803d714b54ea943ac30d04b2eb6ae9
+      internalID: -518452607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 7segment SDF Atlas_2
+      rect:
+        serializedVersion: 2
+        x: 758
+        y: 831
+        width: 98
+        height: 179
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17280cb9b3eea7740b0841842e836292
+      internalID: 762250500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 7segment SDF Atlas_3
+      rect:
+        serializedVersion: 2
+        x: 858
+        y: 831
+        width: 87
+        height: 179
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e444a2334eb9cd1409c672e4c8a5b51f
+      internalID: 381068734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 7segment SDF Atlas_4
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 936
+        width: 85
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58ca1b1470bb0b54db5b7eebb0879dc0
+      internalID: -245038308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 7segment SDF Atlas_5
+      rect:
+        serializedVersion: 2
+        x: 657
+        y: 852
+        width: 99
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 750cb3f758fb3e547ba96981a99c0e32
+      internalID: 2144259511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 7segment SDF Atlas_6
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 749
+        width: 114
+        height: 186
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0789a4f4f2e09eb4e939c4371893faf8
+      internalID: -1328600152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 7segment SDF Atlas_7
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 821
+        width: 110
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1c1d20020e42644a9dccd6dd84f5a48
+      internalID: -218357396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 7segment SDF Atlas_8
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 748
+        width: 99
+        height: 186
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 557a745ce9bfbd5429527afca8461807
+      internalID: -734247721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 7segment SDF Atlas_9
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 748
+        width: 98
+        height: 186
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2c3713dd01b4894db3e2fcec63e14f6
+      internalID: -1885150932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 7segment SDF Atlas_10
+      rect:
+        serializedVersion: 2
+        x: 430
+        y: 745
+        width: 114
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e66ed8649d35784fb2a2ea64b417570
+      internalID: -1353420004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 7segment SDF Atlas_11
+      rect:
+        serializedVersion: 2
+        x: 545
+        y: 745
+        width: 110
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7bba16d2414a82744b3c0594e034b399
+      internalID: -282650443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 7segment SDF Atlas_12
+      rect:
+        serializedVersion: 2
+        x: 657
+        y: 738
+        width: 99
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d88c573707c409546b550fe2f095ad30
+      internalID: 462266136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 7segment SDF Atlas_13
+      rect:
+        serializedVersion: 2
+        x: 770
+        y: 652
+        width: 105
+        height: 178
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4209debeda492444db1b02aad6dc4138
+      internalID: -1799388843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 7segment SDF Atlas_14
+      rect:
+        serializedVersion: 2
+        x: 946
+        y: 781
+        width: 43
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d916ff316518c44698603814a886fc6
+      internalID: 2034388662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 7segment SDF Atlas_15
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 748
+        width: 82
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63400ad31f262324ebfcec33e3318ed2
+      internalID: 931115431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 7segment SDF Atlas_16
+      rect:
+        serializedVersion: 2
+        x: 881
+        y: 760
+        width: 41
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24a6214923b32b1498bffcff830eb589
+      internalID: 265663093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 7segment SDF Atlas_17
+      rect:
+        serializedVersion: 2
+        x: 946
+        y: 687
+        width: 44
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0d00e27b55724c4eaf04938045f4fb2
+      internalID: -2052253278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 7segment SDF Atlas_18
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 562
+        width: 114
+        height: 186
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6bb9a74caa36f4a4faff1837ff828b4f
+      internalID: -508411312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 7segment SDF Atlas_19
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 561
+        width: 109
+        height: 186
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ee60407cce0c904a91ff82f3bc417d9
+      internalID: 1617123923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 7segment SDF Atlas_20
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 561
+        width: 105
+        height: 186
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d66d57033af7bfc4ebad82cd4f3d6b0e
+      internalID: 944832408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 7segment SDF Atlas_21
+      rect:
+        serializedVersion: 2
+        x: 343
+        y: 707
+        width: 82
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8d1d38dc7e420142a5fa7d9ac8872d9
+      internalID: 505012266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 7segment SDF Atlas_22
+      rect:
+        serializedVersion: 2
+        x: 427
+        y: 559
+        width: 115
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e80514dcd993b94aaa33f52aa1b575a
+      internalID: 522724763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 7segment SDF Atlas_23
+      rect:
+        serializedVersion: 2
+        x: 543
+        y: 559
+        width: 110
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f61e3fffd13dcde4393f8e55b3ca25f1
+      internalID: 1697552778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 7segment SDF Atlas_24
+      rect:
+        serializedVersion: 2
+        x: 654
+        y: 558
+        width: 115
+        height: 179
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 925dd321ba358cc42b3dd0e58e70eb7c
+      internalID: 319942252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 7segment SDF Atlas_25
+      rect:
+        serializedVersion: 2
+        x: 876
+        y: 687
+        width: 42
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 067eca7d30cd4ca40986470863ffd332
+      internalID: -725818851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 7segment SDF Atlas_26
+      rect:
+        serializedVersion: 2
+        x: 341
+        y: 634
+        width: 85
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db0b7d7a3ffafbf499a9f389353551a0
+      internalID: 1031020524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 7segment SDF Atlas_27
+      rect:
+        serializedVersion: 2
+        x: 770
+        y: 552
+        width: 44
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3d4637fd70e2204293cc61a95752ce1
+      internalID: -383366377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 7segment SDF Atlas_28
+      rect:
+        serializedVersion: 2
+        x: 836
+        y: 552
+        width: 44
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aba0d93422467614a95058820e70dc70
+      internalID: 1710726882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 7segment SDF Atlas_29
+      rect:
+        serializedVersion: 2
+        x: 882
+        y: 587
+        width: 109
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 736f42c6719b3864cb5664f89178db4b
+      internalID: -1007505719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 7segment SDF Atlas_30
+      rect:
+        serializedVersion: 2
+        x: 334
+        y: 561
+        width: 81
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 913c88d5057b3534abb9a5b66d232788
+      internalID: 193352185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 7segment SDF Atlas_31
+      rect:
+        serializedVersion: 2
+        x: 883
+        y: 474
+        width: 110
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca11bfc768e100e45a7cfdf80bc95287
+      internalID: 1256683355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 7segment SDF Atlas_32
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 375
+        width: 114
+        height: 186
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2c99eaee62a7a64e9c3861276e3c7b0
+      internalID: -216488899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 7segment SDF Atlas_33
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 374
+        width: 110
+        height: 186
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9c3890e81b944444b4d79d133bc3097
+      internalID: 908361142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 7segment SDF Atlas_34
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 374
+        width: 107
+        height: 186
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d52e4c353ced2c54eb13a639b78c9ad0
+      internalID: -578168601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 7segment SDF Atlas_35
+      rect:
+        serializedVersion: 2
+        x: 337
+        y: 373
+        width: 114
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 246c49cf201eba642a75316fd2aba26e
+      internalID: 1957327423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 7segment SDF Atlas_36
+      rect:
+        serializedVersion: 2
+        x: 452
+        y: 373
+        width: 110
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e90d2f114495f54d9f9d2835652501b
+      internalID: -748095968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 7segment SDF Atlas_37
+      rect:
+        serializedVersion: 2
+        x: 563
+        y: 373
+        width: 115
+        height: 184
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8449809361dcd14487aa74115276304
+      internalID: 739070047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 7segment SDF Atlas_38
+      rect:
+        serializedVersion: 2
+        x: 679
+        y: 372
+        width: 110
+        height: 179
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2d2e6c09ccb16f4a97a72371e135813
+      internalID: 1762264627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 7segment SDF Atlas_39
+      rect:
+        serializedVersion: 2
+        x: 797
+        y: 434
+        width: 85
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b95322aaca299ed4395c2e59bd13ff15
+      internalID: 1318165167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 7segment SDF Atlas_40
+      rect:
+        serializedVersion: 2
+        x: 883
+        y: 360
+        width: 110
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e500ccb1e51d2bc45aa652be10b5ae7b
+      internalID: -379739400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 7segment SDF Atlas_41
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 188
+        width: 114
+        height: 186
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6279e39c1ef466b4e9dcc183f2200768
+      internalID: -642598762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 7segment SDF Atlas_42
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 187
+        width: 109
+        height: 186
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e196598253d57b46bf1cc77446d06fe
+      internalID: -839191992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 7segment SDF Atlas_43
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 187
+        width: 107
+        height: 186
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f86cd34a7f024fa45ad8d215b5109b60
+      internalID: -1682871594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 7segment SDF Atlas_44
+      rect:
+        serializedVersion: 2
+        x: 337
+        y: 187
+        width: 114
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e911d14bfc412ce449b150abd74a1a97
+      internalID: -487596720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 7segment SDF Atlas_45
+      rect:
+        serializedVersion: 2
+        x: 469
+        y: 332
+        width: 82
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55cdeba1672aa3649b99b914b157e425
+      internalID: 1148650817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 7segment SDF Atlas_46
+      rect:
+        serializedVersion: 2
+        x: 563
+        y: 187
+        width: 107
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c03e1ad9aa99bf74abefa594af56ec45
+      internalID: 235252430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 7segment SDF Atlas_47
+      rect:
+        serializedVersion: 2
+        x: 671
+        y: 187
+        width: 110
+        height: 184
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 082f411c6e480b045b2c8223ebe91891
+      internalID: 1346359009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 7segment SDF Atlas_48
+      rect:
+        serializedVersion: 2
+        x: 790
+        y: 361
+        width: 81
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d8dec7c9aae9ec408573719390f1492
+      internalID: 856894642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 7segment SDF Atlas_49
+      rect:
+        serializedVersion: 2
+        x: 453
+        y: 187
+        width: 109
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f7272c02f2404940a403c6dbd184f30
+      internalID: -1995377597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 7segment SDF Atlas_50
+      rect:
+        serializedVersion: 2
+        x: 782
+        y: 181
+        width: 100
+        height: 179
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79a1dcd2040014240a43f1af00e4bcf9
+      internalID: -1240009341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 7segment SDF Atlas_51
+      rect:
+        serializedVersion: 2
+        x: 883
+        y: 181
+        width: 110
+        height: 178
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d5fd2437362d0d45b3975f1b15c1136
+      internalID: -981398815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 7segment SDF Atlas_52
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1
+        width: 114
+        height: 186
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab87eadcb211f384bb17e38df60b5fec
+      internalID: 1296436425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 7segment SDF Atlas_53
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 1
+        width: 114
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 410eb3f9cb9426040954c333e9692b60
+      internalID: 1911859894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 7segment SDF Atlas_54
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 1
+        width: 114
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f7ec46d530582048be7c2d07e68212b
+      internalID: 1110728684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 7segment SDF Atlas_55
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 1
+        width: 114
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a879454f27b3dbb42aa6237376983b95
+      internalID: -901151347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 7segment SDF Atlas_56
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 87
+        width: 44
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 218d3fe874057b04ebe275424a2e97f5
+      internalID: 289135279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 7segment SDF Atlas_57
+      rect:
+        serializedVersion: 2
+        x: 531
+        y: 87
+        width: 44
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e55a884195a50734f9ea7b7d426f0681
+      internalID: -1523985224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 7segment SDF Atlas_58
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 1
+        width: 98
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84425314292da7245a92e846347da97c
+      internalID: -1533784408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 7segment SDF Atlas_59
+      rect:
+        serializedVersion: 2
+        x: 675
+        y: 1
+        width: 48
+        height: 184
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a21983984eb7db04e97652acc3a75216
+      internalID: 576654444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 7segment SDF Atlas_60
+      rect:
+        serializedVersion: 2
+        x: 725
+        y: 1
+        width: 114
+        height: 179
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b8411eb8491b4d43bc3be1b5dd1ee63
+      internalID: 1019574859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 7segment SDF Atlas_61
+      rect:
+        serializedVersion: 2
+        x: 841
+        y: 1
+        width: 99
+        height: 179
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9b0e7a1fde793545903f3014b39f1f5
+      internalID: -299001554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 7segment SDF Atlas_62
+      rect:
+        serializedVersion: 2
+        x: 942
+        y: 1
+        width: 48
+        height: 172
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d469baab27b1724bb88cd81fb6b6b77
+      internalID: 1468725117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 7segment SDF Atlas_63
+      rect:
+        serializedVersion: 2
+        x: 467
+        y: 1
+        width: 82
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c04ba0f9caa67d44481d54a3bc656000
+      internalID: 1636606895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID:
+    spriteID: 347f0b08a0e6a5f4c8fed17a2f3c9be9
     internalID: 0
     vertices: []
-    indices:
+    indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
-  mipmapLimitGroupName:
-  output:
-    textureImportInstructions:
-      compressedFormat: 0
-      uncompressedFormat: 0
-      desiredFormat: 0
-      usageMode: 0
-      colorSpace: 0
-      androidETC2FallbackFormat: 0
-      width: 0
-      height: 0
-      depth: 0
-      cubeIntermediateSize: 0
-      cubeMode: 0
-      cubeLayout: 0
-      compressionQuality: 0
-      androidETC2FallbackDownscale: 0
-      vtOnly: 0
-    sourceTextureInformation:
-      width: 0
-      height: 0
-      doesTextureContainAlpha: 0
-      sourceWasHDR: 0
-    importInspectorWarnings:
+    nameFileIdTable:
+      7segment SDF Atlas_0: -1164471015
+      7segment SDF Atlas_1: -518452607
+      7segment SDF Atlas_10: -1353420004
+      7segment SDF Atlas_11: -282650443
+      7segment SDF Atlas_12: 462266136
+      7segment SDF Atlas_13: -1799388843
+      7segment SDF Atlas_14: 2034388662
+      7segment SDF Atlas_15: 931115431
+      7segment SDF Atlas_16: 265663093
+      7segment SDF Atlas_17: -2052253278
+      7segment SDF Atlas_18: -508411312
+      7segment SDF Atlas_19: 1617123923
+      7segment SDF Atlas_2: 762250500
+      7segment SDF Atlas_20: 944832408
+      7segment SDF Atlas_21: 505012266
+      7segment SDF Atlas_22: 522724763
+      7segment SDF Atlas_23: 1697552778
+      7segment SDF Atlas_24: 319942252
+      7segment SDF Atlas_25: -725818851
+      7segment SDF Atlas_26: 1031020524
+      7segment SDF Atlas_27: -383366377
+      7segment SDF Atlas_28: 1710726882
+      7segment SDF Atlas_29: -1007505719
+      7segment SDF Atlas_3: 381068734
+      7segment SDF Atlas_30: 193352185
+      7segment SDF Atlas_31: 1256683355
+      7segment SDF Atlas_32: -216488899
+      7segment SDF Atlas_33: 908361142
+      7segment SDF Atlas_34: -578168601
+      7segment SDF Atlas_35: 1957327423
+      7segment SDF Atlas_36: -748095968
+      7segment SDF Atlas_37: 739070047
+      7segment SDF Atlas_38: 1762264627
+      7segment SDF Atlas_39: 1318165167
+      7segment SDF Atlas_4: -245038308
+      7segment SDF Atlas_40: -379739400
+      7segment SDF Atlas_41: -642598762
+      7segment SDF Atlas_42: -839191992
+      7segment SDF Atlas_43: -1682871594
+      7segment SDF Atlas_44: -487596720
+      7segment SDF Atlas_45: 1148650817
+      7segment SDF Atlas_46: 235252430
+      7segment SDF Atlas_47: 1346359009
+      7segment SDF Atlas_48: 856894642
+      7segment SDF Atlas_49: -1995377597
+      7segment SDF Atlas_5: 2144259511
+      7segment SDF Atlas_50: -1240009341
+      7segment SDF Atlas_51: -981398815
+      7segment SDF Atlas_52: 1296436425
+      7segment SDF Atlas_53: 1911859894
+      7segment SDF Atlas_54: 1110728684
+      7segment SDF Atlas_55: -901151347
+      7segment SDF Atlas_56: 289135279
+      7segment SDF Atlas_57: -1523985224
+      7segment SDF Atlas_58: -1533784408
+      7segment SDF Atlas_59: 576654444
+      7segment SDF Atlas_6: -1328600152
+      7segment SDF Atlas_60: 1019574859
+      7segment SDF Atlas_61: -299001554
+      7segment SDF Atlas_62: 1468725117
+      7segment SDF Atlas_63: 1636606895
+      7segment SDF Atlas_7: -218357396
+      7segment SDF Atlas_8: -734247721
+      7segment SDF Atlas_9: -1885150932
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  userData:
-  assetBundleName:
-  assetBundleVariant:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

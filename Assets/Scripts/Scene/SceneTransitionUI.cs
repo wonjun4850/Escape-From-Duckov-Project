@@ -47,6 +47,9 @@ public class SceneTransitionUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _currentExpText;
     [SerializeField] private TextMeshProUGUI _currentMaxExpText;
     [SerializeField] private TextMeshProUGUI _mainText;
+
+    [Header("가림막..")]
+    [SerializeField] private GameObject _Images;
     #endregion
 
     #region 외부 호출 함수
@@ -68,6 +71,8 @@ public class SceneTransitionUI : MonoBehaviour
     {
         _resultGroup.alpha = 0f;
         _mainText.text = "";
+        _escapeContinueButton.interactable = true;
+        _deadContinueButton.interactable = true;
         _buttons.gameObject.SetActive(false);
         _escapeContinueButton.gameObject.SetActive(false);
         _deadContinueButton.gameObject.SetActive(false);
@@ -146,6 +151,11 @@ public class SceneTransitionUI : MonoBehaviour
 
     public void SetStartLoadingUI(bool isActive)
     {
+        if (!_specificLoading.gameObject.activeSelf)
+        {
+            _specificLoading.gameObject.SetActive(true);
+        }
+
         if (isActive)
         {
             _start.SetActive(true);
@@ -161,6 +171,11 @@ public class SceneTransitionUI : MonoBehaviour
 
     public void SetEscapeLoadingUI(bool isActive)
     {
+        if (!_specificLoading.gameObject.activeSelf)
+        {
+            _specificLoading.gameObject.SetActive(true);
+        }
+
         if (isActive)
         {
             _escape.SetActive(true);
@@ -176,6 +191,11 @@ public class SceneTransitionUI : MonoBehaviour
 
     public void SetDeadLoadingUI(bool isActive)
     {
+        if (!_specificLoading.gameObject.activeSelf)
+        {
+            _specificLoading.gameObject.SetActive(true);
+        }
+
         if (isActive)
         {
             _dead.SetActive(true);
@@ -214,10 +234,12 @@ public class SceneTransitionUI : MonoBehaviour
         _expBar.fillAmount = (float)player.CurrentExp / player.MaxExp;
 
         Sequence sq = DOTween.Sequence().SetUpdate(true);
+        SoundManager.Instance.PlaySFX("Result");
         sq.Append(_changeCircle.DOScale(_minScale, _duration * 1.5f).SetEase(Ease.InExpo));
         sq.AppendInterval(0.1f);
         sq.AppendCallback(() => _resultGroup.gameObject.SetActive(true));
         sq.Append(_resultGroup.DOFade(1f, _resultFadeDuration));
+        sq.AppendCallback(() => Init());
         sq.AppendInterval(0.1f);
 
         if (gainExp > 0)
@@ -238,7 +260,7 @@ public class SceneTransitionUI : MonoBehaviour
 
         if (isEscape)
         {
-            _escapeContinueButton.gameObject.SetActive(true);            
+            _escapeContinueButton.gameObject.SetActive(true);
         }
 
         else
@@ -307,6 +329,7 @@ public class SceneTransitionUI : MonoBehaviour
     {
         _escapeContinueButton.interactable = false;
         SoundManager.Instance.PlaySFX("Confirm");
+        _Images.SetActive(true);
         SceneLoader.Instance.LoadScene("Base1", "Ingame");
     }
 
@@ -314,7 +337,16 @@ public class SceneTransitionUI : MonoBehaviour
     {
         _deadContinueButton.interactable = false;
         SoundManager.Instance.PlaySFX("Confirm");
+        _Images.SetActive(true);
         SceneLoader.Instance.LoadScene("Base1", "Ingame", true);
     }
     #endregion
+
+    public void ScreenTurnOff()
+    {
+        if (_Images.activeSelf)
+        {
+            _Images.SetActive(false);
+        }
+    }
 }

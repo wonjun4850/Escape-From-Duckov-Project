@@ -479,24 +479,6 @@
             "id": "4b65fb3c-3ad1-46e3-90cd-e98f0f396e6d",
             "actions": [
                 {
-                    "name": "ClickUI",
-                    "type": "Button",
-                    "id": "e7d725d9-069f-42b0-b421-7a1f527079fd",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "ReturnUI",
-                    "type": "Button",
-                    "id": "e4d7c407-cec4-4e64-8184-0f133387c954",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "PauseCancel",
                     "type": "Button",
                     "id": "81bb24f7-b512-44b2-9df2-315e4b8ade33",
@@ -509,34 +491,12 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "1b598e57-ff67-4658-b517-aff114c43bd3",
-                    "path": "<Mouse>/leftButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "ClickUI",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "718f7816-19b1-4852-9ec0-f5ba4fd72c56",
                     "path": "<Keyboard>/escape",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "PauseCancel",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "24608e77-decb-46ed-81ac-b3e1b09dbbf2",
-                    "path": "<Keyboard>/escape",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "ReturnUI",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

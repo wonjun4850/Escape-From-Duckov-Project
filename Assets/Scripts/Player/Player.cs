@@ -16,6 +16,13 @@ public class Player : MonoBehaviour
     private HpSystem _hpSystem;
     #endregion
 
+    #region 프로퍼티
+    public PlayerMovement Movement => _playerMovement;
+    public StaminaSystem Stamina => _staminaSystem;
+    public SurvivalSystem Survival => _survivalSystem;
+    public HpSystem Hp => _hpSystem;
+    #endregion
+
     private void Awake()
     {
         _playerMovement = GetComponent<PlayerMovement>();
@@ -28,21 +35,14 @@ public class Player : MonoBehaviour
             Debug.LogError("Player 겟컴포넌트 오류 : 인스펙터 확인");
             return;
         }        
-
-        if (_playerData != null)
-        {
-            Init(_playerData);
-        }
     }
 
     void Start()
     {
-        
-    }
-
-    void Update()
-    {
-        
+        if (_playerData != null)
+        {
+            Init(_playerData);
+        }
     }
 
     #region 외부 호출 함수
@@ -53,24 +53,56 @@ public class Player : MonoBehaviour
         if (_playerMovement != null)
         {
             _playerMovement.Init(_playerData.BaseMoveSpeed, _playerData.RunMultiplier, _playerData.DodgeForce, _playerData.DodgeDuration);
+            Debug.Log("플레이어 데이터 (_playerMovement) 주입 완료");
+        }
+
+        else
+        {
+            Debug.Log("플레이어 데이터 (_playerMovement) 주입 실패");
         }
 
         if (_staminaSystem != null)
         {
             _staminaSystem.Init(_playerData.MaxStamina, _playerData.StaminaRegenRate, _playerData.DodgeCost, _playerData.RunCost);
+            Debug.Log("플레이어 데이터 (_staminaSystem) 주입 완료");
+        }
+
+        else
+        {
+            Debug.Log("플레이어 데이터 (_staminaSystem) 주입 실패");
         }
 
         if (_survivalSystem != null)
         {
             _survivalSystem.Init(_playerData.MaxEnergy, _playerData.MaxHydration, _playerData.EnergyLossRate, _playerData.HydrationLossRate);
+            Debug.Log("플레이어 데이터 (_survivalSystem) 주입 완료");
+        }
+
+        else
+        {
+            Debug.Log("플레이어 데이터 (_survivalSystem) 주입 실패");
         }
 
         if (_hpSystem != null)
         {
             _hpSystem.Init(_playerData.BaseMaxHealth);
+            Debug.Log("플레이어 데이터 (_hpSystem) 주입 완료");
         }
 
-        Debug.Log("플레이어 데이터 주입 완료");
+        else
+        {
+            Debug.Log("플레이어 데이터 (_hpSystem) 주입 실패");
+        }
+
+        if (IngameUIManager.Instance != null)
+        {
+            IngameUIManager.Instance.BindPlayerUI(this);
+        }
+
+        else
+        {
+            Debug.Log("플레이어 데이터 -> UI 데이터 주입 실패");
+        }
     }
     #endregion
 }

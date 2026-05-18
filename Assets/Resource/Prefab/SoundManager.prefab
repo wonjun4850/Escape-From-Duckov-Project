@@ -122,6 +122,10 @@ MonoBehaviour:
     _clip: {fileID: 8300000, guid: 017af9f7828bbf443ae599a122666744, type: 3}
     _volume: 1
     _description: "\uD50C\uB808\uC774\uC5B4 \uBC1C\uC18C\uB9AC5"
+  - _name: Result
+    _clip: {fileID: 8300000, guid: 679c49c19c0751243a74f683f1eb71a6, type: 3}
+    _volume: 1
+    _description: "\uACB0\uACFC\uCC3D \uD6A8\uACFC\uC74C"
 --- !u!1 &4914877735059146590
 GameObject:
   m_ObjectHideFlags: 0

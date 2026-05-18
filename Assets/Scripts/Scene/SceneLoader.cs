@@ -55,6 +55,8 @@ public class SceneLoader : MonoBehaviour
 
     private IEnumerator CoLoadScene(string sceneName, string nextActionMap, bool clickDirection = false)
     {
+        _sceneTransitionUI.Init();
+        _sceneTransitionUI.ResultInit();
         _isLoading = true;
 
         string currentScene = SceneManager.GetActiveScene().name;
@@ -66,7 +68,7 @@ public class SceneLoader : MonoBehaviour
         _canvas.SetActive(true);
 
         yield return _sceneTransitionUI.CircleIn().WaitForCompletion();
-
+        _sceneTransitionUI.ScreenTurnOff();
         AsyncOperation op = SceneManager.LoadSceneAsync(sceneName);
 
         op.allowSceneActivation = false;
@@ -104,7 +106,7 @@ public class SceneLoader : MonoBehaviour
 
             SetLoadingUI(currentScene, sceneName, false);
 
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(1f);
         }
 
         else
@@ -113,8 +115,8 @@ public class SceneLoader : MonoBehaviour
 
             SetLoadingUI(currentScene, sceneName, false);
 
-            yield return new WaitForSeconds(0.5f);
-        }               
+            yield return new WaitForSeconds(1f);
+        }
 
         switch (sceneName)
         {
@@ -128,7 +130,7 @@ public class SceneLoader : MonoBehaviour
                 break;
 
             case "GroundZero":
-                SoundManager.Instance.PlayBGM("GroundZero_BGM", 1.5f);                
+                SoundManager.Instance.PlayBGM("GroundZero_BGM", 1.5f);
                 break;
 
             default:
@@ -196,10 +198,12 @@ public class SceneLoader : MonoBehaviour
         StartCoroutine(CoLoadScene(sceneName, nextActionMap, clickDirection));
     }
 
-    public void ShowResultUI(PlayerDataSO player,int gainExp, bool isEscape)
+    public void ShowResultUI(PlayerDataSO player, int gainExp, bool isEscape)
     {
         _canvas.SetActive(true);
-        _sceneTransitionUI.ResultUI(player ,gainExp, isEscape);
+        InputDispatcher.Instance.ChangeActionMap("Lobby");
+        CursorManager.Instance.SetCursorByScene("Lobby");
+        _sceneTransitionUI.ResultUI(player, gainExp, isEscape);
     }
     #endregion
 }

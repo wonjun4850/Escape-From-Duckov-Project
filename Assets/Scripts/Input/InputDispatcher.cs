@@ -49,8 +49,6 @@ public class InputDispatcher : MonoBehaviour
     public event Action OnPause;
 
     // UI 액션
-    public event Action OnClickUI;
-    public event Action OnReturnUI;
     public event Action OnPauseCancel;
 
     // 로비 액션
@@ -153,8 +151,6 @@ public class InputDispatcher : MonoBehaviour
         _inputActions.Ingame.QuickSlot7.performed += OnQuickSlot7Performed;
         _inputActions.Ingame.QuickSlot8.performed += OnQuickSlot8Performed;
         _inputActions.Ingame.Pause.performed += OnPausePerformed;
-        _inputActions.Ui.ClickUI.performed += OnClickUIPerformed;
-        _inputActions.Ui.ReturnUI.performed += OnReturnUIPerformed;
         _inputActions.Ui.PauseCancel.performed += OnPauseCancelPerformed;
         _inputActions.Lobby.PressAnyKey.performed += OnPressAnyKeyPerformed;
         _inputActions.Lobby.Back.performed += OnBackPerformed;
@@ -197,8 +193,6 @@ public class InputDispatcher : MonoBehaviour
         _inputActions.Ingame.QuickSlot7.performed -= OnQuickSlot7Performed;
         _inputActions.Ingame.QuickSlot8.performed -= OnQuickSlot8Performed;
         _inputActions.Ingame.Pause.performed -= OnPausePerformed;
-        _inputActions.Ui.ClickUI.performed -= OnClickUIPerformed;
-        _inputActions.Ui.ReturnUI.performed -= OnReturnUIPerformed;
         _inputActions.Ui.PauseCancel.performed -= OnPauseCancelPerformed;
         _inputActions.Lobby.PressAnyKey.performed -= OnPressAnyKeyPerformed;
         _inputActions.Lobby.Back.performed -= OnBackPerformed;
@@ -444,26 +438,6 @@ public class InputDispatcher : MonoBehaviour
         }
 
         OnPause?.Invoke();
-    }
-
-    private void OnClickUIPerformed(InputAction.CallbackContext ctx)
-    {
-        if (_showInputLog)
-        {
-            Debug.Log($"Input ClickUI");
-        }
-
-        OnClickUI?.Invoke();
-    }
-
-    private void OnReturnUIPerformed(InputAction.CallbackContext ctx)
-    {
-        if (_showInputLog)
-        {
-            Debug.Log($"Input ReturnUI");
-        }
-
-        OnReturnUI?.Invoke();
     }
 
     private void OnPauseCancelPerformed(InputAction.CallbackContext ctx)

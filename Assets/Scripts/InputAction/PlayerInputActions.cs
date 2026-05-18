@@ -565,24 +565,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             ""id"": ""4b65fb3c-3ad1-46e3-90cd-e98f0f396e6d"",
             ""actions"": [
                 {
-                    ""name"": ""ClickUI"",
-                    ""type"": ""Button"",
-                    ""id"": ""e7d725d9-069f-42b0-b421-7a1f527079fd"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""ReturnUI"",
-                    ""type"": ""Button"",
-                    ""id"": ""e4d7c407-cec4-4e64-8184-0f133387c954"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""PauseCancel"",
                     ""type"": ""Button"",
                     ""id"": ""81bb24f7-b512-44b2-9df2-315e4b8ade33"",
@@ -595,34 +577,12 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             ""bindings"": [
                 {
                     ""name"": """",
-                    ""id"": ""1b598e57-ff67-4658-b517-aff114c43bd3"",
-                    ""path"": ""<Mouse>/leftButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""ClickUI"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""718f7816-19b1-4852-9ec0-f5ba4fd72c56"",
                     ""path"": ""<Keyboard>/escape"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""PauseCancel"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""24608e77-decb-46ed-81ac-b3e1b09dbbf2"",
-                    ""path"": ""<Keyboard>/escape"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""ReturnUI"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -737,8 +697,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_Ingame_Pause = m_Ingame.FindAction("Pause", throwIfNotFound: true);
         // Ui
         m_Ui = asset.FindActionMap("Ui", throwIfNotFound: true);
-        m_Ui_ClickUI = m_Ui.FindAction("ClickUI", throwIfNotFound: true);
-        m_Ui_ReturnUI = m_Ui.FindAction("ReturnUI", throwIfNotFound: true);
         m_Ui_PauseCancel = m_Ui.FindAction("PauseCancel", throwIfNotFound: true);
         // Lobby
         m_Lobby = asset.FindActionMap("Lobby", throwIfNotFound: true);
@@ -1142,8 +1100,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     // Ui
     private readonly InputActionMap m_Ui;
     private List<IUiActions> m_UiActionsCallbackInterfaces = new List<IUiActions>();
-    private readonly InputAction m_Ui_ClickUI;
-    private readonly InputAction m_Ui_ReturnUI;
     private readonly InputAction m_Ui_PauseCancel;
     /// <summary>
     /// Provides access to input actions defined in input action map "Ui".
@@ -1156,14 +1112,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         /// Construct a new instance of the input action map wrapper class.
         /// </summary>
         public UiActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
-        /// <summary>
-        /// Provides access to the underlying input action "Ui/ClickUI".
-        /// </summary>
-        public InputAction @ClickUI => m_Wrapper.m_Ui_ClickUI;
-        /// <summary>
-        /// Provides access to the underlying input action "Ui/ReturnUI".
-        /// </summary>
-        public InputAction @ReturnUI => m_Wrapper.m_Ui_ReturnUI;
         /// <summary>
         /// Provides access to the underlying input action "Ui/PauseCancel".
         /// </summary>
@@ -1194,12 +1142,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         {
             if (instance == null || m_Wrapper.m_UiActionsCallbackInterfaces.Contains(instance)) return;
             m_Wrapper.m_UiActionsCallbackInterfaces.Add(instance);
-            @ClickUI.started += instance.OnClickUI;
-            @ClickUI.performed += instance.OnClickUI;
-            @ClickUI.canceled += instance.OnClickUI;
-            @ReturnUI.started += instance.OnReturnUI;
-            @ReturnUI.performed += instance.OnReturnUI;
-            @ReturnUI.canceled += instance.OnReturnUI;
             @PauseCancel.started += instance.OnPauseCancel;
             @PauseCancel.performed += instance.OnPauseCancel;
             @PauseCancel.canceled += instance.OnPauseCancel;
@@ -1214,12 +1156,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         /// <seealso cref="UiActions" />
         private void UnregisterCallbacks(IUiActions instance)
         {
-            @ClickUI.started -= instance.OnClickUI;
-            @ClickUI.performed -= instance.OnClickUI;
-            @ClickUI.canceled -= instance.OnClickUI;
-            @ReturnUI.started -= instance.OnReturnUI;
-            @ReturnUI.performed -= instance.OnReturnUI;
-            @ReturnUI.canceled -= instance.OnReturnUI;
             @PauseCancel.started -= instance.OnPauseCancel;
             @PauseCancel.performed -= instance.OnPauseCancel;
             @PauseCancel.canceled -= instance.OnPauseCancel;
@@ -1525,20 +1461,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     /// <seealso cref="UiActions.RemoveCallbacks(IUiActions)" />
     public interface IUiActions
     {
-        /// <summary>
-        /// Method invoked when associated input action "ClickUI" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnClickUI(InputAction.CallbackContext context);
-        /// <summary>
-        /// Method invoked when associated input action "ReturnUI" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnReturnUI(InputAction.CallbackContext context);
         /// <summary>
         /// Method invoked when associated input action "PauseCancel" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>

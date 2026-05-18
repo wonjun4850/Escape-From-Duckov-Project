@@ -26,6 +26,12 @@ public class SurvivalSystem : MonoBehaviour
     private bool _isInit = false;
     #endregion
 
+    #region 이벤트
+    public event System.Action<ESurvivalState> OnStateChanged;
+    public event System.Action<float> OnEnergyChanged;
+    public event System.Action<float> OnHydrationChanged;
+    #endregion
+
     void Update()
     {
         if (!_isInit)
@@ -34,7 +40,7 @@ public class SurvivalSystem : MonoBehaviour
         }
 
         ConsumeByTime();
-        UpdateSurvivalState();
+        SetSurvivalState(DecideSurvivalState());
     }
 
     private void ConsumeByTime()
@@ -44,29 +50,38 @@ public class SurvivalSystem : MonoBehaviour
 
         _currentEnergy = Mathf.Clamp(_currentEnergy, 0, _maxEnergy);
         _currentHydration = Mathf.Clamp(_currentHydration, 0, _maxHydration);
+
+        OnEnergyChanged?.Invoke(GetEnergyRatio());
+        OnHydrationChanged?.Invoke(GetHydrationRatio());
     }
 
-    private void UpdateSurvivalState()
+    private void SetSurvivalState(ESurvivalState next)
     {
-        if (_currentEnergy <= 0)
+        if (_currentState == next)
         {
-            _currentState |= ESurvivalState.Hunger;
+            return;
         }
 
-        else
+        _currentState = next;
+
+        OnStateChanged?.Invoke(_currentState);
+    }
+
+    private ESurvivalState DecideSurvivalState()
+    {
+        ESurvivalState nextState = ESurvivalState.None;
+
+        if (_currentEnergy <= 0)
         {
-            _currentState &= ~ESurvivalState.Hunger;
+            nextState |= ESurvivalState.Hunger;
         }
 
         if (_currentHydration <= 0)
         {
-            _currentState |= ESurvivalState.Thirst;
+            nextState |= ESurvivalState.Thirst;
         }
 
-        else
-        {
-            _currentState &= ~ESurvivalState.Thirst;
-        }
+        return nextState;
     }
 
     #region 외부 호출 함수
@@ -87,7 +102,8 @@ public class SurvivalSystem : MonoBehaviour
     public void RestoreEnergy(float amount)
     {
         _currentEnergy += amount;
-        _currentEnergy = Mathf.Clamp(_currentEnergy, 0, _maxEnergy);        
+        _currentEnergy = Mathf.Clamp(_currentEnergy, 0, _maxEnergy);
+        OnEnergyChanged?.Invoke(GetEnergyRatio());
     }
 
     // 음식 사용했을때 사용할 함수
@@ -95,7 +111,8 @@ public class SurvivalSystem : MonoBehaviour
     {
         _currentHydration += amount;
         _currentHydration = Mathf.Clamp(_currentHydration, 0, _maxHydration);
-    }    
+        OnHydrationChanged?.Invoke(GetHydrationRatio());
+    }
 
     // UI 에서 사용할 함수
     public float GetEnergyRatio()

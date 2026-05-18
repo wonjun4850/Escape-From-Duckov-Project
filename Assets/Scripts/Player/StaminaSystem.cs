@@ -13,10 +13,14 @@ public class StaminaSystem : MonoBehaviour
     private float _runCost;
 
     private float _currentStamina;
-    private float _regenDelay = 1f;
+    private float _regenDelay = 1.5f;
     private float _currentRegenTimer = 0f;
 
     private bool _isInit = false;
+    #endregion
+
+    #region ¿Ã∫•∆Æ
+    public event System.Action<float> OnStaminaChanged;
     #endregion
 
     private void Awake()
@@ -38,7 +42,11 @@ public class StaminaSystem : MonoBehaviour
 
         else
         {
-            StaminaRegen();
+            if (_currentStamina < _maxStamina)
+            {
+                StaminaRegen();
+                OnStaminaChanged?.Invoke(GetStaminaRatio());
+            }
         }
     }
 
@@ -87,6 +95,7 @@ public class StaminaSystem : MonoBehaviour
         _currentStamina = Mathf.Clamp(_currentStamina, 0, _maxStamina);
 
         ResetStaminaRegenTimer();
+        OnStaminaChanged?.Invoke(GetStaminaRatio());
     }
 
     public bool CanRun()
@@ -110,6 +119,7 @@ public class StaminaSystem : MonoBehaviour
         _currentStamina = Mathf.Clamp(_currentStamina, 0, _maxStamina);
 
         ResetStaminaRegenTimer();
+        OnStaminaChanged?.Invoke(GetStaminaRatio());
     }
 
     public bool CanDodge()

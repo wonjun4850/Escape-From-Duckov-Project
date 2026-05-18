@@ -53,6 +53,11 @@ public class InputCommandHub : MonoBehaviour
         _dispatcher.OnMove += HandleMove;
         _dispatcher.OnRun += HandleRun;
         _dispatcher.OnDodge += HandleDodge;
+        _dispatcher.OnPause += HandlePause;
+        _dispatcher.OnInventory += HandleInventory;
+        _dispatcher.OnInteract += HandleInteract;
+        _dispatcher.OnMap += HandleMap;
+        _dispatcher.OnQuest += HandleQuest;
         _dispatcher.OnPressAnyKey += HandlePressAnyKey;
         _dispatcher.OnBack += HandleBack;
 
@@ -67,6 +72,11 @@ public class InputCommandHub : MonoBehaviour
         _dispatcher.OnMove -= HandleMove;
         _dispatcher.OnRun -= HandleRun;
         _dispatcher.OnDodge -= HandleDodge;
+        _dispatcher.OnPause -= HandlePause;
+        _dispatcher.OnInventory -= HandleInventory;
+        _dispatcher.OnInteract -= HandleInteract;
+        _dispatcher.OnMap -= HandleMap;
+        _dispatcher.OnQuest -= HandleQuest;
         _dispatcher.OnPressAnyKey -= HandlePressAnyKey;
         _dispatcher.OnBack -= HandleBack;
 
@@ -90,6 +100,31 @@ public class InputCommandHub : MonoBehaviour
     private void HandleDodge()
     {
         Execute("Player.Dodge");
+    }
+
+    private void HandlePause()
+    {
+        Execute("Player.Pause");
+    }
+
+    private void HandleInventory()
+    {
+        Execute("Player.Inventory");
+    }
+
+    private void HandleInteract()
+    {
+        Execute("Player.Interact");
+    }
+
+    private void HandleMap()
+    {
+        Execute("Player.Map");
+    }
+
+    private void HandleQuest()
+    {
+        Execute("Player.Quest");
     }
 
     private void HandlePressAnyKey()

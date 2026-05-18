@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -23,6 +24,12 @@ public class HpSystem : MonoBehaviour, IDamageable
 
     #region 프로퍼티
     public bool IsDead => _isDead;
+    #endregion
+
+    #region 이벤트
+    public event System.Action OnDead;
+    public event System.Action<float> OnHpChanged;
+    public event System.Action OnDamaged;
     #endregion
 
     private void Awake()
@@ -54,11 +61,11 @@ public class HpSystem : MonoBehaviour, IDamageable
                 TakeDamage(1.0f);
                 _hungerTickTimer = 0f;
             }
+        }
 
-            else
-            {
-                _hungerTickTimer = 0f;
-            }
+        else
+        {
+            _hungerTickTimer = 0f;
         }
     }
 
@@ -78,11 +85,15 @@ public class HpSystem : MonoBehaviour, IDamageable
         }
 
         _currentHP -= amount;
+        _currentHP = Mathf.Clamp(_currentHP, 0, _baseMaxHealth);
+
+        OnDamaged?.Invoke();
+        OnHpChanged?.Invoke(GetHpRatio());
 
         if (_currentHP <= 0)
         {
-            _currentHP = 0;
             _isDead = true;
+            OnDead?.Invoke();
         }
     }
 
@@ -95,12 +106,23 @@ public class HpSystem : MonoBehaviour, IDamageable
 
         _currentHP += amount;
         _currentHP = Mathf.Clamp(_currentHP, 0, _baseMaxHealth);
+        OnHpChanged?.Invoke(GetHpRatio());
     }
 
     // UI 에서 사용할 함수
     public float GetHpRatio()
     {
         return _currentHP / _baseMaxHealth;
+    }
+
+    public float GetCurrentHp()
+    {
+        return _currentHP;
+    }
+
+    public float GetMaxHp()
+    {
+        return _baseMaxHealth;
     }
     #endregion
 }
