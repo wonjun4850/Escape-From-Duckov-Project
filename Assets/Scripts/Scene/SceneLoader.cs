@@ -158,23 +158,15 @@ public class SceneLoader : MonoBehaviour
 
         else if (currentScene == "GroundZero" && nextScene == "Base")
         {
-            /*
-            플레이어가 죽었니? => 사망 텍스트 + 배경
-            if (PlayerDead)
+            if (GameManager.Instance.GetState() == GameManager.EGameState.Dead)
             {
-                _sceneTransitionUI.SetDeadLoadingUI(isActive)
-
-                PlayerDead 플래그 false로 바꿔주기
+                _sceneTransitionUI.SetDeadLoadingUI(isActive);
             }
 
             else
             {
-
+                _sceneTransitionUI.SetEscapeLoadingUI(isActive);
             }
-            */
-
-            // else 부분 (플레이어가 탈출했을때)
-            _sceneTransitionUI.SetEscapeLoadingUI(isActive);
         }
     }
 
@@ -198,12 +190,14 @@ public class SceneLoader : MonoBehaviour
         StartCoroutine(CoLoadScene(sceneName, nextActionMap, clickDirection));
     }
 
-    public void ShowResultUI(PlayerDataSO player, int gainExp, bool isEscape)
+    public void ShowResultUI(int gainExp, bool isEscape)
     {
         _canvas.SetActive(true);
+
         InputDispatcher.Instance.ChangeActionMap("Lobby");
         CursorManager.Instance.SetCursorByScene("Lobby");
-        _sceneTransitionUI.ResultUI(player, gainExp, isEscape);
+
+        _sceneTransitionUI.ResultUI(DataManager.Instance, gainExp, isEscape);
     }
     #endregion
 }

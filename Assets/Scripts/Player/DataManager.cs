@@ -5,6 +5,9 @@ using UnityEngine;
 public class DataManager : MonoBehaviour
 {
     #region 인스펙터
+    [Header("플레이어 SO")]
+    [SerializeField] private PlayerDataSO _defaultPlayerData;
+
     [Header("플레이어 정보")]
     public string PlayerId;
     public string PlayerName;
@@ -12,10 +15,10 @@ public class DataManager : MonoBehaviour
     [Header("성장")]
     public int Level;
     public int CurrentExp;
-    public int MaxExp;
-
+    public int[] MaxExpTable;
+    
     [Header("체력")]
-    public float BaseMaxHealth;
+    public float MaxHp;
 
     [Header("이동")]
     public float BaseMoveSpeed;
@@ -44,14 +47,27 @@ public class DataManager : MonoBehaviour
     public float EnergyLossRate;
     public float HydrationLossRate;
 
-    [Header("실시간 변동")]
+    [Header("스태쉬 크기")]
+    public int StashSlots;
+
+    [Header("현재값")]
     public float CurrentHp;
-    public float CurrnetEnergy;
+    public float CurrentEnergy;
     public float CurrentHydration;
+    public int CurrentMoney;
     #endregion
 
     #region 내부 변수
     public static DataManager Instance { get; private set; }
+
+    public int MaxExp
+    {
+        get
+        {
+            int index = Mathf.Clamp(Level - 1, 0, MaxExpTable.Length - 1);
+            return MaxExpTable[index];
+        }
+    }
     #endregion
 
     private void Awake()
@@ -74,6 +90,11 @@ public class DataManager : MonoBehaviour
         }
     }
 
+    void Start()
+    {
+        InitFromSO(_defaultPlayerData);
+    }
+
     #region 외부 호출 함수
     public void InitFromSO(PlayerDataSO data)
     {
@@ -81,8 +102,8 @@ public class DataManager : MonoBehaviour
         PlayerName = data.PlayerName;
         Level = data.Level;
         CurrentExp = data.CurrentExp;
-        MaxExp = data.MaxExp;
-        BaseMaxHealth = data.BaseMaxHealth;
+        MaxExpTable = data.MaxExpTable;
+        MaxHp = data.BaseMaxHealth;
         BaseMoveSpeed = data.BaseMoveSpeed;
         RunMultiplier = data.RunMultiplier;
         DodgeForce = data.DodgeForce;
@@ -98,10 +119,11 @@ public class DataManager : MonoBehaviour
         MaxHydration = data.MaxHydration;
         EnergyLossRate = data.EnergyLossRate;
         HydrationLossRate = data.HydrationLossRate;
+        StashSlots = data.StashSlots;
 
         CurrentHp = data.BaseMaxHealth;
-        CurrnetEnergy = data.MaxEnergy;
-        CurrentHydration = data.MaxHydration;
+        CurrentEnergy = data.MaxEnergy;
+        CurrentHydration = data.MaxHydration;        
     }
     #endregion
 }

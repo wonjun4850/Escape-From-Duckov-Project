@@ -21,7 +21,7 @@ public class Enemy : MonoBehaviour
     {
         _hpSystem = GetComponent<HpSystem>();
 
-        if (_hpSystem == null)
+        if (_hpSystem == null || _enemyData == null)
         {
             Debug.LogError("Enemy 겟컴포넌트 오류 : 인스펙터 확인");
             return;
@@ -35,7 +35,7 @@ public class Enemy : MonoBehaviour
 
         if (_hpSystem != null)
         {
-            _hpSystem.Init(_enemyData.BaseMaxHealth);
+            _hpSystem.Init(_enemyData.BaseMaxHealth, _enemyData.BaseMaxHealth);
             Debug.Log("적 데이터 (_hpSystem) 주입 완료");
         }
 

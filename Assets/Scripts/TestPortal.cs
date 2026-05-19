@@ -7,12 +7,9 @@ public class TestPortal : MonoBehaviour
 {
     #region 인스펙터
     [SerializeField] private string _playerTag = "Player";
-    [SerializeField] private string _sceneId = "";
-    [SerializeField] private string _nextActionMap = "";
-    [SerializeField] private bool _clickDirection = false;
     [SerializeField] private bool _onlyOnce = true;
 
-    [SerializeField] private PlayerDataSO _playerDataSO;
+    [SerializeField] private string _nextSceneID = "";
     #endregion
 
     #region 내부 변수
@@ -30,15 +27,7 @@ public class TestPortal : MonoBehaviour
         {
             _isActive = true;
 
-            if (_sceneId == "Base1")
-            {
-                SceneLoader.Instance.ShowResultUI(_playerDataSO, 3333, true);
-            }
-
-            else
-            {
-                SceneLoader.Instance.LoadScene(_sceneId, _nextActionMap, _clickDirection);
-            }
+            GameManager.Instance.MoveNextScene(_nextSceneID, "Ingame");
         }
     }
 }

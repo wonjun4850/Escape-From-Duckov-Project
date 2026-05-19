@@ -8,7 +8,7 @@ public class AmmoItemDataSO : BaseItemDataSO
     public enum EAmmoType
     {
         None,
-        Pistol,
+        PistolAndSMG, // ฑวรั,smg ตัดู
         Rifle,
         Shotgun,
         BattleRifle

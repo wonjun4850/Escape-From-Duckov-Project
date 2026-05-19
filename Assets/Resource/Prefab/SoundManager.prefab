@@ -51,81 +51,85 @@ MonoBehaviour:
   _bgmList:
   - _name: Lobby_BGM
     _clip: {fileID: 8300000, guid: b9bddf6c465961e409af09c7c1211b3d, type: 3}
-    _volume: 1
+    _volume: 0.6
     _description: "\uB85C\uBE44 \uBC30\uACBD\uC74C"
   - _name: Basement_BGM
     _clip: {fileID: 8300000, guid: 46ff05ace9dbe5c439a20fd8dab85479, type: 3}
-    _volume: 1
+    _volume: 0.6
     _description: "\uAE30\uC9C0\uC9C0\uD558 \uBC30\uACBD\uC74C"
   - _name: Base_BGM1
     _clip: {fileID: 8300000, guid: d9267bdefc9ec8144821a0c01bdbe6b4, type: 3}
-    _volume: 1
+    _volume: 0.6
     _description: "\uAE30\uC9C0 \uBC30\uACBD\uC74C1"
   - _name: GroundZero_BGM
     _clip: {fileID: 8300000, guid: 13c896813083c9b4a8e7f4007984a39a, type: 3}
-    _volume: 1
+    _volume: 0.6
     _description: "\uADF8\uB77C\uC6B4\uB4DC\uC81C\uB85C \uBC30\uACBD\uC74C"
   _sfxList:
   - _name: Lobby_Coin
     _clip: {fileID: 8300000, guid: c4d3bf9eb592ccc468e468ea356e7ffb, type: 3}
-    _volume: 1
+    _volume: 0.6
     _description: "\uC778\uD2B8\uB85C \uB3D9\uC804 \uD6A8\uACFC\uC74C"
   - _name: Lobby_Hover
     _clip: {fileID: 8300000, guid: f0804bc37ea86984fb61176840d2aa2c, type: 3}
-    _volume: 1
+    _volume: 0.6
     _description: "\uBC84\uD2BC\uC5D0 \uB9C8\uC6B0\uC2A4 \uC9C4\uC785\uC2DC \uD6A8\uACFC\uC74C"
   - _name: Lobby_Click
     _clip: {fileID: 8300000, guid: 45c635c6516238b489d806f272957aea, type: 3}
-    _volume: 1
+    _volume: 0.6
     _description: "\uBC84\uD2BC\uD074\uB9AD\uC2DC \uD6A8\uACFC\uC74C"
   - _name: Base_Start
     _clip: {fileID: 8300000, guid: c28fe46b14acf224b8ba77783d2584b7, type: 3}
-    _volume: 1
+    _volume: 0.6
     _description: "Base\uC52C \uC9C4\uC785\uC2DC \uC5D0\uB9CC"
   - _name: Exp_Up
     _clip: {fileID: 8300000, guid: efab30e3815a9ac44b1dd636ecec57e6, type: 3}
-    _volume: 1
+    _volume: 0.6
     _description: "\uACBD\uD5D8\uCE58 \uAC8C\uC774\uC9C0\uCC28\uB294 \uC18C\uB9AC"
   - _name: Confirm
     _clip: {fileID: 8300000, guid: 778d2d5c0d83cb449a7e7af314882016, type: 3}
-    _volume: 1
+    _volume: 0.6
     _description: "\uACB0\uACFC\uCC3D \uACC4\uC18D\uD558\uAE30 \uBC84\uD2BC\uC74C"
   - _name: Dodge1
     _clip: {fileID: 8300000, guid: 6988aabc1334081479b975c4e31e6d60, type: 3}
-    _volume: 1
+    _volume: 0.6
     _description: "\uAD6C\uB974\uAE30 \uD6A8\uACFC\uC74C1"
   - _name: Dodge2
     _clip: {fileID: 8300000, guid: 47898f14f619863419503f1b319df631, type: 3}
-    _volume: 1
+    _volume: 0.6
     _description: "\uAD6C\uB974\uAE30 \uD6A8\uACFC\uC74C2"
   - _name: Dodge3
     _clip: {fileID: 8300000, guid: 7f8e50a75ec680949bef5f6e247d321b, type: 3}
-    _volume: 1
+    _volume: 0.6
     _description: "\uAD6C\uB974\uAE30 \uD6A8\uACFC\uC74C3"
   - _name: Player_FootStep1
     _clip: {fileID: 8300000, guid: 342c7109f43560c4eb2421bc67e1c09b, type: 3}
-    _volume: 1
+    _volume: 0.6
     _description: "\uD50C\uB808\uC774\uC5B4 \uBC1C\uC18C\uB9AC1"
   - _name: Player_FootStep2
     _clip: {fileID: 8300000, guid: af00cdf5b48ec564dbd8884b7b09be0c, type: 3}
-    _volume: 1
+    _volume: 0.6
     _description: "\uD50C\uB808\uC774\uC5B4 \uBC1C\uC18C\uB9AC2"
   - _name: Player_FootStep3
     _clip: {fileID: 8300000, guid: 6bd9b0cb28c1fb34695a44360f7ce5c5, type: 3}
-    _volume: 1
+    _volume: 0.6
     _description: "\uD50C\uB808\uC774\uC5B4 \uBC1C\uC18C\uB9AC3"
   - _name: Player_FootStep4
     _clip: {fileID: 8300000, guid: 3c00f797b4786854292d0e7a979e4e78, type: 3}
-    _volume: 1
+    _volume: 0.6
     _description: "\uD50C\uB808\uC774\uC5B4 \uBC1C\uC18C\uB9AC4"
   - _name: Player_FootStep5
     _clip: {fileID: 8300000, guid: 017af9f7828bbf443ae599a122666744, type: 3}
-    _volume: 1
+    _volume: 0.6
     _description: "\uD50C\uB808\uC774\uC5B4 \uBC1C\uC18C\uB9AC5"
-  - _name: Result
+  - _name: Escape
     _clip: {fileID: 8300000, guid: 679c49c19c0751243a74f683f1eb71a6, type: 3}
-    _volume: 1
-    _description: "\uACB0\uACFC\uCC3D \uD6A8\uACFC\uC74C"
+    _volume: 0.6
+    _description: "\uD0C8\uCD9C\uC131\uACF5 \uD6A8\uACFC\uC74C"
+  - _name: Player_Dead
+    _clip: {fileID: 8300000, guid: 9da6b08728b07a44a9568a1e2431e701, type: 3}
+    _volume: 0.6
+    _description: "\uD50C\uB808\uC774\uC5B4 \uC0AC\uB9DD \uD6A8\uACFC\uC74C"
 --- !u!1 &4914877735059146590
 GameObject:
   m_ObjectHideFlags: 0
@@ -171,7 +175,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0

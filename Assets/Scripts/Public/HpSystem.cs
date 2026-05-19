@@ -27,8 +27,8 @@ public class HpSystem : MonoBehaviour, IDamageable
     #endregion
 
     #region 이벤트
-    public event System.Action OnDead;
     public event System.Action<float> OnHpChanged;
+    public event System.Action OnDead;
     public event System.Action OnDamaged;
     #endregion
 
@@ -70,10 +70,10 @@ public class HpSystem : MonoBehaviour, IDamageable
     }
 
     #region 외부 호출 함수
-    public void Init(float baseMaxHealth)
+    public void Init(float max, float current)
     {
-        _baseMaxHealth = baseMaxHealth;
-        _currentHP = baseMaxHealth;
+        _baseMaxHealth = max;
+        _currentHP = current;
         _isInit = true;
     }
 
@@ -94,6 +94,11 @@ public class HpSystem : MonoBehaviour, IDamageable
         {
             _isDead = true;
             OnDead?.Invoke();
+
+            if (_isPlayer)
+            {
+                GameManager.Instance.OnPlayerDead();
+            }
         }
     }
 

@@ -29,10 +29,24 @@ public class PlayerSpawner : MonoBehaviour
         if (player != null)
         {
             player.Init();
+            Debug.Log("Player 데이터 주입 성공");
 
             if (_camera != null)
             {
                 _camera.SetTarget(player.transform);
+                Debug.Log("카메라 세팅 완료");
+            }
+
+            if (IngameUIManager.Instance != null)
+            {
+                IngameUIManager.Instance.BindPlayerUI(player);
+                Debug.Log("Player <-> UI 데이터 연동 성공");
+            }
+
+            if (GameManager.Instance != null)
+            {
+                GameManager.Instance.SetPlayer(player);
+                Debug.Log("Player <-> GameManager 데이터 연동 성공");
             }
         }
 

@@ -85,15 +85,15 @@ public class SurvivalSystem : MonoBehaviour
     }
 
     #region 외부 호출 함수
-    public void Init(float maxEnergy, float maxHydration, float energyLossRate, float hydrationLossRate)
+    public void Init(float maxEnergy, float maxHydration, float energyLossRate, float hydrationLossRate, float currentEnergy, float currentHydration)
     {
         _maxEnergy = maxEnergy;
         _maxHydration = maxHydration;
         _energyLossRate = energyLossRate;
         _hydrationLossRate = hydrationLossRate;
 
-        _currentEnergy = maxEnergy;
-        _currentHydration = maxHydration;
+        _currentEnergy = currentEnergy;
+        _currentHydration = currentHydration;
 
         _isInit = true;
     }
@@ -124,6 +124,26 @@ public class SurvivalSystem : MonoBehaviour
     public float GetHydrationRatio()
     {
         return _currentHydration / _maxHydration;
+    }
+
+    public float GetCurrentEnergy()
+    {
+        return _currentEnergy;
+    }
+
+    public float GetCurrentHydration()
+    {
+        return _currentHydration;
+    }
+
+    public float GetMaxEnergy()
+    {
+        return _maxEnergy;
+    }
+
+    public float GetMaxHydration()
+    {
+        return _maxHydration;
     }
 
     // 상태 반환 함수

@@ -12,6 +12,7 @@ public class WeaponItemDataSO : EquipmentItemDataSO
         Rifle,
         Shotgun,
         SMG,
+        BattleRifle,
         Melee
     }
 

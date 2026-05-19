@@ -209,7 +209,7 @@ public class SceneTransitionUI : MonoBehaviour
         }
     }
 
-    public void ResultUI(PlayerDataSO player, int gainExp, bool isEscape)
+    public void ResultUI(DataManager data, int gainExp, bool isEscape)
     {
         _sceneChangeUI.gameObject.SetActive(true);
         _sceneChangeUI.alpha = 1f;
@@ -228,13 +228,13 @@ public class SceneTransitionUI : MonoBehaviour
             _mainText.color = c;
         }
 
-        _currentLevelText.text = $"{player.Level}";
-        _currentExpText.text = $"{player.CurrentExp}";
-        _currentMaxExpText.text = $"{player.MaxExp}";
-        _expBar.fillAmount = (float)player.CurrentExp / player.MaxExp;
+        _currentLevelText.text = $"{data.Level}";
+        _currentExpText.text = $"{data.CurrentExp}";
+        _currentMaxExpText.text = $"{data.MaxExp}";
+        _expBar.fillAmount = (float)data.CurrentExp / data.MaxExp;
 
         Sequence sq = DOTween.Sequence().SetUpdate(true);
-        SoundManager.Instance.PlaySFX("Result");
+
         sq.Append(_changeCircle.DOScale(_minScale, _duration * 1.5f).SetEase(Ease.InExpo));
         sq.AppendInterval(0.1f);
         sq.AppendCallback(() => _resultGroup.gameObject.SetActive(true));
@@ -244,7 +244,7 @@ public class SceneTransitionUI : MonoBehaviour
 
         if (gainExp > 0)
         {
-            sq.AppendCallback(() => ExpEffect(player, gainExp, 2f, isEscape));
+            sq.AppendCallback(() => ExpEffect(data, gainExp, 2f, isEscape));
         }
 
         else
@@ -271,7 +271,7 @@ public class SceneTransitionUI : MonoBehaviour
         _buttons.DOPunchScale(new Vector3(0.1f, 0.1f, 0.1f), 0.2f);
     }
 
-    private void ExpEffect(PlayerDataSO player, int gainExp, float duration, bool isEscape)
+    private void ExpEffect(DataManager data, int gainExp, float duration, bool isEscape)
     {
         if (gainExp <= 0)
         {
@@ -280,8 +280,8 @@ public class SceneTransitionUI : MonoBehaviour
             return;
         }
 
-        int maxExp = player.MaxExp;
-        int currentExp = player.CurrentExp;
+        int maxExp = data.MaxExp;
+        int currentExp = data.CurrentExp;
         int needExp = maxExp - currentExp;
         int add = Mathf.Min(gainExp, needExp);
         float targetFill = (float)(currentExp + add) / maxExp;
@@ -305,19 +305,19 @@ public class SceneTransitionUI : MonoBehaviour
                 {
                     SoundManager.Instance.PlaySFX("Exp_Up");
 
-                    player.LevelUp();
-                    player.AddExp(-player.CurrentExp);
+                    data.Level++;
+                    data.CurrentExp = 0;
 
                     _expBar.fillAmount = 0f;
-                    _currentLevelText.text = player.Level.ToString();
-                    _currentMaxExpText.text = player.MaxExp.ToString();
+                    _currentLevelText.text = data.Level.ToString();
+                    _currentMaxExpText.text = data.MaxExp.ToString();
                     _currentExpText.text = Mathf.RoundToInt(_expBar.fillAmount * maxExp).ToString();
-                    ExpEffect(player, gainExp - add, duration, isEscape);
+                    ExpEffect(data, gainExp - add, duration, isEscape);
                 }
 
                 else
                 {
-                    player.AddExp(add);
+                    data.CurrentExp += add;
                     ShowContinueButton(isEscape);
                     SoundManager.Instance.PlaySFX("Exp_Up");
                 }
@@ -330,7 +330,8 @@ public class SceneTransitionUI : MonoBehaviour
         _escapeContinueButton.interactable = false;
         SoundManager.Instance.PlaySFX("Confirm");
         _Images.SetActive(true);
-        SceneLoader.Instance.LoadScene("Base1", "Ingame");
+
+        GameManager.Instance.FinishResultEscapeAndReturnToBase();
     }
 
     public void OnClickDeadContinue()
@@ -338,7 +339,8 @@ public class SceneTransitionUI : MonoBehaviour
         _deadContinueButton.interactable = false;
         SoundManager.Instance.PlaySFX("Confirm");
         _Images.SetActive(true);
-        SceneLoader.Instance.LoadScene("Base1", "Ingame", true);
+        
+        GameManager.Instance.FinishResultDeadAndReturnToBase();
     }
     #endregion
 

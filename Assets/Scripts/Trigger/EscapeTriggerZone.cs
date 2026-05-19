@@ -54,8 +54,8 @@ public class EscapeTriggerZone : MonoBehaviour // UI랑 나중에 연결해주자
             if (_timer >= _escapeTime)
             {
                 _isEscaped = true;
-                Debug.Log("탈출 성공!");
-                // 결과씬으로 넘어가는 코드 추가해야함
+
+                GameManager.Instance.OnPlayerEscape();
             }
         }
     }
