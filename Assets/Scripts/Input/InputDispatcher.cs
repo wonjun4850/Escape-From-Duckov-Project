@@ -31,8 +31,8 @@ public class InputDispatcher : MonoBehaviour
     public event Action<bool> OnRun;
     public event Action OnReload;
     public event Action OnInteract;
-    public event Action OnFire;
-    public event Action OnAim;
+    public event Action<bool> OnFire;
+    public event Action<bool> OnAim;
     public event Action OnMap;
     public event Action OnInventory;
     public event Action OnQuest;
@@ -136,7 +136,9 @@ public class InputDispatcher : MonoBehaviour
         _inputActions.Ingame.Reload.performed += OnReloadPerformed;
         _inputActions.Ingame.Interact.performed += OnInteractPerformed;
         _inputActions.Ingame.Fire.performed += OnFirePerformed;
+        _inputActions.Ingame.Fire.canceled += OnFireCanceled;
         _inputActions.Ingame.Aim.performed += OnAimPerformed;
+        _inputActions.Ingame.Aim.canceled += OnAimCanceled;
         _inputActions.Ingame.Map.performed += OnMapPerformed;
         _inputActions.Ingame.Inventory.performed += OnInventoryPerformed;
         _inputActions.Ingame.Quest.performed += OnQuestPerformed;
@@ -178,7 +180,9 @@ public class InputDispatcher : MonoBehaviour
         _inputActions.Ingame.Reload.performed -= OnReloadPerformed;
         _inputActions.Ingame.Interact.performed -= OnInteractPerformed;
         _inputActions.Ingame.Fire.performed -= OnFirePerformed;
+        _inputActions.Ingame.Fire.canceled -= OnFireCanceled;
         _inputActions.Ingame.Aim.performed -= OnAimPerformed;
+        _inputActions.Ingame.Aim.canceled -= OnAimCanceled;
         _inputActions.Ingame.Map.performed -= OnMapPerformed;
         _inputActions.Ingame.Inventory.performed -= OnInventoryPerformed;
         _inputActions.Ingame.Quest.performed -= OnQuestPerformed;
@@ -287,7 +291,17 @@ public class InputDispatcher : MonoBehaviour
             Debug.Log($"Input Fire");
         }
 
-        OnFire?.Invoke();
+        OnFire?.Invoke(true);
+    }
+
+    private void OnFireCanceled(InputAction.CallbackContext ctx)
+    {
+        if (_showInputLog)
+        {
+            Debug.Log($"Cancel Fire");
+        }
+
+        OnFire?.Invoke(false);
     }
 
     private void OnAimPerformed(InputAction.CallbackContext ctx)
@@ -297,7 +311,17 @@ public class InputDispatcher : MonoBehaviour
             Debug.Log($"Input Aim");
         }
 
-        OnAim?.Invoke();
+        OnAim?.Invoke(true);
+    }
+
+    private void OnAimCanceled(InputAction.CallbackContext ctx)
+    {
+        if (_showInputLog)
+        {
+            Debug.Log($"Cancel Aim");
+        }
+
+        OnAim?.Invoke(false);
     }
 
     private void OnMapPerformed(InputAction.CallbackContext ctx)

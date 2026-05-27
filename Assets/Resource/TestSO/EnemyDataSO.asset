@@ -12,15 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21c80453336bdb34781fe1073b3abe6d, type: 3}
   m_Name: EnemyDataSO
   m_EditorClassIdentifier: 
-  _enemyId: 
-  _enemyName: 
+  _enemyId: Enemy_01
+  _enemyName: Enemy
   _enemyType: 0
-  _baseMaxHealth: 40
+  _baseMaxHealth: 60
   _baseMoveSpeed: 5
-  _enemyPrefab: {fileID: 0}
+  _enemyPrefab: {fileID: 7556137353142188856, guid: 5f11c7f74f86cd149bd8cb4208759b68,
+    type: 3}
   _canDodge: 0
   _dodgeCooldown: 7
   _dodgeForce: 10
   _dodgeDuration: 0.5
   _expReward: 10
-  _chickenPrefab: {fileID: 0}
+  _chickenPrefab: {fileID: 1709254077376921, guid: 575005698040ad74c945df11515accb7,
+    type: 3}

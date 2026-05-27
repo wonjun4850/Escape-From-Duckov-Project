@@ -53,6 +53,9 @@ public class InputCommandHub : MonoBehaviour
         _dispatcher.OnMove += HandleMove;
         _dispatcher.OnRun += HandleRun;
         _dispatcher.OnDodge += HandleDodge;
+        _dispatcher.OnFire += HandleFire;
+        _dispatcher.OnAim += HandleAim;
+        _dispatcher.OnReload += HandleReload;
         _dispatcher.OnPause += HandlePause;
         _dispatcher.OnInventory += HandleInventory;
         _dispatcher.OnInteract += HandleInteract;
@@ -72,6 +75,9 @@ public class InputCommandHub : MonoBehaviour
         _dispatcher.OnMove -= HandleMove;
         _dispatcher.OnRun -= HandleRun;
         _dispatcher.OnDodge -= HandleDodge;
+        _dispatcher.OnFire -= HandleFire;
+        _dispatcher.OnAim -= HandleAim;
+        _dispatcher.OnReload -= HandleReload;
         _dispatcher.OnPause -= HandlePause;
         _dispatcher.OnInventory -= HandleInventory;
         _dispatcher.OnInteract -= HandleInteract;
@@ -100,6 +106,21 @@ public class InputCommandHub : MonoBehaviour
     private void HandleDodge()
     {
         Execute("Player.Dodge");
+    }
+
+    private void HandleFire(bool isPress)
+    {
+        ExecuteValue("Player.Fire", isPress);
+    }
+
+    private void HandleAim(bool isPress)
+    {
+        ExecuteValue("Player.Aim", isPress);
+    }
+
+    private void HandleReload()
+    {
+        Execute("Player.Reload");
     }
 
     private void HandlePause()

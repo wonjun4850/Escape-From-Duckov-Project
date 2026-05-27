@@ -38,6 +38,7 @@ public class WeaponItemDataSO : EquipmentItemDataSO
     [Header("투사체 설정 (근접 무기는 사용 안함)")]
     [SerializeField] private float _projectileSpeed = 0f;
     [SerializeField] private float _projectileLifetime = 0f;
+    [SerializeField] private int _bulletsPerShot = 1;
     [SerializeField] private GameObject _projectilePrefab = null;
     #endregion
 
@@ -58,6 +59,7 @@ public class WeaponItemDataSO : EquipmentItemDataSO
     public float MoveSpeedModifier => _moveSpeedModifier;
     public float ProjectileSpeed => _projectileSpeed;
     public float ProjectileLifetime => _projectileLifetime;
+    public int BulletsPerShot => _bulletsPerShot;
     public GameObject ProjectilePrefab => _projectilePrefab;
     #endregion
 }

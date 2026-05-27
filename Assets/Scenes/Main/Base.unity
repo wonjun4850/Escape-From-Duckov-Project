@@ -47122,6 +47122,53 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b0aec40d5226a3843bac0a504d25863f, type: 3}
+--- !u!1 &659907451
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 659907453}
+  - component: {fileID: 659907452}
+  m_Layer: 0
+  m_Name: ProjectileManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &659907452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 659907451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31e500b3b455f1947af24c873bf8ffec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bulletPrefab: {fileID: 1709254077376921, guid: 21d43662e4368be4a92d240c5260d18d,
+    type: 3}
+  _prewarmCount: 20
+--- !u!4 &659907453
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 659907451}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &719592337
 GameObject:
   m_ObjectHideFlags: 0
@@ -47396,7 +47443,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1743526868}
   - component: {fileID: 1743526872}
-  - component: {fileID: 1743526871}
   - component: {fileID: 1743526870}
   - component: {fileID: 1743526869}
   m_Layer: 0
@@ -47436,6 +47482,11 @@ MonoBehaviour:
   _positionOffset: {x: 6, y: 20, z: -10}
   _mouseOffset: 5
   _smoothSpeed: 5
+  _duration: 0.05
+  _recoilOffset: 0.3
+  _normalFOV: 40
+  _aimFOV: 35
+  _zoomSpeed: 5
 --- !u!114 &1743526870
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47480,14 +47531,6 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
---- !u!81 &1743526871
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1743526867}
-  m_Enabled: 1
 --- !u!20 &1743526872
 Camera:
   m_ObjectHideFlags: 0
@@ -47784,3 +47827,4 @@ SceneRoots:
   - {fileID: 1950987735}
   - {fileID: 1571190534}
   - {fileID: 2080851741}
+  - {fileID: 659907453}
