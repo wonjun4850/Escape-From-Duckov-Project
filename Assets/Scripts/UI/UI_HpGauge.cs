@@ -20,6 +20,7 @@ public class UI_HpGauge : MonoBehaviour
 
     [Header("hp바 백그라운드")]
     [SerializeField] private Image _backgroundHpBar;
+    [SerializeField] private Color _normalColor = new Color();
     [SerializeField] private Color _deadColor = new Color();
     #endregion
 
@@ -64,6 +65,11 @@ public class UI_HpGauge : MonoBehaviour
         if (ratio <= 0)
         {
             _backgroundHpBar.color = _deadColor;
+        }
+
+        else
+        {
+            _backgroundHpBar.color = _normalColor;
         }
     }
 

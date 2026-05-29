@@ -142,6 +142,7 @@ public class SceneLoader : MonoBehaviour
 
         yield return _sceneTransitionUI.CircleOut().WaitForCompletion();
 
+        GameManager.Instance.SetState(GameManager.EGameState.Playing);
         InputDispatcher.Instance.ChangeActionMap(nextActionMap);
         _canvas.SetActive(false);
         _sceneTransitionUI.Init(); // 혹시 모를 초기화??

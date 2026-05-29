@@ -6,6 +6,9 @@ public class EnemySpawner : MonoBehaviour
 {
     #region 인스펙터
     [SerializeField] private EnemyDataSO _enemyData;
+
+    [Header("패트롤 범위 씬뷰 시각화 (테스트용도)")]
+    [SerializeField] private float _patrolRange = 10f;
     #endregion
 
     void Start()
@@ -29,5 +32,12 @@ public class EnemySpawner : MonoBehaviour
         {
             enemy.Init(_enemyData);
         }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+
+        Gizmos.DrawWireSphere(transform.position, _patrolRange);
     }
 }

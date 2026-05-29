@@ -47067,6 +47067,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: IngameUI_Manager
       objectReference: {fileID: 0}
+    - target: {fileID: 993487615033631029, guid: b0aec40d5226a3843bac0a504d25863f,
+        type: 3}
+      propertyPath: _normalColor.a
+      value: 0.5882353
+      objectReference: {fileID: 0}
     - target: {fileID: 3275902426927069219, guid: b0aec40d5226a3843bac0a504d25863f,
         type: 3}
       propertyPath: m_LocalPosition.x

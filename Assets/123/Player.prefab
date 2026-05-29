@@ -2116,6 +2116,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerData: {fileID: 11400000, guid: c10e572914cf31240816a69221378ca5, type: 2}
+  _deadPrefab: {fileID: 1709254077376921, guid: 662ff3f99300f8043b8ba9b2ae67b5fb,
+    type: 3}
 --- !u!114 &7623584371432781894
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2129,6 +2131,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rotateSharpness: 10
+  _groundLayer:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!114 &3307786009173713056
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -94,11 +94,6 @@ public class HpSystem : MonoBehaviour, IDamageable
         {
             _isDead = true;
             OnDead?.Invoke();
-
-            if (_isPlayer)
-            {
-                GameManager.Instance.OnPlayerDead();
-            }
         }
     }
 

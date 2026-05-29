@@ -3151,6 +3151,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CursorSystem
       objectReference: {fileID: 0}
+    - target: {fileID: 5093984344845645773, guid: 069882a3e8fff084183e7b63424b6049,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8320237203273026954, guid: 069882a3e8fff084183e7b63424b6049,
         type: 3}
       propertyPath: m_Enabled
@@ -4052,6 +4057,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 555033488758199042, guid: 3cc6a1554662ae74080111a99df144ec,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 555033488758199042, guid: 3cc6a1554662ae74080111a99df144ec,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 555033488758199042, guid: 3cc6a1554662ae74080111a99df144ec,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7477192813974218845, guid: 3cc6a1554662ae74080111a99df144ec,
+        type: 3}
+      propertyPath: m_fontColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7477192813974218845, guid: 3cc6a1554662ae74080111a99df144ec,
+        type: 3}
+      propertyPath: m_fontColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7477192813974218845, guid: 3cc6a1554662ae74080111a99df144ec,
+        type: 3}
+      propertyPath: m_fontColor.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7960742199922142376, guid: 3cc6a1554662ae74080111a99df144ec,
         type: 3}

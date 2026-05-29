@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -12,9 +13,15 @@ public class EnemyAI : MonoBehaviour
     }
 
     #region 인스펙터
-    [Header("사거리 설정")]
+    [Header("감지 범위")]
     [SerializeField] private float _detectionRadius = 20f;
+
+    [Header("공격 상태 설정")]
     [SerializeField] private float _attackRadius = 10f;
+    [SerializeField] private float _rotSpeed = 10f;
+
+    [Header("패트롤 범위")]
+    [SerializeField] private float _patrolRange = 10f;
     #endregion
 
     #region 내부 변수
@@ -28,6 +35,9 @@ public class EnemyAI : MonoBehaviour
     public Transform PlayerTr { get; private set; }
     public float DetectionRadius => _detectionRadius;
     public float AttackRadius => _attackRadius;
+    public float RotSpeed => _rotSpeed;
+    public float PatrolRange => _patrolRange;
+    public Vector3 SpawnPosition { get; private set; }
     #endregion
 
 
@@ -43,18 +53,33 @@ public class EnemyAI : MonoBehaviour
 
     private void Start()
     {
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        SpawnPosition = transform.position;
 
-        if (player != null)
+        StartCoroutine(CoBindPlayer());
+    }
+
+    private IEnumerator CoBindPlayer()
+    {
+        GameObject player = null;
+
+        while (player == null)
         {
-            PlayerTr = player.transform;
+            player = GameObject.FindGameObjectWithTag("Player");
+            yield return null;
         }
+
+        PlayerTr = player.transform;
 
         ChangeState(EEnemyState.Patrol);
     }
 
     private void Update()
     {
+        if (PlayerTr == null)
+        {
+            return;
+        }
+
         if (_currentState != null)
         {
             _currentState.OnStateUpdate();

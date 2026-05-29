@@ -2,10 +2,7 @@ using UnityEngine;
 
 public class AttackState : FSMState
 {
-    public AttackState(EnemyAI ai) : base(ai) 
-    { 
-    
-    }
+    public AttackState(EnemyAI ai) : base(ai) { }
 
     public override void OnStateEnter()
     {
@@ -14,8 +11,6 @@ public class AttackState : FSMState
 
     public override void OnStateUpdate()
     {
-        if (_ai.PlayerTr == null) return;
-
         float distance = Vector3.Distance(_ai.transform.position, _ai.PlayerTr.position);
 
         if (distance > _ai.AttackRadius)
@@ -26,9 +21,12 @@ public class AttackState : FSMState
 
         Vector3 lookDir = (_ai.PlayerTr.position - _ai.transform.position).normalized;
         lookDir.y = 0;
+
         if (lookDir != Vector3.zero)
         {
-            _ai.transform.rotation = Quaternion.LookRotation(lookDir);
+            Quaternion targetRot = Quaternion.LookRotation(lookDir);
+
+            _ai.transform.rotation = Quaternion.Slerp(_ai.transform.rotation, targetRot, Time.deltaTime * _ai.RotSpeed);
         }
 
         if (_ai.Enemy.CurrentWeapon != null)

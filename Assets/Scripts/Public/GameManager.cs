@@ -115,7 +115,6 @@ public class GameManager : MonoBehaviour
 
     public void FinishResultEscapeAndReturnToBase()
     {
-        _currentState = EGameState.Playing;
         _killExp = 0;
         _farmingExp = 0;
         SceneLoader.Instance.LoadScene("Base1", "Ingame");
@@ -123,7 +122,6 @@ public class GameManager : MonoBehaviour
 
     public void FinishResultDeadAndReturnToBase()
     {
-        _currentState = EGameState.Playing;
         _killExp = 0;
         _farmingExp = 0;
         SceneLoader.Instance.LoadScene("Base1", "Ingame", true);
@@ -147,6 +145,11 @@ public class GameManager : MonoBehaviour
     public EGameState GetState()
     {
         return _currentState;
+    }
+
+    public void SetState(EGameState state)
+    {
+        _currentState = state;
     }
     #endregion
 }

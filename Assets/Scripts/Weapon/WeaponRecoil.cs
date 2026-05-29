@@ -40,15 +40,15 @@ public class WeaponRecoil : MonoBehaviour
             return;
         }
 
-        Vector2 playerScreenPos = Camera.main.WorldToScreenPoint(_weapon.transform.position);
+        Vector2 screenPos = Camera.main.WorldToScreenPoint(_weapon.transform.position);
         Vector2 mousePos = Input.mousePosition;
-        Vector2 aimDir = (mousePos - playerScreenPos).normalized;
+        Vector2 aimDir = (mousePos - screenPos).normalized;
         Vector2 rightDir = new Vector2(aimDir.y, -aimDir.x);
 
-        float kickbackForce = _weapon.WeaponData.RecoilY;
-        float sideWobbleForce = Random.Range(-_weapon.WeaponData.RecoilX, _weapon.WeaponData.RecoilX);
+        float pushForce = _weapon.WeaponData.RecoilY;
+        float shakeForce = Random.Range(-_weapon.WeaponData.RecoilX, _weapon.WeaponData.RecoilX);
 
-        Vector2 recoilVector = (aimDir * kickbackForce) + (rightDir * sideWobbleForce);
+        Vector2 recoilVector = (aimDir * pushForce) + (rightDir * shakeForce);
 
         _currentRecoilOffset += recoilVector;
     }

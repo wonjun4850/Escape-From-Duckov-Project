@@ -7,6 +7,9 @@ public class PlayerMovement : MonoBehaviour
     #region 인스펙터
     [Header("회전 설정")]
     [SerializeField] private float _rotateSharpness = 15f;
+
+    [Header("지형 레이어 설정")]
+    [SerializeField] private LayerMask _groundLayer;
     #endregion
 
     #region 내부 변수
@@ -64,9 +67,28 @@ public class PlayerMovement : MonoBehaviour
         Move();
         TryDodge();
 
+        LockYPositionToTerrain();
+
         if (_isRunning)
         {
             _staminaSystem.ConsumeStaminaByRun();
+        }
+    }
+    private void LockYPositionToTerrain()
+    {
+        Vector3 rayStart = new Vector3(transform.position.x, transform.position.y + 2f, transform.position.z);
+
+        if (Physics.Raycast(rayStart, Vector3.down, out RaycastHit hit, 10f, _groundLayer))
+        {
+            float targetY = hit.point.y;
+
+            Vector3 lockedPosition = transform.position;
+            lockedPosition.y = targetY;
+            transform.position = lockedPosition;
+
+            Vector3 vel = _rb.velocity;
+            vel.y = 0f;
+            _rb.velocity = vel;
         }
     }
 
@@ -284,6 +306,8 @@ public class PlayerMovement : MonoBehaviour
             _isRunning = false;
         }
     }
+
+
 
     #region 외부 호출 함수
     public void Init(float basespeed, float runMult, float dodgeForce, float dodgeDuration)

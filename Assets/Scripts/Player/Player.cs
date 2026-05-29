@@ -7,6 +7,9 @@ public class Player : MonoBehaviour
     #region 인스펙터
     [Header("SO 연결")]
     [SerializeField] private PlayerDataSO _playerData;
+
+    [Header("사망 시 생성할 오브젝트")]
+    [SerializeField] private GameObject _deadPrefab;
     #endregion
 
     #region 내부 변수
@@ -36,6 +39,44 @@ public class Player : MonoBehaviour
             Debug.LogError("Player 겟컴포넌트 오류 : 인스펙터 확인");
             return;
         }        
+    }
+
+    private void OnEnable()
+    {
+        if (_hpSystem != null)
+        {
+            _hpSystem.OnDead += HandleDead;
+        }
+    }
+
+    private void OnDisable()
+    {
+        if (_hpSystem != null)
+        {
+            _hpSystem.OnDead -= HandleDead;
+        }
+    }
+
+    private void HandleDead()
+    {
+        var listener = GetComponent<AudioListener>();
+
+        if (listener != null)
+        {
+            Destroy(listener);
+        }
+
+        if (_deadPrefab != null)
+        {
+            Instantiate(_deadPrefab, transform.position, transform.rotation);
+        }
+
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.OnPlayerDead();
+        }
+
+        Destroy(gameObject);
     }
 
     #region 외부 호출 함수

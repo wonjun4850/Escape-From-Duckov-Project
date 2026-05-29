@@ -31,6 +31,22 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    private void OnEnable()
+    {
+        if (_hpSystem != null)
+        {
+            _hpSystem.OnDead += HandleDead;
+        }
+    }
+
+    private void OnDisable()
+    {
+        if (_hpSystem != null)
+        {
+            _hpSystem.OnDead -= HandleDead;
+        }
+    }
+
     private void Start()
     {
         // 테스트용
@@ -38,6 +54,22 @@ public class Enemy : MonoBehaviour
         {
             _currentWeapon.Init(_currentWeapon.WeaponData, this.gameObject);
         }
+    }
+
+    private void HandleDead()
+    {
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.AddKillExp(_enemyData.ExpReward);
+        }
+
+        if (_enemyData.ChickenPrefab != null)
+        {
+            GameObject chicken = Instantiate(_enemyData.ChickenPrefab, transform.position, transform.rotation);
+            // 아이템을 넣어줘야한다면 이곳에서 처리하자
+        }
+
+        Destroy(gameObject);
     }
 
     #region 외부 호출 함수
