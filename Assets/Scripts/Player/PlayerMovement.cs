@@ -7,14 +7,12 @@ public class PlayerMovement : MonoBehaviour
     #region 인스펙터
     [Header("회전 설정")]
     [SerializeField] private float _rotateSharpness = 15f;
-
-    [Header("지형 레이어 설정")]
-    [SerializeField] private LayerMask _groundLayer;
     #endregion
 
     #region 내부 변수
     private PlayerAnimation _playerAnimation;
     private StaminaSystem _staminaSystem;
+    private HpSystem _hpSystem;
 
     private Rigidbody _rb;
     private Vector2 _moveInput;
@@ -29,15 +27,22 @@ public class PlayerMovement : MonoBehaviour
     private bool _requestDodge = false;
     private bool _isRunning = false;
     private bool _isDodging = false;
+    private bool _canRotateToMouse = true;
+    #endregion
+
+    #region 프로퍼티
+    public bool IsRunning => _isRunning;
+    public bool IsDodging => _isDodging;
     #endregion
 
     private void Awake()
     {
         _playerAnimation = GetComponent<PlayerAnimation>();
         _staminaSystem = GetComponent<StaminaSystem>();
+        _hpSystem = GetComponent<HpSystem>();
         _rb = GetComponent<Rigidbody>();
 
-        if (_playerAnimation == null || _staminaSystem == null)
+        if (_playerAnimation == null || _staminaSystem == null || _hpSystem == null)
         {
             Debug.LogError("PlayerMovement 겟컴포넌트 오류 : 인스펙터 확인");
             return;
@@ -67,28 +72,9 @@ public class PlayerMovement : MonoBehaviour
         Move();
         TryDodge();
 
-        LockYPositionToTerrain();
-
         if (_isRunning)
         {
             _staminaSystem.ConsumeStaminaByRun();
-        }
-    }
-    private void LockYPositionToTerrain()
-    {
-        Vector3 rayStart = new Vector3(transform.position.x, transform.position.y + 2f, transform.position.z);
-
-        if (Physics.Raycast(rayStart, Vector3.down, out RaycastHit hit, 10f, _groundLayer))
-        {
-            float targetY = hit.point.y;
-
-            Vector3 lockedPosition = transform.position;
-            lockedPosition.y = targetY;
-            transform.position = lockedPosition;
-
-            Vector3 vel = _rb.velocity;
-            vel.y = 0f;
-            _rb.velocity = vel;
         }
     }
 
@@ -135,7 +121,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         UpdateRunningState(direction);
- 
+
         Vector3 localDir = transform.InverseTransformDirection(direction);
 
         float directionMultiplier = 1.0f;
@@ -164,7 +150,10 @@ public class PlayerMovement : MonoBehaviour
 
         else
         {
-            RotateToMouse();
+            if (_canRotateToMouse)
+            {
+                RotateToMouse();
+            }
         }
     }
 
@@ -241,6 +230,11 @@ public class PlayerMovement : MonoBehaviour
         _isDodging = true;
         _requestDodge = false;
 
+        if (_hpSystem.IsInvincibility)
+        {
+            _hpSystem.IsInvincibility = true;
+        }
+
         Vector3 camF = Vector3.ProjectOnPlane(Camera.main.transform.forward, Vector3.up).normalized;
         Vector3 camR = Vector3.ProjectOnPlane(Camera.main.transform.right, Vector3.up).normalized;
 
@@ -262,14 +256,32 @@ public class PlayerMovement : MonoBehaviour
             float curve = (1f - process); // * (1f - process)
 
             Vector3 velocity = dodgeDir * (_dodgeForce * curve);
-            _rb.velocity = new Vector3(velocity.x, _rb.velocity.y, velocity.z);
+            float currentYVelocity = _rb.velocity.y;
+
+            if (Physics.Raycast(transform.position + Vector3.up * 0.1f, Vector3.down, out RaycastHit hit, 0.5f))
+            {
+                velocity = Vector3.ProjectOnPlane(velocity, hit.normal);
+            }
+
+            else
+            {
+                velocity.y = currentYVelocity;
+            }
+
+            _rb.velocity = velocity;
 
             yield return new WaitForFixedUpdate();
         }
 
         yield return null;
+        yield return null;
 
         _rb.velocity = new Vector3(0, _rb.velocity.y, 0);
+
+        if (_hpSystem.IsInvincibility)
+        {
+            _hpSystem.IsInvincibility = false;
+        }
 
         _isDodging = false;
     }
@@ -307,8 +319,6 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-
-
     #region 외부 호출 함수
     public void Init(float basespeed, float runMult, float dodgeForce, float dodgeDuration)
     {
@@ -317,6 +327,11 @@ public class PlayerMovement : MonoBehaviour
         _dodgeForce = dodgeForce;
         _dodgeDuration = dodgeDuration;
         _isInit = true;
+    }
+
+    public void SetRotateToMouse(bool canRotate)
+    {
+        _canRotateToMouse = canRotate;
     }
     #endregion
 }

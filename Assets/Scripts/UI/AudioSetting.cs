@@ -33,29 +33,56 @@ public class AudioSetting : MonoBehaviour
 
     private void Start()
     {
-        SetMasterVolume();
-        SetBGMVolume();
-        SetSFXVolume();
+        Init();
+    }
+
+    private void Init()
+    {
+        _masterSlider.value = PlayerPrefs.GetFloat("MasterVolume", 100f);
+        _bgmSlider.value = PlayerPrefs.GetFloat("BGMVolume", 50f);
+        _sfxSlider.value = PlayerPrefs.GetFloat("SFXVolume", 50f);
+
+        SetMasterVolume(_masterSlider.value);
+        SetBGMVolume(_bgmSlider.value);
+        SetSFXVolume(_sfxSlider.value);
+    }
+
+    private void SetMasterVolume(float vol)
+    {
+        _audioMixer.SetFloat("MasterVol", Mathf.Log10(Mathf.Max(0.0001f, vol / 100f)) * 20);
+        _masterText.text = vol.ToString();
+    }
+
+    private void SetBGMVolume(float vol)
+    {
+        _audioMixer.SetFloat("BGMVol", Mathf.Log10(Mathf.Max(0.0001f, vol / 100f)) * 20);
+        _bgmText.text = vol.ToString();
+    }
+
+    private void SetSFXVolume(float vol)
+    {
+        _audioMixer.SetFloat("SFXVol", Mathf.Log10(Mathf.Max(0.0001f, vol / 100f)) * 20);
+        _sfxText.text = vol.ToString();
     }
 
     public void SetMasterVolume()
     {
         float vol = _masterSlider.value;
-        _audioMixer.SetFloat("MasterVol", Mathf.Log10(Mathf.Max(0.0001f, vol / 100f)) * 20);
-        _masterText.text = vol.ToString();
+        SetMasterVolume(vol);
+        PlayerPrefs.SetFloat("MasterVolume", vol);
     }
 
     public void SetBGMVolume()
     {
         float vol = _bgmSlider.value;
-        _audioMixer.SetFloat("BGMVol", Mathf.Log10(Mathf.Max(0.0001f, vol / 100f)) * 20);
-        _bgmText.text = vol.ToString();
+        SetBGMVolume(vol);
+        PlayerPrefs.SetFloat("BGMVolume", vol);
     }
 
     public void SetSFXVolume()
     {
         float vol = _sfxSlider.value;
-        _audioMixer.SetFloat("SFXVol", Mathf.Log10(Mathf.Max(0.0001f, vol / 100f)) * 20);
-        _sfxText.text = vol.ToString();
+        SetSFXVolume(vol);
+        PlayerPrefs.SetFloat("SFXVolume", vol);
     }
 }

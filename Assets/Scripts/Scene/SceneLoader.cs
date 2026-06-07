@@ -17,6 +17,9 @@ public class SceneLoader : MonoBehaviour
     public static SceneLoader Instance { get; private set; }
     private SceneTransitionUI _sceneTransitionUI;
     private bool _isLoading = false;
+
+    private WaitForSeconds _delayHalfSecond = new WaitForSeconds(0.5f);
+    private WaitForSeconds _delayOneSecond = new WaitForSeconds(1.0f);
     #endregion
 
     private void Awake()
@@ -87,7 +90,7 @@ public class SceneLoader : MonoBehaviour
 
         _sceneTransitionUI.SetLoadingTextUI(false);
 
-        yield return new WaitForSeconds(0.5f);
+        yield return _delayHalfSecond;
 
         if (clickDirection)
         {
@@ -106,7 +109,7 @@ public class SceneLoader : MonoBehaviour
 
             SetLoadingUI(currentScene, sceneName, false);
 
-            yield return new WaitForSeconds(1f);
+            yield return _delayOneSecond;
         }
 
         else
@@ -115,7 +118,7 @@ public class SceneLoader : MonoBehaviour
 
             SetLoadingUI(currentScene, sceneName, false);
 
-            yield return new WaitForSeconds(1f);
+            yield return _delayOneSecond;
         }
 
         switch (sceneName)
@@ -142,7 +145,11 @@ public class SceneLoader : MonoBehaviour
 
         yield return _sceneTransitionUI.CircleOut().WaitForCompletion();
 
-        GameManager.Instance.SetState(GameManager.EGameState.Playing);
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.SetState(GameManager.EGameState.Playing);
+        }
+
         InputDispatcher.Instance.ChangeActionMap(nextActionMap);
         _canvas.SetActive(false);
         _sceneTransitionUI.Init(); // 혹시 모를 초기화??

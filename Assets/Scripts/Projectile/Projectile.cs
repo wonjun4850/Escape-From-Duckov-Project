@@ -6,6 +6,7 @@ public class Projectile : MonoBehaviour
 {
     #region 인스펙터
     [SerializeField] private LayerMask _targetLayer;
+    [SerializeField] private LayerMask _ignoreLayer;
     [SerializeField] private bool _onlyOnce = true;
     #endregion
 
@@ -69,9 +70,13 @@ public class Projectile : MonoBehaviour
             }
 
             other.GetComponent<HpSystem>()?.TakeDamage(finalDamage);
-
             // 적에게 맞았을 때의 효과 (파티클, 사운드 등) 추가
             ReturnToPool();
+        }
+
+        else if ((_ignoreLayer.value & (1 << other.gameObject.layer)) != 0)
+        {
+            return;
         }
 
         else

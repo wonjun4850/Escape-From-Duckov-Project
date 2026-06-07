@@ -48,9 +48,9 @@ MonoBehaviour:
   _startIngameActionMap: 0
   _startUIActionMap: 0
   _startLobbyActionMap: 0
-  _showSwitchActionMapLog: 1
-  _showBindActionLog: 1
-  _showInputLog: 1
+  _showSwitchActionMapLog: 0
+  _showBindActionLog: 0
+  _showInputLog: 0
 --- !u!114 &9172264877404341284
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63,4 +63,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bd8a416e13edb04bb24cf7405840c31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _showBindLog: 1
+  _showBindLog: 0

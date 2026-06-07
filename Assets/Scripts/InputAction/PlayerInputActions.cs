@@ -572,6 +572,42 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""InventoryCancel"",
+                    ""type"": ""Button"",
+                    ""id"": ""b129f79a-ac2d-4f25-b2e2-1f35b465b278"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""MapCancel"",
+                    ""type"": ""Button"",
+                    ""id"": ""8b6efcdc-6010-4e3a-aa6a-9354d5c30343"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""QuestCancel"",
+                    ""type"": ""Button"",
+                    ""id"": ""0cb5a6eb-33ae-4486-917f-8b009eb2329f"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""InteractionCancel"",
+                    ""type"": ""Button"",
+                    ""id"": ""76a91414-358b-461c-8412-698b2eeef58b"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -583,6 +619,50 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""PauseCancel"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5c2bf5dd-4b23-490b-b0f3-2bffaf7268af"",
+                    ""path"": ""<Keyboard>/tab"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""InventoryCancel"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b061f888-6cdc-4fe7-800a-91cb022b8531"",
+                    ""path"": ""<Keyboard>/m"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MapCancel"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""39d58ff5-5724-456d-9163-4ee92584228d"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""QuestCancel"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""478fc854-bf0f-4833-a1c7-de3fcaf4c1ce"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""InteractionCancel"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -698,6 +778,10 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         // Ui
         m_Ui = asset.FindActionMap("Ui", throwIfNotFound: true);
         m_Ui_PauseCancel = m_Ui.FindAction("PauseCancel", throwIfNotFound: true);
+        m_Ui_InventoryCancel = m_Ui.FindAction("InventoryCancel", throwIfNotFound: true);
+        m_Ui_MapCancel = m_Ui.FindAction("MapCancel", throwIfNotFound: true);
+        m_Ui_QuestCancel = m_Ui.FindAction("QuestCancel", throwIfNotFound: true);
+        m_Ui_InteractionCancel = m_Ui.FindAction("InteractionCancel", throwIfNotFound: true);
         // Lobby
         m_Lobby = asset.FindActionMap("Lobby", throwIfNotFound: true);
         m_Lobby_PressAnyKey = m_Lobby.FindAction("PressAnyKey", throwIfNotFound: true);
@@ -1101,6 +1185,10 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Ui;
     private List<IUiActions> m_UiActionsCallbackInterfaces = new List<IUiActions>();
     private readonly InputAction m_Ui_PauseCancel;
+    private readonly InputAction m_Ui_InventoryCancel;
+    private readonly InputAction m_Ui_MapCancel;
+    private readonly InputAction m_Ui_QuestCancel;
+    private readonly InputAction m_Ui_InteractionCancel;
     /// <summary>
     /// Provides access to input actions defined in input action map "Ui".
     /// </summary>
@@ -1116,6 +1204,22 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Ui/PauseCancel".
         /// </summary>
         public InputAction @PauseCancel => m_Wrapper.m_Ui_PauseCancel;
+        /// <summary>
+        /// Provides access to the underlying input action "Ui/InventoryCancel".
+        /// </summary>
+        public InputAction @InventoryCancel => m_Wrapper.m_Ui_InventoryCancel;
+        /// <summary>
+        /// Provides access to the underlying input action "Ui/MapCancel".
+        /// </summary>
+        public InputAction @MapCancel => m_Wrapper.m_Ui_MapCancel;
+        /// <summary>
+        /// Provides access to the underlying input action "Ui/QuestCancel".
+        /// </summary>
+        public InputAction @QuestCancel => m_Wrapper.m_Ui_QuestCancel;
+        /// <summary>
+        /// Provides access to the underlying input action "Ui/InteractionCancel".
+        /// </summary>
+        public InputAction @InteractionCancel => m_Wrapper.m_Ui_InteractionCancel;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -1145,6 +1249,18 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @PauseCancel.started += instance.OnPauseCancel;
             @PauseCancel.performed += instance.OnPauseCancel;
             @PauseCancel.canceled += instance.OnPauseCancel;
+            @InventoryCancel.started += instance.OnInventoryCancel;
+            @InventoryCancel.performed += instance.OnInventoryCancel;
+            @InventoryCancel.canceled += instance.OnInventoryCancel;
+            @MapCancel.started += instance.OnMapCancel;
+            @MapCancel.performed += instance.OnMapCancel;
+            @MapCancel.canceled += instance.OnMapCancel;
+            @QuestCancel.started += instance.OnQuestCancel;
+            @QuestCancel.performed += instance.OnQuestCancel;
+            @QuestCancel.canceled += instance.OnQuestCancel;
+            @InteractionCancel.started += instance.OnInteractionCancel;
+            @InteractionCancel.performed += instance.OnInteractionCancel;
+            @InteractionCancel.canceled += instance.OnInteractionCancel;
         }
 
         /// <summary>
@@ -1159,6 +1275,18 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @PauseCancel.started -= instance.OnPauseCancel;
             @PauseCancel.performed -= instance.OnPauseCancel;
             @PauseCancel.canceled -= instance.OnPauseCancel;
+            @InventoryCancel.started -= instance.OnInventoryCancel;
+            @InventoryCancel.performed -= instance.OnInventoryCancel;
+            @InventoryCancel.canceled -= instance.OnInventoryCancel;
+            @MapCancel.started -= instance.OnMapCancel;
+            @MapCancel.performed -= instance.OnMapCancel;
+            @MapCancel.canceled -= instance.OnMapCancel;
+            @QuestCancel.started -= instance.OnQuestCancel;
+            @QuestCancel.performed -= instance.OnQuestCancel;
+            @QuestCancel.canceled -= instance.OnQuestCancel;
+            @InteractionCancel.started -= instance.OnInteractionCancel;
+            @InteractionCancel.performed -= instance.OnInteractionCancel;
+            @InteractionCancel.canceled -= instance.OnInteractionCancel;
         }
 
         /// <summary>
@@ -1468,6 +1596,34 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnPauseCancel(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "InventoryCancel" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnInventoryCancel(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "MapCancel" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnMapCancel(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "QuestCancel" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnQuestCancel(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "InteractionCancel" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnInteractionCancel(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Lobby" which allows adding and removing callbacks.

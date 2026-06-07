@@ -63,6 +63,11 @@ public class InputCommandHub : MonoBehaviour
         _dispatcher.OnQuest += HandleQuest;
         _dispatcher.OnPressAnyKey += HandlePressAnyKey;
         _dispatcher.OnBack += HandleBack;
+        _dispatcher.OnPauseCancel += HandlePauseCancel;
+        _dispatcher.OnInventoryCancel += HandleInventoryCancel;
+        _dispatcher.OnMapCancel += HandleMapCancel;
+        _dispatcher.OnQuestCancel += HandleQuestCancel;
+        _dispatcher.OnInteractionCancel += HandleInteractionCancel;
 
         if (_showBindLog)
         {
@@ -85,6 +90,11 @@ public class InputCommandHub : MonoBehaviour
         _dispatcher.OnQuest -= HandleQuest;
         _dispatcher.OnPressAnyKey -= HandlePressAnyKey;
         _dispatcher.OnBack -= HandleBack;
+        _dispatcher.OnPauseCancel -= HandlePauseCancel;
+        _dispatcher.OnInventoryCancel -= HandleInventoryCancel;
+        _dispatcher.OnMapCancel -= HandleMapCancel;
+        _dispatcher.OnQuestCancel -= HandleQuestCancel;
+        _dispatcher.OnInteractionCancel -= HandleInteractionCancel;
 
         if (_showBindLog)
         {
@@ -156,6 +166,31 @@ public class InputCommandHub : MonoBehaviour
     private void HandleBack()
     {
         Execute("Lobby.Back");
+    }
+
+    private void HandlePauseCancel()
+    {
+        Execute("Ui.PauseCancel");
+    }
+
+    private void HandleInventoryCancel()
+    {
+        Execute("Ui.InventoryCancel");
+    }
+
+    private void HandleMapCancel()
+    {
+        Execute("Ui.MapCancel");
+    }
+
+    private void HandleQuestCancel()
+    {
+        Execute("Ui.QuestCancel");
+    }
+
+    private void HandleInteractionCancel()
+    {
+        Execute("Ui.InteractionCancel");
     }
     #endregion
 

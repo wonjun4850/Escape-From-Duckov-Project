@@ -100,7 +100,7 @@ public class SoundManager : MonoBehaviour
 
         if (startDelayTime > 0)
         {
-            yield return new WaitForSeconds(startDelayTime);
+            yield return new WaitForSecondsRealtime(startDelayTime);
         }
 
         _bgmAudioSource.Play();

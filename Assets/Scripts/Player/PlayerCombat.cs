@@ -10,10 +10,22 @@ public class PlayerCombat : MonoBehaviour
 
     #region 내부 변수
     //private Weapon _currentWeapon;
+    private PlayerMovement _playerMovement;
     private IngameCamera _camera;
     private bool _isAiming = false;
     private bool _isFiring = false;
     #endregion
+
+    private void Awake()
+    {
+        _playerMovement = GetComponent<PlayerMovement>();
+
+        if (_playerMovement == null)
+        {
+            Debug.LogError("PlayerCombat 겟컴포넌트 오류 : PlayerMovement 컴포넌트 없음");
+            return;
+        }
+    }
 
     void Start()
     {
@@ -41,6 +53,11 @@ public class PlayerCombat : MonoBehaviour
     {
         if (_isFiring)
         {
+            if (_playerMovement != null && (_playerMovement.IsDodging || _playerMovement.IsRunning))
+            {
+                return;
+            }
+
             bool isHeadShot;
 
             Vector3 targetPos = GetMouseWorldPosition(out isHeadShot);

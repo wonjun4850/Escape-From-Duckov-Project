@@ -16,7 +16,7 @@ MonoBehaviour:
   _enemyName: Enemy
   _enemyType: 0
   _baseMaxHealth: 60
-  _baseMoveSpeed: 5
+  _baseMoveSpeed: 3
   _enemyPrefab: {fileID: 7556137353142188856, guid: 5f11c7f74f86cd149bd8cb4208759b68,
     type: 3}
   _canDodge: 0

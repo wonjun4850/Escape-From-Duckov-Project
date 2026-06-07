@@ -63,12 +63,12 @@ public class SettingPanel : MonoBehaviour
 
         _canvasGroup.alpha = 0f;
 
-        _canvasGroup.DOFade(1f, _fadeDuration);
+        _canvasGroup.DOFade(1f, _fadeDuration).SetUpdate(true);
     }
 
     public void Hide()
     {
-        _canvasGroup.DOFade(0f, _fadeDuration).OnComplete(() => this.gameObject.SetActive(false));
+        _canvasGroup.DOFade(0f, _fadeDuration).SetUpdate(true).OnComplete(() => this.gameObject.SetActive(false));
     }
     #endregion   
 }

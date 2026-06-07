@@ -130,6 +130,150 @@ MonoBehaviour:
     _clip: {fileID: 8300000, guid: 9da6b08728b07a44a9568a1e2431e701, type: 3}
     _volume: 0.6
     _description: "\uD50C\uB808\uC774\uC5B4 \uC0AC\uB9DD \uD6A8\uACFC\uC74C"
+  - _name: Melee_Attack1
+    _clip: {fileID: 8300000, guid: 4609e932a726dd347996427909b5a508, type: 3}
+    _volume: 0.6
+    _description: "\uADFC\uC811 \uACF5\uACA9 \uD6A8\uACFC\uC74C1"
+  - _name: Melee_Attack2
+    _clip: {fileID: 8300000, guid: d5f695e0c7bcc8b489dc3bbcc5573036, type: 3}
+    _volume: 0.6
+    _description: "\uADFC\uC811 \uACF5\uACA9 \uD6A8\uACFC\uC74C2"
+  - _name: Melee_Attack3
+    _clip: {fileID: 8300000, guid: 9f69cc1caa69ceb43898a56128beece9, type: 3}
+    _volume: 0.6
+    _description: "\uADFC\uC811 \uACF5\uACA9 \uD6A8\uACFC\uC74C3"
+  - _name: Pistol_Fire1
+    _clip: {fileID: 8300000, guid: e84445167c4614e4090d8f5a25174d77, type: 3}
+    _volume: 0.6
+    _description: "\uAD8C\uCD1D \uC0AC\uACA9 \uD6A8\uACFC\uC74C1"
+  - _name: Pistol_Fire2
+    _clip: {fileID: 8300000, guid: 3470782db81fb4e4d9933ba2ee150d5f, type: 3}
+    _volume: 0.6
+    _description: "\uAD8C\uCD1D \uC0AC\uACA9 \uD6A8\uACFC\uC74C2"
+  - _name: Pistol_Fire3
+    _clip: {fileID: 8300000, guid: 4eac0c1a46456494083e430cae3f1311, type: 3}
+    _volume: 0.6
+    _description: "\uAD8C\uCD1D \uC0AC\uACA9 \uD6A8\uACFC\uC74C3"
+  - _name: Pistol_Fire4
+    _clip: {fileID: 8300000, guid: b927e1103a91f6945bc82d3d1e13744d, type: 3}
+    _volume: 0.6
+    _description: "\uAD8C\uCD1D \uC0AC\uACA9 \uD6A8\uACFC\uC74C4"
+  - _name: Pistol_ReloadStart
+    _clip: {fileID: 8300000, guid: 3ad214b26869fff429ef39ab2669b8c9, type: 3}
+    _volume: 0.6
+    _description: "\uAD8C\uCD1D \uC7A5\uC804 \uC2DC\uC791"
+  - _name: Pistol_ReloadEnd
+    _clip: {fileID: 8300000, guid: eae12a8b72a193246b3f468da667eb0f, type: 3}
+    _volume: 0.6
+    _description: "\uAD8C\uCD1D \uC7A5\uC804 \uB05D"
+  - _name: Rifle_Fire1
+    _clip: {fileID: 8300000, guid: ac1349bbe08c73440967465379a2c297, type: 3}
+    _volume: 0.6
+    _description: "\uB77C\uC774\uD50C \uC0AC\uACA9 \uD6A8\uACFC\uC74C1"
+  - _name: Rifle_Fire2
+    _clip: {fileID: 8300000, guid: f6b1dcb27dad7864a9b48f67a5c4e21c, type: 3}
+    _volume: 0.6
+    _description: "\uB77C\uC774\uD50C \uC0AC\uACA9 \uD6A8\uACFC\uC74C2"
+  - _name: Rifle_Fire3
+    _clip: {fileID: 8300000, guid: ecd92534a8b91594eb0ca6e7cf28d464, type: 3}
+    _volume: 0.6
+    _description: "\uB77C\uC774\uD50C \uC0AC\uACA9 \uD6A8\uACFC\uC74C3"
+  - _name: Rifle_Fire4
+    _clip: {fileID: 8300000, guid: 071e7ca9bb3ed6a4b9b255a9e79b88e3, type: 3}
+    _volume: 0.6
+    _description: "\uB77C\uC774\uD50C \uC0AC\uACA9 \uD6A8\uACFC\uC74C4"
+  - _name: Rifle_ReloadStart
+    _clip: {fileID: 8300000, guid: 3223c9a70f700094fab0def2ceb0e39c, type: 3}
+    _volume: 0.6
+    _description: "\uB77C\uC774\uD50C \uC7A5\uC804 \uB05D"
+  - _name: Rifle_ReloadEnd
+    _clip: {fileID: 8300000, guid: 7e25069ba3412364f8e6b0e8922832e9, type: 3}
+    _volume: 0.6
+    _description: "\uB77C\uC774\uD50C \uC7A5\uC804 \uB05D"
+  - _name: Shotgun_Fire1
+    _clip: {fileID: 8300000, guid: 61d061f8b82e31b43ae5e1f714391b19, type: 3}
+    _volume: 0.6
+    _description: "\uC0F7\uAC74 \uC0AC\uACA9 \uD6A8\uACFC\uC74C1"
+  - _name: Shotgun_Fire2
+    _clip: {fileID: 8300000, guid: 4afae6fce9239e247a7d64a78b8684db, type: 3}
+    _volume: 0.6
+    _description: "\uC0F7\uAC74 \uC0AC\uACA9 \uD6A8\uACFC\uC74C2"
+  - _name: Shotgun_Fire3
+    _clip: {fileID: 8300000, guid: 44aaaa96449a05f49a73b4039bae7b28, type: 3}
+    _volume: 0.6
+    _description: "\uC0F7\uAC74 \uC0AC\uACA9 \uD6A8\uACFC\uC74C3"
+  - _name: Shotgun_Fire4
+    _clip: {fileID: 8300000, guid: 8198b4df77f95d04d963065fa7de7cfb, type: 3}
+    _volume: 0.6
+    _description: "\uC0F7\uAC74 \uC0AC\uACA9 \uD6A8\uACFC\uC74C4"
+  - _name: Shotgun_ReloadStart
+    _clip: {fileID: 8300000, guid: c1928f3961ee1874aad314f25c0e276d, type: 3}
+    _volume: 0.6
+    _description: "\uC0F7\uAC74 \uC7A5\uC804 \uC2DC\uC791"
+  - _name: Shotgun_ReloadEnd
+    _clip: {fileID: 8300000, guid: 247e5fa2415c96f4499e2a15218b54ef, type: 3}
+    _volume: 0.6
+    _description: "\uC0F7\uAC74 \uC7A5\uC804 \uB05D"
+  - _name: SMG_Fire1
+    _clip: {fileID: 8300000, guid: 49f1a2e058002ac47a71123ad5545f73, type: 3}
+    _volume: 0.6
+    _description: "SMG \uC0AC\uACA9 \uD6A8\uACFC\uC74C1"
+  - _name: SMG_Fire2
+    _clip: {fileID: 8300000, guid: 6a844ff66931e464abb16401ea35dd0b, type: 3}
+    _volume: 0.6
+    _description: "SMG \uC0AC\uACA9 \uD6A8\uACFC\uC74C2"
+  - _name: SMG_Fire3
+    _clip: {fileID: 8300000, guid: b502af6c358650c4a91c25d5bce526ad, type: 3}
+    _volume: 0.6
+    _description: "SMG \uC0AC\uACA9 \uD6A8\uACFC\uC74C3"
+  - _name: SMG_Fire4
+    _clip: {fileID: 8300000, guid: e74a7688906f9a143b16ff49e6a4d6aa, type: 3}
+    _volume: 0.6
+    _description: "SMG \uC0AC\uACA9 \uD6A8\uACFC\uC74C4"
+  - _name: SMG_ReloadStart
+    _clip: {fileID: 8300000, guid: d7b041ab38b98794baec3f216c5794d3, type: 3}
+    _volume: 0.6
+    _description: "SMG \uC7A5\uC804 \uC2DC\uC791"
+  - _name: SMG_ReloadEnd
+    _clip: {fileID: 8300000, guid: a09c233052ffe3b46bf548c50bca8181, type: 3}
+    _volume: 0.6
+    _description: "SMG \uC7A5\uC804 \uB05D"
+  - _name: BattleRifle_Fire1
+    _clip: {fileID: 8300000, guid: f7a5f8e7482d8a24f8218c425ce341cb, type: 3}
+    _volume: 0.6
+    _description: "\uBC30\uD2C0\uB77C\uC774\uD50C \uC0AC\uACA9 \uD6A8\uACFC\uC74C1"
+  - _name: BattleRifle_Fire2
+    _clip: {fileID: 8300000, guid: e3e31debd947c2a4486a792138cf5726, type: 3}
+    _volume: 0.6
+    _description: "\uBC30\uD2C0\uB77C\uC774\uD50C \uC0AC\uACA9 \uD6A8\uACFC\uC74C2"
+  - _name: BattleRifle_Fire3
+    _clip: {fileID: 8300000, guid: 2675f73bba3c32c4cb84b835757ce656, type: 3}
+    _volume: 0.6
+    _description: "\uBC30\uD2C0\uB77C\uC774\uD50C \uC0AC\uACA9 \uD6A8\uACFC\uC74C3"
+  - _name: BattleRifle_Fire4
+    _clip: {fileID: 8300000, guid: b35a7c7de9ad80b4eb67f4f295053442, type: 3}
+    _volume: 0.6
+    _description: "\uBC30\uD2C0\uB77C\uC774\uD50C \uC0AC\uACA9 \uD6A8\uACFC\uC74C4"
+  - _name: BattleRifle_ReloadStart
+    _clip: {fileID: 8300000, guid: 0e7588caac4d8094998fa17e8cc663c5, type: 3}
+    _volume: 0.6
+    _description: "\uBC30\uD2C0\uB77C\uC774\uD50C \uC7A5\uC804 \uC2DC\uC791"
+  - _name: BattleRifle_ReloadEnd
+    _clip: {fileID: 8300000, guid: 0f63a699392ab5240b548cdc3f52e8d8, type: 3}
+    _volume: 0.6
+    _description: "\uBC30\uD2C0\uB77C\uC774\uD50C \uC7A5\uC804 \uB05D"
+  - _name: AmmoEmpty
+    _clip: {fileID: 8300000, guid: e6ab95dd82e86e7408953ccababa17ca, type: 3}
+    _volume: 0.6
+    _description: "\uCD1D\uC54C \uC5C6\uB294\uB370 \uC0AC\uACA9\uD588\uC744 \uACBD\uC6B0"
+  - _name: Inventory_Open
+    _clip: {fileID: 8300000, guid: 9be74c8cb3bc89349a50b3f3d04c2c66, type: 3}
+    _volume: 0.6
+    _description: "\uC778\uBCA4\uD1A0\uB9AC \uC5F4\uC5C8\uC744\uB54C"
+  - _name: Inventory_Close
+    _clip: {fileID: 8300000, guid: dff7fde855ad0a24bb068aa3dd472443, type: 3}
+    _volume: 0.6
+    _description: "\uC778\uBCA4\uD1A0\uB9AC \uB2EB\uC558\uC744\uB54C"
 --- !u!1 &4914877735059146590
 GameObject:
   m_ObjectHideFlags: 0

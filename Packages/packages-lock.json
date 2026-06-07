@@ -1,5 +1,13 @@
 {
   "dependencies": {
+    "com.unify.unified-universal-blur": {
+      "version": "file:C:/Users/h0106/OneDrive/바탕 화면/Unified-Universal-Blur-0.9.0",
+      "depth": 0,
+      "source": "local",
+      "dependencies": {
+        "com.unity.render-pipelines.universal": "14.0.9"
+      }
+    },
     "com.unity.2d.sprite": {
       "version": "1.0.0",
       "depth": 0,

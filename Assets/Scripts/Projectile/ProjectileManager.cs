@@ -18,16 +18,7 @@ public class ProjectileManager : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
-
         Instance = this;
-        DontDestroyOnLoad(gameObject);
-
-        SceneManager.sceneLoaded += OnSceneLoaded;
 
         _poolRoot = new GameObject("Bullet_Pool").transform;
 
@@ -36,25 +27,6 @@ public class ProjectileManager : MonoBehaviour
             GameObject b = Instantiate(_bulletPrefab, _poolRoot);
             b.SetActive(false);
             _pools.Enqueue(b);
-        }
-    }
-
-    private void OnDestroy()
-    {
-        if (Instance == this)
-        {
-            Instance = null;
-        }
-
-        SceneManager.sceneLoaded -= OnSceneLoaded;
-    }
-
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        if (scene.name == "Lobby")
-        {
-            Destroy(gameObject);
-            return;
         }
     }
 

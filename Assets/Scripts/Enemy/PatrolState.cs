@@ -63,7 +63,7 @@ public class PatrolState : FSMState
     {
         Vector3 randomPos = _ai.SpawnPosition + Random.insideUnitSphere * _ai.PatrolRange;
 
-        if (NavMesh.SamplePosition(randomPos, out NavMeshHit hit, 1f, NavMesh.AllAreas))
+        if (NavMesh.SamplePosition(randomPos, out NavMeshHit hit, 5f, NavMesh.AllAreas))
         {
             _ai.Agent.SetDestination(hit.position);
         }

@@ -31,6 +31,8 @@ public class EnemyAI : MonoBehaviour
 
     #region 프로퍼티
     public Enemy Enemy { get; private set; }
+    public EnemyAnimation Anim { get; private set; }
+    public HpSystem HpSystem { get; private set; }
     public NavMeshAgent Agent { get; private set; }
     public Transform PlayerTr { get; private set; }
     public float DetectionRadius => _detectionRadius;
@@ -44,6 +46,8 @@ public class EnemyAI : MonoBehaviour
     private void Awake()
     {
         Enemy = GetComponent<Enemy>();
+        Anim = GetComponent<EnemyAnimation>();
+        HpSystem = GetComponent<HpSystem>();
         Agent = GetComponent<NavMeshAgent>();
 
         _states.Add(EEnemyState.Patrol, new PatrolState(this));
@@ -51,11 +55,47 @@ public class EnemyAI : MonoBehaviour
         _states.Add(EEnemyState.Attack, new AttackState(this));
     }
 
+    private void OnEnable()
+    {
+        if (HpSystem != null)
+        {
+            HpSystem.OnDamaged += TakeDamaged;
+        }
+    }
+
+    private void OnDisable()
+    {
+        if (HpSystem != null)
+        {
+            HpSystem.OnDamaged -= TakeDamaged;
+        }
+    }
+
     private void Start()
     {
         SpawnPosition = transform.position;
 
         StartCoroutine(CoBindPlayer());
+    }
+
+    private void TakeDamaged()
+    {
+        if (HpSystem.IsDead)
+        {
+            return;
+        }
+
+        if (_currentState is ChaseState)
+        {
+            return;
+        }
+
+        if (PlayerTr == null)
+        {
+            return;
+        }
+
+        ChangeState(EEnemyState.Chase);
     }
 
     private IEnumerator CoBindPlayer()
@@ -84,8 +124,27 @@ public class EnemyAI : MonoBehaviour
         {
             _currentState.OnStateUpdate();
         }
+
+        UpdateAnimation();
     }
 
+    private void UpdateAnimation()
+    {
+        if (Anim == null || Agent == null)
+        {
+            return;
+        }
+
+        Vector3 local = transform.InverseTransformDirection(Agent.velocity);
+
+        float moveX = local.x;
+        float moveY = local.z;
+        float speed = Agent.velocity.magnitude;
+
+        Anim.Move(moveX, moveY, speed);
+    }
+
+    #region 외부 호출 함수
     public void ChangeState(EEnemyState newState)
     {
         if (_currentState != null)
@@ -97,4 +156,5 @@ public class EnemyAI : MonoBehaviour
 
         _currentState.OnStateEnter();
     }
+    #endregion
 }

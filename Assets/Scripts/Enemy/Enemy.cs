@@ -6,12 +6,13 @@ public class Enemy : MonoBehaviour
 {
     #region 인스펙터
     [SerializeField] private EnemyDataSO _enemyData;
-    [SerializeField] private Weapon _currentWeapon;
     #endregion
 
     #region 내부 변수
     private HpSystem _hpSystem;
+    private Weapon _currentWeapon;
     private Transform _target;
+    private EnemyAnimation _enemyAnimation;
     #endregion
 
     #region 프로퍼티
@@ -23,8 +24,11 @@ public class Enemy : MonoBehaviour
     private void Awake()
     {
         _hpSystem = GetComponent<HpSystem>();
+        //_target = GetComponent<Transform>();
+        _enemyAnimation = GetComponent<EnemyAnimation>();
+        _currentWeapon = GetComponentInChildren<Weapon>();
 
-        if (_hpSystem == null || _enemyData == null)
+        if (_hpSystem == null || _enemyData == null || _enemyAnimation == null)
         {
             Debug.LogError("Enemy 겟컴포넌트 오류 : 인스펙터 확인");
             return;
@@ -37,6 +41,11 @@ public class Enemy : MonoBehaviour
         {
             _hpSystem.OnDead += HandleDead;
         }
+
+        if (_currentWeapon != null)
+        {
+            _currentWeapon.OnWeaponFire += HandleWeaponFire;
+        }
     }
 
     private void OnDisable()
@@ -44,6 +53,11 @@ public class Enemy : MonoBehaviour
         if (_hpSystem != null)
         {
             _hpSystem.OnDead -= HandleDead;
+        }
+
+        if (_currentWeapon != null)
+        {
+            _currentWeapon.OnWeaponFire -= HandleWeaponFire;
         }
     }
 
@@ -53,6 +67,14 @@ public class Enemy : MonoBehaviour
         if (_currentWeapon != null)
         {
             _currentWeapon.Init(_currentWeapon.WeaponData, this.gameObject);
+        }
+    }
+
+    private void HandleWeaponFire(WeaponItemDataSO.EWeaponType weaponType)
+    {
+        if (weaponType == WeaponItemDataSO.EWeaponType.Melee)
+        {
+            _enemyAnimation.Attack();
         }
     }
 

@@ -50,6 +50,10 @@ public class InputDispatcher : MonoBehaviour
 
     // UI 액션
     public event Action OnPauseCancel;
+    public event Action OnInventoryCancel;
+    public event Action OnMapCancel;
+    public event Action OnQuestCancel;
+    public event Action OnInteractionCancel;
 
     // 로비 액션
     public event Action OnPressAnyKey;
@@ -154,6 +158,10 @@ public class InputDispatcher : MonoBehaviour
         _inputActions.Ingame.QuickSlot8.performed += OnQuickSlot8Performed;
         _inputActions.Ingame.Pause.performed += OnPausePerformed;
         _inputActions.Ui.PauseCancel.performed += OnPauseCancelPerformed;
+        _inputActions.Ui.InventoryCancel.performed += OnInventoryCancelPerformed;
+        _inputActions.Ui.MapCancel.performed += OnMapCancelPerformed;
+        _inputActions.Ui.QuestCancel.performed += OnQuestCancelPerformed;
+        _inputActions.Ui.InteractionCancel.performed += OnInteractionCancelPerformed;
         _inputActions.Lobby.PressAnyKey.performed += OnPressAnyKeyPerformed;
         _inputActions.Lobby.Back.performed += OnBackPerformed;
 
@@ -198,6 +206,10 @@ public class InputDispatcher : MonoBehaviour
         _inputActions.Ingame.QuickSlot8.performed -= OnQuickSlot8Performed;
         _inputActions.Ingame.Pause.performed -= OnPausePerformed;
         _inputActions.Ui.PauseCancel.performed -= OnPauseCancelPerformed;
+        _inputActions.Ui.InventoryCancel.performed -= OnInventoryCancelPerformed;
+        _inputActions.Ui.MapCancel.performed -= OnMapCancelPerformed;
+        _inputActions.Ui.QuestCancel.performed -= OnQuestCancelPerformed;
+        _inputActions.Ui.InteractionCancel.performed -= OnInteractionCancelPerformed;
         _inputActions.Lobby.PressAnyKey.performed -= OnPressAnyKeyPerformed;
         _inputActions.Lobby.Back.performed -= OnBackPerformed;
 
@@ -462,7 +474,7 @@ public class InputDispatcher : MonoBehaviour
         }
 
         OnPause?.Invoke();
-    }
+    }    
 
     private void OnPauseCancelPerformed(InputAction.CallbackContext ctx)
     {
@@ -472,6 +484,46 @@ public class InputDispatcher : MonoBehaviour
         }
 
         OnPauseCancel?.Invoke();
+    }
+
+    private void OnInventoryCancelPerformed(InputAction.CallbackContext ctx)
+    {
+        if (_showInputLog)
+        {
+            Debug.Log($"Input InventoryCancel");
+        }
+
+        OnInventoryCancel?.Invoke();
+    }
+
+    private void OnMapCancelPerformed(InputAction.CallbackContext ctx)
+    {
+        if (_showInputLog)
+        {
+            Debug.Log($"Input MapCancel");
+        }
+
+        OnMapCancel?.Invoke();
+    }
+
+    private void OnQuestCancelPerformed(InputAction.CallbackContext ctx)
+    {
+        if (_showInputLog)
+        {
+            Debug.Log($"Input QuestCancel");
+        }
+
+        OnQuestCancel?.Invoke();
+    }
+
+    private void OnInteractionCancelPerformed(InputAction.CallbackContext ctx)
+    {
+        if (_showInputLog)
+        {
+            Debug.Log($"Input InteractionCancel");
+        }
+
+        OnInteractionCancel?.Invoke();
     }
 
     private void OnPressAnyKeyPerformed(InputAction.CallbackContext ctx)

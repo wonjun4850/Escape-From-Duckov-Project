@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EscapeTriggerZone : MonoBehaviour // UI랑 나중에 연결해주자
+public class EscapeTriggerZone : MonoBehaviour
 {
     #region 인스펙터
-    [SerializeField] private float _escapeTime = 10f;
+    [SerializeField] private float _escapeTime = 6f;
     [SerializeField] private string _playerTag = "Player";
     [SerializeField] private bool _onlyOnce = true;
     #endregion
@@ -27,51 +27,60 @@ public class EscapeTriggerZone : MonoBehaviour // UI랑 나중에 연결해주자
 
     private void OnTriggerEnter(Collider other)
     {
+        if (!other.CompareTag(_playerTag))
+        {
+            return;
+        }
+
         if (_onlyOnce && _isEscaped)
         {
             return;
         }
 
-        if (other.CompareTag(_playerTag))
-        {
-            // UI 켜주는 코드 추가하면 될듯??
-        }
+        _timer = _escapeTime;
+
+        IngameUIManager.Instance.StartEscapeTimer(_escapeTime);
     }
 
     private void OnTriggerStay(Collider other)
     {
+        if (!other.CompareTag(_playerTag))
+        {
+            return;
+        }
+
         if (_onlyOnce && _isEscaped)
         {
             return;
         }
 
-        if (other.CompareTag(_playerTag))
+        _timer -= Time.deltaTime;
+
+        IngameUIManager.Instance.UpdateEscapeTimer(_timer);
+
+        if (_timer <= 0f)
         {
-            // 켜둔 UI 시간 갱신 시켜야할듯?
+            _isEscaped = true;
 
-            _timer += Time.deltaTime;
-
-            if (_timer >= _escapeTime)
-            {
-                _isEscaped = true;
-
-                GameManager.Instance.OnPlayerEscape();
-            }
+            IngameUIManager.Instance.StopEscapeTimer();
+            GameManager.Instance.OnPlayerEscape();
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
+        if (!other.CompareTag(_playerTag))
+        {
+            return;
+        }
+
         if (_onlyOnce && _isEscaped)
         {
             return;
         }
 
-        if (other.CompareTag(_playerTag))
-        {
-            _timer = 0f;
+        _timer = _escapeTime;
 
-            // UI 꺼주는 코드 추가하면 될듯??
-        }
+        IngameUIManager.Instance.StopEscapeTimer();
     }
 }

@@ -17,6 +17,8 @@ public class Player : MonoBehaviour
     private StaminaSystem _staminaSystem;
     private SurvivalSystem _survivalSystem;
     private HpSystem _hpSystem;
+    private PlayerAnimation _playerAnimation;
+    private Weapon _currentWeapon;
     #endregion
 
     #region 프로퍼티
@@ -25,6 +27,7 @@ public class Player : MonoBehaviour
     public StaminaSystem Stamina => _staminaSystem;
     public SurvivalSystem Survival => _survivalSystem;
     public HpSystem Hp => _hpSystem;
+    public PlayerAnimation Animation => _playerAnimation;
     #endregion
 
     private void Awake()
@@ -33,12 +36,18 @@ public class Player : MonoBehaviour
         _staminaSystem = GetComponent<StaminaSystem>();
         _survivalSystem = GetComponent<SurvivalSystem>();
         _hpSystem = GetComponent<HpSystem>();
+        _playerAnimation = GetComponent<PlayerAnimation>();
 
-        if (_playerMovement == null || _staminaSystem == null || _survivalSystem == null || _hpSystem == null)
+        if (_playerMovement == null || _staminaSystem == null || _survivalSystem == null || _hpSystem == null || _playerAnimation == null)
         {
             Debug.LogError("Player 겟컴포넌트 오류 : 인스펙터 확인");
             return;
-        }        
+        }
+    }
+
+    private void Start()
+    {
+        SetupWeapon();
     }
 
     private void OnEnable()
@@ -54,6 +63,19 @@ public class Player : MonoBehaviour
         if (_hpSystem != null)
         {
             _hpSystem.OnDead -= HandleDead;
+        }
+
+        if (_currentWeapon != null)
+        {
+            _currentWeapon.OnWeaponFire -= HandleWeaponFire;
+        }
+    }
+
+    private void HandleWeaponFire(WeaponItemDataSO.EWeaponType weaponType)
+    {
+        if (weaponType == WeaponItemDataSO.EWeaponType.Melee)
+        {
+            _playerAnimation.Attack();
         }
     }
 
@@ -94,6 +116,21 @@ public class Player : MonoBehaviour
         _staminaSystem.Init(data.MaxStamina, data.StaminaRegenRate, data.DodgeCost, data.RunCost);
         _survivalSystem.Init(data.MaxEnergy, data.MaxHydration, data.EnergyLossRate, data.HydrationLossRate, data.CurrentEnergy, data.CurrentHydration);
         _hpSystem.Init(data.MaxHp, data.CurrentHp);
-    }    
+    }
+
+    public void SetupWeapon()
+    {
+        if (_currentWeapon != null)
+        {
+            _currentWeapon.OnWeaponFire -= HandleWeaponFire;
+        }
+
+        _currentWeapon = GetComponentInChildren<Weapon>();
+
+        if (_currentWeapon != null)
+        {
+            _currentWeapon.OnWeaponFire += HandleWeaponFire;
+        }
+    }
     #endregion
 }

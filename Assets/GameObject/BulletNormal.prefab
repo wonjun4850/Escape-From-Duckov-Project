@@ -181,6 +181,9 @@ MonoBehaviour:
   _targetLayer:
     serializedVersion: 2
     m_Bits: 192
+  _ignoreLayer:
+    serializedVersion: 2
+    m_Bits: 512
   _onlyOnce: 1
 --- !u!136 &2130700918001034354
 CapsuleCollider:

@@ -27,6 +27,8 @@ public class IngameCamera : MonoBehaviour
 
     private Vector3 _shakeOffset = Vector3.zero;
     private float _targetFOV;
+    private bool _isFocusPlayer = false;
+    private float _mouseWeight = 1f;
     #endregion
 
     private void Awake()
@@ -37,6 +39,14 @@ public class IngameCamera : MonoBehaviour
         {
             _camera.fieldOfView = _normalFOV;
             _targetFOV = _normalFOV;
+        }
+    }
+
+    private void Start()
+    {
+        if (IngameUIManager.Instance != null)
+        {
+            IngameUIManager.Instance.RegisterCamera(this);
         }
     }
 
@@ -62,11 +72,14 @@ public class IngameCamera : MonoBehaviour
         Vector3 camF = Vector3.ProjectOnPlane(this.transform.forward, Vector3.up).normalized;
         Vector3 camR = Vector3.ProjectOnPlane(this.transform.right, Vector3.up).normalized;
 
-        Vector3 mouseMove = (camR * mouseX + camF * mouseY) * _mouseOffset;
+        float targetWeight = _isFocusPlayer ? 0f : 1f;
+        _mouseWeight = Mathf.Lerp(_mouseWeight, targetWeight, Time.unscaledDeltaTime * _smoothSpeed * 4f);
+
+        Vector3 mouseMove = (camR * mouseX + camF * mouseY) * _mouseOffset * _mouseWeight;
 
         Vector3 targetPos = _playerTr.position + _positionOffset + mouseMove + _shakeOffset;
 
-        transform.position = Vector3.Lerp(transform.position, targetPos, Time.deltaTime * _smoothSpeed);
+        transform.position = Vector3.Lerp(transform.position, targetPos, Time.unscaledDeltaTime * _smoothSpeed);
     }
 
     private IEnumerator CoShake()
@@ -110,6 +123,11 @@ public class IngameCamera : MonoBehaviour
     public void SetAimToFOV(bool isAiming)
     {
         _targetFOV = isAiming ? _aimFOV : _normalFOV;
+    }
+
+    public void SetFocusPlayer(bool isFocus)
+    {
+        _isFocusPlayer = isFocus;
     }
     #endregion
 }

@@ -24,6 +24,7 @@ public class HpSystem : MonoBehaviour, IDamageable
 
     #region 프로퍼티
     public bool IsDead => _isDead;
+    public bool IsInvincibility { get; set; } = false;
     #endregion
 
     #region 이벤트
@@ -58,7 +59,7 @@ public class HpSystem : MonoBehaviour, IDamageable
 
             if (_hungerTickTimer >= 3f)
             {
-                TakeDamage(1.0f);
+                TakeDamage(1.0f, true);
                 _hungerTickTimer = 0f;
             }
         }
@@ -69,17 +70,14 @@ public class HpSystem : MonoBehaviour, IDamageable
         }
     }
 
-    #region 외부 호출 함수
-    public void Init(float max, float current)
-    {
-        _baseMaxHealth = max;
-        _currentHP = current;
-        _isInit = true;
-    }
-
-    public void TakeDamage(float amount)
+    private void ApplyDamage(float amount, bool ignoreInvincibility = false)
     {
         if (_isDead)
+        {
+            return;
+        }
+
+        if (IsInvincibility && !ignoreInvincibility)
         {
             return;
         }
@@ -95,6 +93,24 @@ public class HpSystem : MonoBehaviour, IDamageable
             _isDead = true;
             OnDead?.Invoke();
         }
+    }
+
+    #region 외부 호출 함수
+    public void Init(float max, float current)
+    {
+        _baseMaxHealth = max;
+        _currentHP = current;
+        _isInit = true;
+    }
+
+    public void TakeDamage(float amount)
+    {
+        ApplyDamage(amount);
+    }
+
+    public void TakeDamage(float amount, bool ignoreInvincibility)
+    {
+        ApplyDamage(amount, ignoreInvincibility);
     }
 
     public void Heal(float amount)

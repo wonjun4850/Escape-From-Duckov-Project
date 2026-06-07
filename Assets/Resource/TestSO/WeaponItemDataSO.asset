@@ -25,7 +25,7 @@ MonoBehaviour:
   _weaponType: 4
   _isAutomatic: 1
   _damage: 10
-  _effectiveRange: 10
+  _effectiveRange: 15
   _damageOutsideEffectiveRange: 0.5
   _fireRate: 10
   _magazineSize: 30

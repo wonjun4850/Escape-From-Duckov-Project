@@ -10,6 +10,7 @@ public class Weapon : MonoBehaviour
     #endregion
 
     #region 내부 변수
+    public event Action<WeaponItemDataSO.EWeaponType> OnWeaponFire;
     public GameObject Owner { get; private set; }
     public bool IsAiming { get; private set; }
     public float FinalSpread { get; private set; }
@@ -89,6 +90,7 @@ public class Weapon : MonoBehaviour
             {
                 _shooter.Fire(target, isHeadShot);
                 _ammo.ConsumeAmmo();
+                OnWeaponFire?.Invoke(_weaponData.WeaponType);
 
                 if (_isPlayer)
                 {

@@ -25,25 +25,41 @@ public class DisplayResolution : MonoBehaviour
             return;
         }
 
-        int currentWidth = Screen.width;
-        int currentHeight = Screen.height;
+        int savedIdx = PlayerPrefs.GetInt("ResolutionIndex", -1);
 
-        for (int i = 0; i < _resolutions.Count; i++)
+        if (savedIdx != -1 && savedIdx < _resolutions.Count)
         {
-            if (_resolutions[i].w == currentWidth && _resolutions[i].h == currentHeight)
+            _resolutionDropdown.value = savedIdx;
+            ApplyResolution(savedIdx);
+        }
+
+        else
+        {
+            int currentWidth = Screen.width;
+            int currentHeight = Screen.height;
+
+            for (int i = 0; i < _resolutions.Count; i++)
             {
-                _resolutionDropdown.value = i;
-                break;
+                if (_resolutions[i].w == currentWidth && _resolutions[i].h == currentHeight)
+                {
+                    _resolutionDropdown.value = i;
+                    break;
+                }
             }
         }
     }
 
     public void ChangeResolution(int idx)
     {
-        if (idx < 0 || idx >= _resolutions.Count)
-        {
-            return;
-        }
+        ApplyResolution(idx);
+
+        PlayerPrefs.SetInt("ResolutionIndex", idx);
+        PlayerPrefs.Save();
+    }
+
+    private void ApplyResolution(int idx)
+    {
+        if (idx < 0 || idx >= _resolutions.Count) return;
 
         int width = _resolutions[idx].w;
         int height = _resolutions[idx].h;

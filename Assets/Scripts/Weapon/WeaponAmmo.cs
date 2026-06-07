@@ -48,6 +48,11 @@ public class WeaponAmmo : MonoBehaviour
 
     public void ConsumeAmmo()
     {
+        if (_weapon.WeaponData.WeaponType == WeaponItemDataSO.EWeaponType.Melee)
+        {
+            return;
+        }
+
         if (_currentAmmo > 0)
         {
             _currentAmmo--;
@@ -67,6 +72,11 @@ public class WeaponAmmo : MonoBehaviour
         if (!_isInit)
         {
             return false;
+        }
+
+        if (_weapon.WeaponData.WeaponType == WeaponItemDataSO.EWeaponType.Melee)
+        {
+            return true;
         }
 
         return _currentAmmo > 0 && !_isReloading;
