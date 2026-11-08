@@ -15,7 +15,7 @@ MonoBehaviour:
   _enemyId: Enemy_01
   _enemyName: Enemy
   _enemyType: 0
-  _baseMaxHealth: 60
+  _baseMaxHealth: 50
   _baseMoveSpeed: 3
   _enemyPrefab: {fileID: 7556137353142188856, guid: 5f11c7f74f86cd149bd8cb4208759b68,
     type: 3}
@@ -23,6 +23,6 @@ MonoBehaviour:
   _dodgeCooldown: 7
   _dodgeForce: 10
   _dodgeDuration: 0.5
-  _expReward: 10
+  _expReward: 1200
   _chickenPrefab: {fileID: 1709254077376921, guid: 575005698040ad74c945df11515accb7,
     type: 3}

@@ -18,8 +18,8 @@ public class IngameUIManager : MonoBehaviour
     [SerializeField] private UI_PausePanel _pausePanel;
     [SerializeField] private UI_InventoryTransition _inventoryTransition;
     [SerializeField] private GameObject _interactionPanel;
-    [SerializeField] private GameObject _mapPanel;
-    [SerializeField] private GameObject _questPanel;
+    [SerializeField] private UI_Map _mapPanel;
+    [SerializeField] private UI_QuestTransition _questTransition;
 
     [Header("Å»ÃâUI ¿¬°á")]
     [SerializeField] private UI_EscapeTimer _escapeTimer;
@@ -64,6 +64,8 @@ public class IngameUIManager : MonoBehaviour
 
         _pausePanel.gameObject.SetActive(false);
         _inventoryTransition.gameObject.SetActive(false);
+        _questTransition.gameObject.SetActive(false);
+        _mapPanel.gameObject.SetActive(false);
 
         // Ingame Å° µî·Ï
         InputCommandHub.Instance.RegisterCommands("Player.Pause", new SimpleCommand(OnPause));
@@ -123,18 +125,18 @@ public class IngameUIManager : MonoBehaviour
 
     private void OnMap()
     {
-        //_hudTransition.Hide();
-        //_ingameCamera.SetFocusPlayer(true);
-        //_playerMovement.SetRotateToMouse(false);
-        Debug.Log("¸Ê");
+        _mapPanel.Show();
+        _hudTransition.Hide();
+        _ingameCamera.SetFocusPlayer(true);
+        _playerMovement.SetRotateToMouse(false);
     }
 
     private void OnQuest()
     {
-        //_hudTransition.Hide();
-        //_ingameCamera.SetFocusPlayer(true);
-        //_playerMovement.SetRotateToMouse(false);
-        Debug.Log("Äù½ºÆ®");
+        _questTransition.Show();
+        _hudTransition.Hide();
+        _ingameCamera.SetFocusPlayer(true);
+        _playerMovement.SetRotateToMouse(false);
     }
     #endregion
 
@@ -167,24 +169,24 @@ public class IngameUIManager : MonoBehaviour
         //    _playerMovement.SetRotateToMouse(true);
         //    return;
         //}
-        //
-        //if (_mapPanel.activeSelf)
-        //{
-        //
-        //    _hudTransition.Show();
-        //    _ingameCamera.SetFocusPlayer(false);
-        //    _playerMovement.SetRotateToMouse(true);
-        //    return;
-        //}
-        //
-        //if (_questPanel.activeSelf)
-        //{
-        //
-        //    _hudTransition.Show();
-        //    _ingameCamera.SetFocusPlayer(false);
-        //    _playerMovement.SetRotateToMouse(true);
-        //    return;
-        //}
+        
+        if (_mapPanel.gameObject.activeSelf)
+        {
+            _mapPanel.Hide();
+            _hudTransition.Show();
+            _ingameCamera.SetFocusPlayer(false);
+            _playerMovement.SetRotateToMouse(true);
+            return;
+        }
+        
+        if (_questTransition.gameObject.activeSelf)
+        {
+            _questTransition.Hide();
+            _hudTransition.Show();
+            _ingameCamera.SetFocusPlayer(false);
+            _playerMovement.SetRotateToMouse(true);
+            return;
+        }
 
         //_pausePanel.Show();
     }
@@ -212,22 +214,24 @@ public class IngameUIManager : MonoBehaviour
 
     private void OnMapCancel()
     {
-        //if (_mapPanel.activeSelf)
-        //{
-        //    _hudTransition.Show();
-        //    _ingameCamera.SetFocusPlayer(false);
-        //    _playerMovement.SetRotateToMouse(true);
-        //}
+        if (_mapPanel.gameObject.activeSelf)
+        {
+            _mapPanel.Hide();
+            _hudTransition.Show();
+            _ingameCamera.SetFocusPlayer(false);
+            _playerMovement.SetRotateToMouse(true);
+        }
     }
 
     private void OnQuestCancel()
     {
-        //if (_questPanel.activeSelf)
-        //{
-        //    _hudTransition.Show();
-        //    _ingameCamera.SetFocusPlayer(false);
-        //    _playerMovement.SetRotateToMouse(true);
-        //}
+        if (_questTransition.gameObject.activeSelf)
+        {
+            _questTransition.Hide();
+            _hudTransition.Show();
+            _ingameCamera.SetFocusPlayer(false);
+            _playerMovement.SetRotateToMouse(true);
+        }
     }
     #endregion
 

@@ -3149,6 +3149,51 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4671328646034877875, guid: ce86ad4bf401e834da06480cb5cb60c3,
+        type: 3}
+      propertyPath: _sfxList.Array.size
+      value: 54
+      objectReference: {fileID: 0}
+    - target: {fileID: 4671328646034877875, guid: ce86ad4bf401e834da06480cb5cb60c3,
+        type: 3}
+      propertyPath: _sfxList.Array.data[52]._clip
+      value: 
+      objectReference: {fileID: 8300000, guid: cd8b42642c278c44e8717aed2dd77e87, type: 3}
+    - target: {fileID: 4671328646034877875, guid: ce86ad4bf401e834da06480cb5cb60c3,
+        type: 3}
+      propertyPath: _sfxList.Array.data[52]._name
+      value: Map_Open
+      objectReference: {fileID: 0}
+    - target: {fileID: 4671328646034877875, guid: ce86ad4bf401e834da06480cb5cb60c3,
+        type: 3}
+      propertyPath: _sfxList.Array.data[53]._clip
+      value: 
+      objectReference: {fileID: 8300000, guid: e9b19495a33f3d145b48b4d2bc5d9800, type: 3}
+    - target: {fileID: 4671328646034877875, guid: ce86ad4bf401e834da06480cb5cb60c3,
+        type: 3}
+      propertyPath: _sfxList.Array.data[53]._name
+      value: Map_Close
+      objectReference: {fileID: 0}
+    - target: {fileID: 4671328646034877875, guid: ce86ad4bf401e834da06480cb5cb60c3,
+        type: 3}
+      propertyPath: _sfxList.Array.data[52]._volume
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4671328646034877875, guid: ce86ad4bf401e834da06480cb5cb60c3,
+        type: 3}
+      propertyPath: _sfxList.Array.data[53]._volume
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4671328646034877875, guid: ce86ad4bf401e834da06480cb5cb60c3,
+        type: 3}
+      propertyPath: _sfxList.Array.data[52]._description
+      value: "\uB9F5 \uC5F4\uC5C8\uC744 \uB54C"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4671328646034877875, guid: ce86ad4bf401e834da06480cb5cb60c3,
+        type: 3}
+      propertyPath: _sfxList.Array.data[53]._description
+      value: "\uB9F5 \uB2EB\uC558\uC744 \uB54C"
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

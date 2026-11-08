@@ -40,6 +40,7 @@ public class WeaponRecoil : MonoBehaviour
             return;
         }
 
+        // (조준 방향 * 밀어내는 힘) + (옆 방향 * 좌우 흔들림)
         Vector2 screenPos = Camera.main.WorldToScreenPoint(_weapon.transform.position);
         Vector2 mousePos = Input.mousePosition;
         Vector2 aimDir = (mousePos - screenPos).normalized;
