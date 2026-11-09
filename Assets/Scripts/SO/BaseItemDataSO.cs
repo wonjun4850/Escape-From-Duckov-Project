@@ -40,4 +40,17 @@ public abstract class BaseItemDataSO : ScriptableObject
     public Sprite ItemIcon => _itemIcon;
     public GameObject ItemPrefab => _itemPrefab;
     #endregion
+
+    public void BaseInit(string itemId, string itemName, EType itemType, string itemDescription, int itemPrice, float itemWeight, int maxStackSize, Sprite itemIcon, GameObject itemPrefab)
+    {
+        _itemId = itemId;
+        _itemName = itemName;
+        _itemType = itemType;
+        _itemDescription = itemDescription;
+        _itemPrice = itemPrice;
+        _itemWeight = itemWeight;
+        _maxStackSize = maxStackSize;
+        _itemIcon = itemIcon;
+        _itemPrefab = itemPrefab;
+    }
 }

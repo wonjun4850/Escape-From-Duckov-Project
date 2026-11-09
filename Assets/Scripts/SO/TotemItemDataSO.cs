@@ -29,4 +29,12 @@ public class TotemItemDataSO : EquipmentItemDataSO
     public int TotemLevel => _totemLevel;
     public int BonusValue => _bonusValue;
     #endregion
+
+    public void Init(EEquipmentSlot equipmentSlot, ETotemType totemType, int totemLevel, int bonusValue)
+    {
+        base.EquipmentInit(equipmentSlot);
+        _totemType = totemType;
+        _totemLevel = totemLevel;
+        _bonusValue = bonusValue;
+    }
 }

@@ -25,4 +25,13 @@ public class ConsumableItemDataSO : BaseItemDataSO
     public float UseTime => _useTime;
     public float ReusableCount => _reusableCount;
     #endregion
+
+    public void Init(float healthRestore, float energyRestore, float hydrationRestore, float useTime, float reusableCount)
+    {
+        _healthRestore = healthRestore;
+        _energyRestore = energyRestore;
+        _hydrationRestore = hydrationRestore;
+        _useTime = useTime;
+        _reusableCount = reusableCount;
+    }
 }

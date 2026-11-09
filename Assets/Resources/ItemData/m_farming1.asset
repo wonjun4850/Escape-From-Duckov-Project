@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 145768cbe12d400478760084745e234b, type: 3}
+  m_Name: m_farming1
+  m_EditorClassIdentifier: 
+  _itemId: m_farming1
+  _itemName: "\uD14C\uC774\uD504"
+  _itemType: 5
+  _itemDescription: "\uC6A9\uB3C4\uAC00 \uB2E4\uC591\uD55C \uD14C\uC774\uD504."
+  _itemPrice: 84
+  _itemWeight: 0.2
+  _maxStackSize: 3
+  _itemIcon: {fileID: 0}
+  _itemPrefab: {fileID: 0}
+  _materialType: 1

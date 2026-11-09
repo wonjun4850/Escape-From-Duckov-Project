@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 145768cbe12d400478760084745e234b, type: 3}
+  m_Name: m_farming8
+  m_EditorClassIdentifier: 
+  _itemId: m_farming8
+  _itemName: "\uADF8\uB798\uD53D \uCE74\uB4DC"
+  _itemType: 5
+  _itemDescription: "\uC218\uB9CE\uC740 \uC804\uC7A5\uC744 \uB204\uBE48 \uADF8\uB798\uD53D\uCE74\uB4DC,
+    \uBA3C\uC9C0\uAC00 \uAC00\uB4DD\uD558\uB2E4."
+  _itemPrice: 21436
+  _itemWeight: 1.5
+  _maxStackSize: 1
+  _itemIcon: {fileID: 0}
+  _itemPrefab: {fileID: 0}
+  _materialType: 3

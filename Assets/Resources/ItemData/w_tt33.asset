@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9b337e462fd0104bb08f34c8b57976a, type: 3}
+  m_Name: w_tt33
+  m_EditorClassIdentifier: 
+  _itemId: w_tt33
+  _itemName: TT-33
+  _itemType: 1
+  _itemDescription: "\uAC01 \uC131\uB2A5\uC774 \uB9E4\uC6B0 \uD3C9\uBC94\uD55C \uC81C\uC2DD
+    \uAD8C\uCD1D\uC774\uC9C0\uB9CC \uAD6C\uC870\uAC00 \uB9E4\uC6B0 \uAC04\uB2E8\uD558\uC5EC
+    \uAC00\uACA9\uC774 \uB9E4\uC6B0 \uC800\uB834\uD558\uB2E4."
+  _itemPrice: 80
+  _itemWeight: 0.85
+  _maxStackSize: 1
+  _itemIcon: {fileID: 0}
+  _itemPrefab: {fileID: 0}
+  _equipmentSlot: 1
+  _weaponType: 1
+  _isAutomatic: 0
+  _damage: 11
+  _effectiveRange: 16.5
+  _damageOutsideEffectiveRange: 0.5
+  _fireRate: 6
+  _magazineSize: 8
+  _reloadTime: 1.8
+  _recoilX: 29
+  _recoilY: 38
+  _spread: 17.5
+  _soundRange: 0
+  _headshotMultiplier: 1.2
+  _moveSpeedModifier: 1
+  _projectileSpeed: 79
+  _projectileLifetime: 3
+  _bulletsPerShot: 1
+  _projectilePrefab: {fileID: 0}

@@ -17,4 +17,12 @@ public class ArmorItemDataSO : EquipmentItemDataSO
     public int ExtraInventorySlots => _extraInventorySlots;
     public float ExtraCarryWeight => _extraCarryWeight;
     #endregion
+
+    public void Init(EEquipmentSlot equipmentSlot, float armorValue, int extraInventorySlots, float extraCarryWeight)
+    {
+        base.EquipmentInit(equipmentSlot);
+        _armorValue = armorValue;
+        _extraInventorySlots = extraInventorySlots;
+        _extraCarryWeight = extraCarryWeight;
+    }
 }

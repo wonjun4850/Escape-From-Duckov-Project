@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9b337e462fd0104bb08f34c8b57976a, type: 3}
+  m_Name: w_mp155
+  m_EditorClassIdentifier: 
+  _itemId: w_mp155
+  _itemName: MP-155
+  _itemType: 1
+  _itemDescription: "\uAC00\uC2A4\uC2DD \uC0B0\uD0C4\uCD1D\uC73C\uB85C \uC218\uB3D9
+    \uC7A5\uC804\uC774 \uD544\uC694\uD558\uC9C0\uB9CC \uC0B0\uD0C4\uCD1D \uC911\uC5D0\uC11C\uB294
+    \uC7A5\uD0C4\uC218\uAC00 \uC0C1\uB2F9\uD788 \uD6CC\uB96D\uD55C \uD3B8\uC774\uB2E4."
+  _itemPrice: 1703
+  _itemWeight: 3.8
+  _maxStackSize: 1
+  _itemIcon: {fileID: 0}
+  _itemPrefab: {fileID: 0}
+  _equipmentSlot: 1
+  _weaponType: 3
+  _isAutomatic: 0
+  _damage: 55
+  _effectiveRange: 16.8
+  _damageOutsideEffectiveRange: 0.5
+  _fireRate: 5.2
+  _magazineSize: 8
+  _reloadTime: 3.2
+  _recoilX: 68
+  _recoilY: 94.5
+  _spread: 66
+  _soundRange: 0
+  _headshotMultiplier: 1.1
+  _moveSpeedModifier: 1
+  _projectileSpeed: 100
+  _projectileLifetime: 3
+  _bulletsPerShot: 5
+  _projectilePrefab: {fileID: 0}

@@ -21,4 +21,9 @@ public class MaterialItemDataSO : BaseItemDataSO
     #region 프로퍼티
     public EMaterialType MaterialType => _materialType;
     #endregion
+
+    public void Init(EMaterialType materialType)
+    {
+        _materialType = materialType;
+    }
 }

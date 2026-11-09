@@ -62,4 +62,29 @@ public class WeaponItemDataSO : EquipmentItemDataSO
     public int BulletsPerShot => _bulletsPerShot;
     public GameObject ProjectilePrefab => _projectilePrefab;
     #endregion
+
+    public void Init(EEquipmentSlot equipmentSlot,
+        EWeaponType weaponType, bool isAutomatic, float damage, float effectiveRange, float damageOutsideEffectiveRange, float fireRate, int magazineSize, float reloadTime,
+        float recoilX, float recoilY, float spread, float headshotMultiplier, float moveSpeedModifier,
+        float projectileSpeed, float projectileLifetime, int bulletsPerShot, GameObject projectilePrefab)
+    {
+        base.EquipmentInit(equipmentSlot);
+        _weaponType = weaponType;
+        _isAutomatic = isAutomatic;
+        _damage = damage;
+        _effectiveRange = effectiveRange;
+        _damageOutsideEffectiveRange = damageOutsideEffectiveRange;
+        _fireRate = fireRate;
+        _magazineSize = magazineSize;
+        _reloadTime = reloadTime;
+        _recoilX = recoilX;
+        _recoilY = recoilY;
+        _spread = spread;
+        _headshotMultiplier = headshotMultiplier;
+        _moveSpeedModifier = moveSpeedModifier;
+        _projectileSpeed = projectileSpeed;
+        _projectileLifetime = projectileLifetime;
+        _bulletsPerShot = bulletsPerShot;
+        _projectilePrefab = projectilePrefab;
+    }
 }

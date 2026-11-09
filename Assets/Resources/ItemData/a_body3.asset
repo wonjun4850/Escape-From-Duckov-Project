@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 825d342f111decb4dbddb1925714acab, type: 3}
+  m_Name: a_body3
+  m_EditorClassIdentifier: 
+  _itemId: a_body3
+  _itemName: "Lv.3 \uBC29\uD0C4\uBCF5"
+  _itemType: 2
+  _itemDescription: "\uB54C\uB85C\uB294 \uBAA9\uC228\uC744 \uC9C0\uCF1C\uC904 \uC218
+    \uC788\uB2E4."
+  _itemPrice: 1775
+  _itemWeight: 3.57
+  _maxStackSize: 1
+  _itemIcon: {fileID: 0}
+  _itemPrefab: {fileID: 0}
+  _equipmentSlot: 4
+  _armorValue: 5
+  _extraInventorySlots: 0
+  _extraCarryWeight: 0

@@ -22,4 +22,9 @@ public class AmmoItemDataSO : BaseItemDataSO
     #region 프로퍼티
     public EAmmoType AmmoType => _ammoType;
     #endregion
+
+    public void Init(EAmmoType ammoType)
+    {
+        _ammoType = ammoType;
+    }
 }

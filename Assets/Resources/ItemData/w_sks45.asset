@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9b337e462fd0104bb08f34c8b57976a, type: 3}
+  m_Name: w_sks45
+  m_EditorClassIdentifier: 
+  _itemId: w_sks45
+  _itemName: SKS-45
+  _itemType: 1
+  _itemDescription: "\uAD6C\uC870\uAC00 \uAC04\uB2E8\uD558\uACE0 \uC815\uD655\uB3C4\uAC00
+    \uB192\uC740 \uC81C\uC2DD  \uC18C\uCD1D. \uB355\uCF54\uD504\uC5D0\uC11C\uB294
+    \uC704\uB825\uC774 \uD070 \uC18C\uCD1D\uC744 \uC804\uD22C \uC18C\uCD1D\uC774\uB77C\uACE0
+    \uBD80\uB974\uBA70, \uAD6C\uACBD\uC774 \uAC19\uC544\uB3C4 \uB2E4\uB978 \uD0C4\uC57D\uC744
+    \uC0AC\uC6A9\uD574\uC57C \uD558\uB294\uB370, \uADF8 \uC774\uC720\uB294 \uC544\uBB34\uB3C4
+    \uBAA8\uB978\uB2E4."
+  _itemPrice: 2386
+  _itemWeight: 3.65
+  _maxStackSize: 1
+  _itemIcon: {fileID: 0}
+  _itemPrefab: {fileID: 0}
+  _equipmentSlot: 1
+  _weaponType: 5
+  _isAutomatic: 0
+  _damage: 18
+  _effectiveRange: 28.3
+  _damageOutsideEffectiveRange: 0.5
+  _fireRate: 5.6
+  _magazineSize: 10
+  _reloadTime: 3.5
+  _recoilX: 90.9
+  _recoilY: 82.35
+  _spread: 34
+  _soundRange: 0
+  _headshotMultiplier: 1.8
+  _moveSpeedModifier: 0.82
+  _projectileSpeed: 121
+  _projectileLifetime: 3
+  _bulletsPerShot: 1
+  _projectilePrefab: {fileID: 0}

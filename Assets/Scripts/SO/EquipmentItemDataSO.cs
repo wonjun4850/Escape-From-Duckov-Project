@@ -23,4 +23,9 @@ public class EquipmentItemDataSO : BaseItemDataSO
     #region 프로퍼티
     public EEquipmentSlot EquipmentSlot => _equipmentSlot;
     #endregion
+
+    public void EquipmentInit(EEquipmentSlot equipmentSlot)
+    {
+        _equipmentSlot = equipmentSlot;
+    }
 }
