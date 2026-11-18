@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0649eaf84080fea4f9bb150aa3b58597, type: 3}
+  m_Name: LootTable_WeaponBox
+  m_EditorClassIdentifier: 
+  _lootItems:
+  - itemData: {fileID: 11400000, guid: ff21dd8721f346c439dbb7a559460f16, type: 2}
+    weight: 70
+    minAmount: 1
+    maxAmount: 1
+  - itemData: {fileID: 11400000, guid: ef895238114bc304788cfb9b1b532658, type: 2}
+    weight: 10
+    minAmount: 1
+    maxAmount: 1
+  - itemData: {fileID: 11400000, guid: f8179ef93c45bc34e8fd5ed025a56d16, type: 2}
+    weight: 10
+    minAmount: 1
+    maxAmount: 1
+  - itemData: {fileID: 11400000, guid: ef075cffb3615e141b7f44a39079e9a8, type: 2}
+    weight: 7
+    minAmount: 1
+    maxAmount: 1
+  - itemData: {fileID: 11400000, guid: abe1e0ef4e7c23149a8ff178bb687ced, type: 2}
+    weight: 3
+    minAmount: 1
+    maxAmount: 1

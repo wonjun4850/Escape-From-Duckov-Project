@@ -21,4 +21,4 @@ MonoBehaviour:
   _maxStackSize: 9999
   _itemIcon: {fileID: 0}
   _itemPrefab: {fileID: 0}
-  _materialType: 2
+  _materialType: 3

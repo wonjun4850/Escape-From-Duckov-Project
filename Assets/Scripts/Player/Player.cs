@@ -19,6 +19,7 @@ public class Player : MonoBehaviour
     private HpSystem _hpSystem;
     private PlayerAnimation _playerAnimation;
     private Weapon _currentWeapon;
+    private Interaction _interaction;
     #endregion
 
     #region 프로퍼티
@@ -28,6 +29,8 @@ public class Player : MonoBehaviour
     public SurvivalSystem Survival => _survivalSystem;
     public HpSystem Hp => _hpSystem;
     public PlayerAnimation Animation => _playerAnimation;
+
+    public Interaction Interaction => _interaction;
     #endregion
 
     private void Awake()
@@ -37,8 +40,9 @@ public class Player : MonoBehaviour
         _survivalSystem = GetComponent<SurvivalSystem>();
         _hpSystem = GetComponent<HpSystem>();
         _playerAnimation = GetComponent<PlayerAnimation>();
+        _interaction = GetComponent<Interaction>();
 
-        if (_playerMovement == null || _staminaSystem == null || _survivalSystem == null || _hpSystem == null || _playerAnimation == null)
+        if (_playerMovement == null || _staminaSystem == null || _survivalSystem == null || _hpSystem == null || _playerAnimation == null || _interaction == null)
         {
             Debug.LogError("Player 겟컴포넌트 오류 : 인스펙터 확인");
             return;

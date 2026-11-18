@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0649eaf84080fea4f9bb150aa3b58597, type: 3}
+  m_Name: LootTable_Normal
+  m_EditorClassIdentifier: 
+  _lootItems:
+  - itemData: {fileID: 11400000, guid: 2f6230052a408c04ba9cb19fd01830a4, type: 2}
+    weight: 22.5
+    minAmount: 1
+    maxAmount: 3
+  - itemData: {fileID: 11400000, guid: ae6a3e4d3ddd9ba48bb29d2acc52f906, type: 2}
+    weight: 22.5
+    minAmount: 1
+    maxAmount: 1
+  - itemData: {fileID: 11400000, guid: be27292016615194fa1e773d1cae3e4a, type: 2}
+    weight: 22.5
+    minAmount: 1
+    maxAmount: 1
+  - itemData: {fileID: 11400000, guid: ad6b38a3c6541b445aa4a0d1366bd112, type: 2}
+    weight: 22.5
+    minAmount: 1
+    maxAmount: 3
+  - itemData: {fileID: 11400000, guid: 9d233944b42f0f84ca11fbee1f20a6d8, type: 2}
+    weight: 4
+    minAmount: 1
+    maxAmount: 1
+  - itemData: {fileID: 11400000, guid: d193c544111c8b3448984d000ad970cf, type: 2}
+    weight: 3
+    minAmount: 1
+    maxAmount: 1
+  - itemData: {fileID: 11400000, guid: 3bab2571ddd30b546aab5613afc39457, type: 2}
+    weight: 2.5
+    minAmount: 1
+    maxAmount: 1
+  - itemData: {fileID: 11400000, guid: 06c4a15e0ac9f8d42892a71d216b0ff2, type: 2}
+    weight: 0.5
+    minAmount: 1
+    maxAmount: 1

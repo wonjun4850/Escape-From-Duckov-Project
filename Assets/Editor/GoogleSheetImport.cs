@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Networking;
 using Cysharp.Threading.Tasks;
 
-[System.Serializable]
+
 public struct SheetData
 {
     public string SheetName;

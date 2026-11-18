@@ -29,6 +29,7 @@ public class IngameUIManager : MonoBehaviour
     public static IngameUIManager Instance { get; private set; }
     private IngameCamera _ingameCamera;
     private PlayerMovement _playerMovement;
+    private Interaction _interaction;
     #endregion
 
     private void Awake()
@@ -117,6 +118,7 @@ public class IngameUIManager : MonoBehaviour
 
     private void OnInteract()
     {
+        _interaction?.Interact();
         //_hudTransition.Hide();
         //_ingameCamera.SetFocusPlayer(true);
         //_playerMovement.SetRotateToMouse(false);
@@ -245,6 +247,7 @@ public class IngameUIManager : MonoBehaviour
         }
 
         _playerMovement = player.Movement;
+        _interaction = player.Interaction;
 
         if (_canvasHUD_Camera != null)
         {

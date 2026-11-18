@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0649eaf84080fea4f9bb150aa3b58597, type: 3}
+  m_Name: LootTable_FoodBox
+  m_EditorClassIdentifier: 
+  _lootItems:
+  - itemData: {fileID: 11400000, guid: 0cc51b71eff73f6448a22ef6c633980c, type: 2}
+    weight: 20
+    minAmount: 1
+    maxAmount: 1
+  - itemData: {fileID: 11400000, guid: b68d6a629bc7e0944b44710f5796d3fb, type: 2}
+    weight: 20
+    minAmount: 1
+    maxAmount: 1
+  - itemData: {fileID: 11400000, guid: 65fbb2a79d4852a42918ce012470c00b, type: 2}
+    weight: 10
+    minAmount: 1
+    maxAmount: 1
+  - itemData: {fileID: 11400000, guid: ed27d5daf282ea5448a7370c50c00dfb, type: 2}
+    weight: 10
+    minAmount: 1
+    maxAmount: 1
+  - itemData: {fileID: 11400000, guid: 40a5efb2811576e4485b64bd4584e229, type: 2}
+    weight: 20
+    minAmount: 1
+    maxAmount: 1
+  - itemData: {fileID: 11400000, guid: 42d2254309f1ccf4f9214c841a7b7fe1, type: 2}
+    weight: 20
+    minAmount: 1
+    maxAmount: 1
