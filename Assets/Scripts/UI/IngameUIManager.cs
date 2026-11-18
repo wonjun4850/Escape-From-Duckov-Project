@@ -263,6 +263,8 @@ public class IngameUIManager : MonoBehaviour
         {
             s.SetUp(player.Survival);
         }
+
+        // 상호작용 초기화 함수 호출 필요
     }
 
     public void RegisterCamera(IngameCamera ingameCamera)

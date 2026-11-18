@@ -116,6 +116,18 @@ public class Interaction : MonoBehaviour
 
         _currentTarget.Interact();
     }
+
+    public bool IsWithinInteractionRange(Transform target)
+    {
+        if (target == null)
+        {
+            return false;
+        }
+
+        float distance = Vector3.Distance(this.transform.position, target.position);
+
+        return distance <= _interactionRange;
+    }
     #endregion
 
     private void OnTriggerEnter(Collider other)

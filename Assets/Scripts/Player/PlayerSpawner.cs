@@ -48,6 +48,12 @@ public class PlayerSpawner : MonoBehaviour
                 GameManager.Instance.SetPlayer(player);
                 Debug.Log("Player <-> GameManager 데이터 연동 성공");
             }
+
+            if (LootManager.Instance != null)
+            {
+                LootManager.Instance.SetPlayer(player);
+                Debug.Log("Player <-> LootManager 데이터 연동 성공");
+            }
         }
 
         else

@@ -9,4 +9,6 @@ public class TestScript : MonoBehaviour, IInteractable
     {
         Debug.Log("아이템 상호작용 완료");
     }
+
+    public string ObjectName => "";
 }

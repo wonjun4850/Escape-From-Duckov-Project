@@ -12,5 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0649eaf84080fea4f9bb150aa3b58597, type: 3}
   m_Name: LootTable_Corpse
   m_EditorClassIdentifier: 
-  _randomLootItems: []
-  _fixedLootItems: []
+  _randomLootItems:
+  - itemData: {fileID: 11400000, guid: ce431a14c2601c443b5fba2178336070, type: 2}
+    weight: 99
+    minAmount: 1
+    maxAmount: 1
+  - itemData: {fileID: 11400000, guid: 06c4a15e0ac9f8d42892a71d216b0ff2, type: 2}
+    weight: 1
+    minAmount: 1
+    maxAmount: 1
+  _fixedLootItems:
+  - itemData: {fileID: 11400000, guid: 1d4820d7e27541a4a90c7f98b8924c93, type: 2}
+    minAmount: 10
+    maxAmount: 150

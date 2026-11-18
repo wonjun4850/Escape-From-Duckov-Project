@@ -12,20 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0649eaf84080fea4f9bb150aa3b58597, type: 3}
   m_Name: LootTable_AmmoBox
   m_EditorClassIdentifier: 
-  _lootItems:
+  _randomLootItems:
   - itemData: {fileID: 11400000, guid: 3fc051c0b20639e4ea2492587f940de0, type: 2}
-    weight: 40
-    minAmount: 3
-    maxAmount: 30
-  - itemData: {fileID: 11400000, guid: d32a2eff9add042499d086e21c9a781b, type: 2}
-    weight: 20
-    minAmount: 3
-    maxAmount: 30
-  - itemData: {fileID: 11400000, guid: cfbc9e14be2177f4899651de99d4c0a7, type: 2}
-    weight: 20
-    minAmount: 2
-    maxAmount: 10
-  - itemData: {fileID: 11400000, guid: eae2e6ff9e5b50642912e27e5e5a85c7, type: 2}
-    weight: 20
-    minAmount: 2
+    weight: 35
+    minAmount: 5
     maxAmount: 20
+  - itemData: {fileID: 11400000, guid: d32a2eff9add042499d086e21c9a781b, type: 2}
+    weight: 25
+    minAmount: 5
+    maxAmount: 20
+  - itemData: {fileID: 11400000, guid: eae2e6ff9e5b50642912e27e5e5a85c7, type: 2}
+    weight: 25
+    minAmount: 5
+    maxAmount: 10
+  - itemData: {fileID: 11400000, guid: cfbc9e14be2177f4899651de99d4c0a7, type: 2}
+    weight: 15
+    minAmount: 5
+    maxAmount: 10
+  _fixedLootItems: []
